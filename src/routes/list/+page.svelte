@@ -6,11 +6,13 @@
 
 <h1>{keys.length} тестів</h1>
 
-<ul>
+<ol>
 	{#each keys as test}
-		<li><a href="/#/{test}">{test}</a></li>
+		<a href="/#/{test}">
+			<li>{test}</li>
+		</a>
 	{/each}
-</ul>
+</ol>
 
 <style>
 	h1 {
@@ -20,45 +22,42 @@
 		padding: 3rem 0;
 	}
 
-	ul {
+	ol {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		font-size: 0.85rem;
+		padding: 1rem;
 
-		:has(a):hover {
+		a:hover {
 			color: rgba(255, 255, 255, 0.7);
 			background-color: chocolate;
 			border-radius: 10px;
 		}
 
-		li {
-			padding-left: 0.4rem;
+		a {
+			text-decoration: underline dotted;
+			padding: 0.25rem;
 
-			a {
-				text-decoration: underline dotted;
+			li {
+				padding-left: 0.4rem;
+				list-style: decimal-leading-zero;
+				list-style-position: inside;
 			}
 		}
 	}
 
 	@media (max-width: 1500px) {
-		ul {
+		ol {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
 	@media (max-width: 1024px) {
-		ul {
+		ol {
 			grid-template-columns: repeat(1, 1fr);
 			font-size: 1rem;
-			gap: 0.1rem;
-
-			li {
-				padding: 0.5rem;
-
-				a {
-					width: min-content;
-				}
-			}
+			gap: 0.25rem;
+			padding: 0.5rem;
 		}
 	}
 </style>

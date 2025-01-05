@@ -67,7 +67,6 @@
 			case "ArrowUp": {
 				const buttons = answerOptions.childNodes
 					.values()
-					.map((n) => n?.firstChild)
 					.filter((n) => n instanceof HTMLButtonElement)
 					.toArray() as HTMLButtonElement[];
 				const currentFocus = buttons.findIndex(
@@ -84,7 +83,6 @@
 			case "ArrowDown": {
 				const buttons = answerOptions.childNodes
 					.values()
-					.map((n) => n?.firstChild)
 					.filter((n) => n instanceof HTMLButtonElement)
 					.toArray() as HTMLButtonElement[];
 				const currentFocus = buttons.findIndex(
@@ -136,20 +134,20 @@
 			{/if}
 			<ol bind:this={answerOptions} class="answers" class:answered>
 				{#each question.answers as answer, i}
-					<li>
-						<button
-							type="button"
-							class:answered={answers[questionI][0] === i}
-							class:correct={answer.isCorrect}
-							onclick={(e) => {
-								if (answers[questionI][0] === -1) {
-									answers[questionI] = [i, answer.isCorrect];
-								}
-							}}
-						>
-							{i + 1}. {answer.text}
-						</button>
-					</li>
+					<button
+						type="button"
+						class:answered={answers[questionI][0] === i}
+						class:correct={answer.isCorrect}
+						onclick={() => {
+							if (answers[questionI][0] === -1) {
+								answers[questionI] = [i, answer.isCorrect];
+							}
+						}}
+					>
+						<li>
+							{answer.text}
+						</li>
+					</button>
 				{/each}
 			</ol>
 			{#if answered && "comment" in (question?.explanation ?? {})}
@@ -267,7 +265,18 @@
 					flex-direction: column;
 					gap: 1rem;
 
-					:hover {
+					li {
+						list-style: decimal;
+						list-style-position: inside;
+					}
+
+					button {
+						border: 1px solid black;
+						border-radius: 0.3rem;
+						padding: 1rem;
+					}
+
+					&:not(.answered) li:hover {
 						color: rgba(255, 255, 255, 0.7);
 					}
 
