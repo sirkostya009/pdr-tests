@@ -250,23 +250,23 @@
 					}
 
 					button {
+						border-radius: 0.2rem;
 						width: 100%;
 						padding: 0.5rem;
 					}
 
 					&.answered {
 						button.answered:not(.correct) {
-							color: brown;
+							background-color: brown;
 						}
 
 						button.correct {
-							color: greenyellow;
+							background-color: forestgreen;
 						}
 					}
 
-					button:focus {
+					&:not(.answered) button:focus {
 						background-color: chocolate;
-						border-radius: 4px;
 					}
 				}
 
