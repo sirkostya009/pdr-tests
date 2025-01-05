@@ -33,6 +33,10 @@
 
 		li {
 			padding-left: 0.4rem;
+
+			a {
+				text-decoration: underline dotted;
+			}
 		}
 	}
 

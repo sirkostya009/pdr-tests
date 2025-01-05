@@ -1,15 +1,18 @@
 <script lang="ts">
+	import { pushState } from "$app/navigation";
+	import { page } from "$app/state";
+
 	interface Question {
 		name: string;
 		answers: { text: string; isCorrect: boolean }[];
 		image?: string;
-		explanation: {
+		explanation?: {
 			comment?: string;
 			legal: {
-				title?: string;
-				html?: string;
+				title: string;
+				html: string;
 			};
-		} | null;
+		};
 	}
 
 	interface Props {
@@ -23,18 +26,29 @@
 
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
-	const answers = $state(new Array(test.length));
-	let answered = $derived(!!answers[questionI]);
+
+	function* range(start: number, end: number, step = 1) {
+		for (; start < end; start += step) {
+			yield start;
+		}
+	}
+
+	const answers = $state(
+		range(0, test.length)
+			.map(() => [-1, false])
+			.toArray() as [number, boolean][]
+	);
+	let answered = $derived(answers[questionI][0] !== -1);
 
 	let answerOptions: HTMLOListElement;
 	let totalTimer: HTMLSpanElement;
 
 	$effect.root(() => {
 		const interval = setInterval(() => {
-			const delta = (Date.now() - start) / 1000;
-			const seconds = delta % 60;
-			const minutes = Math.floor(delta / 60);
-			totalTimer.innerText = `${minutes}:${seconds}`;
+			// const delta = (Date.now() - start) / 1000;
+			// const seconds = delta % 60;
+			// const minutes = Math.floor(delta / 60);
+			// totalTimer.innerText = `${minutes}:${seconds}`;
 		}, 1000);
 
 		return () => clearInterval(interval);
@@ -89,17 +103,25 @@
 			}
 		}
 	}}
+	onpopstate={() => {
+		const dialog = document.querySelector("dialog");
+		if (dialog?.hasAttribute("open")) {
+			dialog?.close();
+		}
+	}}
 />
 
 <div class="container">
-	<h1>{name}</h1>
+	<h1>
+		<a href="/#/">{name}</a>
+	</h1>
 
 	<main>
 		<section class="questions">
 			{#each test as _, i}
 				<button
-					class:correct={answers[i]?.[0]}
-					class:incorrect={answers[i]?.length && !answers[i][0]}
+					class:correct={answers[i][0] !== -1 && answers[i]}
+					class:incorrect={answers[i][0] !== -1 && !answers[i][1]}
 					class:current={questionI === i}
 					onclick={() => (questionI = i)}
 				>
@@ -117,16 +139,15 @@
 					<li>
 						<button
 							type="button"
-							class:answered={answers[questionI]?.[1] === i}
+							class:answered={answers[questionI][0] === i}
 							class:correct={answer.isCorrect}
 							onclick={(e) => {
-								if (!answers[questionI]) {
-									e.currentTarget.classList.add("answered");
-									answers[questionI] = [answer.isCorrect, i];
+								if (answers[questionI][0] === -1) {
+									answers[questionI] = [i, answer.isCorrect];
 								}
 							}}
 						>
-							{answer.text}
+							{i + 1}. {answer.text}
 						</button>
 					</li>
 				{/each}
@@ -143,8 +164,10 @@
 				{#if answered && question?.explanation?.legal}
 					<button
 						type="button"
-						onclick={() =>
-							document.querySelector("dialog")?.showModal()}
+						onclick={() => {
+							pushState(page.url.toString(), {});
+							document.querySelector("dialog")?.showModal();
+						}}
 					>
 						Стаття
 					</button>
@@ -154,14 +177,13 @@
 	</main>
 </div>
 
-{#if question?.explanation?.legal}
-	<dialog>
+{#if "explanation" in question && question?.explanation?.legal}
+	<dialog onclose={() => history.back()}>
 		<form method="dialog">
 			<h1>{question?.explanation?.legal?.title}</h1>
 			<button>X</button>
 		</form>
 		<article>
-			<base href="https://pdr-online.com.ua" />
 			{@html question?.explanation?.legal?.html}
 		</article>
 	</dialog>
@@ -207,7 +229,7 @@
 					}
 
 					&.correct {
-						background-color: greenyellow;
+						background-color: forestgreen;
 						box-shadow: unset;
 					}
 
@@ -236,14 +258,14 @@
 					font-size: 0.9rem;
 				}
 
+				img {
+					width: 100%;
+				}
+
 				.answers {
 					display: flex;
 					flex-direction: column;
 					gap: 1rem;
-
-					li {
-						list-style: decimal;
-					}
 
 					:hover {
 						color: rgba(255, 255, 255, 0.7);
@@ -251,7 +273,6 @@
 
 					button {
 						border-radius: 0.2rem;
-						width: 100%;
 						padding: 0.5rem;
 					}
 
@@ -267,12 +288,14 @@
 
 					&:not(.answered) button:focus {
 						background-color: chocolate;
+						border: 1px solid black;
+						border-radius: 0.3rem;
 					}
 				}
 
 				.question-buttons {
 					display: flex;
-					flex-direction: row;
+					flex-direction: row-reverse;
 					align-items: center;
 					justify-content: space-around;
 
@@ -281,8 +304,7 @@
 						text-align: center;
 						padding: 0.2rem;
 						border: 1px solid black;
-						border-radius: 10px;
-						box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
+						border-radius: 0.3rem;
 						background-color: chocolate;
 						color: white;
 						cursor: pointer;
@@ -321,27 +343,35 @@
 	@media (max-width: 1024px) {
 		.container {
 			h1 {
+				display: none;
 				margin: 0.5rem 0;
 			}
 
 			main {
+				width: 100%;
 				flex-direction: column;
 				align-items: center;
-				width: 100%;
-				padding-bottom: 1rem;
+				padding: 1rem;
 
 				.questions {
+					width: 100%;
+					grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
 					align-self: center;
 				}
 
 				.question {
-					width: 90vw;
-				}
+					width: 100%;
 
-				.question-buttons button {
-					padding: 1rem;
+					.question-buttons button {
+						padding: 0.5rem;
+					}
 				}
 			}
+		}
+
+		dialog {
+			width: 100%;
+			height: 100%;
 		}
 	}
 </style>
