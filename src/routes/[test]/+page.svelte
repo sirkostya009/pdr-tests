@@ -7,9 +7,7 @@
 {#if page.params.test in tests}
 	<Test
 		name={page.params.test}
-		test={tests[
-			page.params.test as keyof typeof tests
-		] as (typeof tests)["Загальні положення"]}
+		test={tests[page.params.test as keyof typeof tests]}
 	/>
 {:else}
 	<h2>test "{page.params.test}" not found</h2>

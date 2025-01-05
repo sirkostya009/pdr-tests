@@ -1,12 +1,25 @@
 <script lang="ts">
-	import tests from "$lib/tests-amalgated.json";
+	interface Question {
+		name: string;
+		answers: { text: string; isCorrect: boolean }[];
+		image?: string;
+		explanation: {
+			comment?: string;
+			legal: {
+				title?: string;
+				html?: string;
+			};
+		} | null;
+	}
 
 	interface Props {
 		name: string;
-		test: (typeof tests)["Загальні положення"];
+		test: Question[];
 	}
 
 	const { name, test }: Props = $props();
+
+	let start = Date.now();
 
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
@@ -14,6 +27,18 @@
 	let answered = $derived(!!answers[questionI]);
 
 	let answerOptions: HTMLOListElement;
+	let totalTimer: HTMLSpanElement;
+
+	$effect.root(() => {
+		const interval = setInterval(() => {
+			const delta = (Date.now() - start) / 1000;
+			const seconds = delta % 60;
+			const minutes = Math.floor(delta / 60);
+			totalTimer.innerText = `${minutes}:${seconds}`;
+		}, 1000);
+
+		return () => clearInterval(interval);
+	});
 </script>
 
 <svelte:window
@@ -83,7 +108,7 @@
 			{/each}
 		</section>
 		<section class="question">
-			<h2>{question.name}</h2>
+			<h2 id="question-name">{question.name}</h2>
 			{#if "image" in question}
 				<img src={question.image} alt={question.name} />
 			{/if}
@@ -151,8 +176,7 @@
 
 		h1 {
 			color: grey;
-			margin-top: 3rem;
-			margin-bottom: 3rem;
+			margin: 3rem 0;
 		}
 
 		main {
@@ -164,7 +188,7 @@
 				display: grid;
 				grid-template-columns: repeat(10, 1fr);
 				gap: 0.3rem;
-				height: 10px;
+				align-self: flex-start;
 
 				button {
 					text-align: center;
@@ -291,6 +315,33 @@
 
 		&::backdrop {
 			background-color: rgba(0, 0, 0, 0.8);
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.container {
+			h1 {
+				margin: 0.5rem 0;
+			}
+
+			main {
+				flex-direction: column;
+				align-items: center;
+				width: 100%;
+				padding-bottom: 1rem;
+
+				.questions {
+					align-self: center;
+				}
+
+				.question {
+					width: 90vw;
+				}
+
+				.question-buttons button {
+					padding: 1rem;
+				}
+			}
 		}
 	}
 </style>
