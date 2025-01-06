@@ -1,16 +1,24 @@
 <script lang="ts">
-	import { page } from "$app/state";
+	import Test from "$lib/Test.svelte";
+	import tests from "$lib/tests-amalgated.json";
 
-	function shuffleArray<T>(array: T[]) {
+	function shuffleArray<T>(t: T[]) {
+		var array = [...t];
 		var i = array.length - 1,
 			j;
-		for (i = array.length - 1; i >= 0; i--) {
+		for (; i >= 0; i--) {
 			j = Math.floor(Math.random() * (i + 1));
 			[array[i], array[j]] = [array[j], array[i]];
 		}
+		return array;
 	}
+
+	const test = shuffleArray([
+		...shuffleArray(tests["Загальні положення"]).slice(-10),
+		...shuffleArray(tests["Додаткові питання щодо категорій B1, B (будова і терміни)"]).slice(-4),
+		...shuffleArray(tests["Надання першої медичної допомоги"]).slice(-4),
+		...shuffleArray(tests["Основи безпечного водіння"]).slice(-2),
+	]);
 </script>
 
-{#each page.url.searchParams.getAll("test") as name}
-	<p>{name}</p>
-{/each}
+<Test name="Рандом" {test} />
