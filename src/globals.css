@@ -143,7 +143,7 @@ body {
 	--red: rgb(255, 28, 28);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--main: chocolate;
 		--green: forestgreen;
@@ -154,4 +154,4 @@ body {
 		background-color: rgb(10, 10, 10);
 		color: white;
 	}
-} */
+}
