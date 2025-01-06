@@ -1,5 +1,5 @@
 <script lang="ts">
-	import tests from "$lib/tests-amalgated.json";
+	import tests from "$lib/tests.map.json";
 
 	const keys = Object.keys(tests);
 </script>

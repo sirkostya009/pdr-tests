@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Test from "$lib/Test.svelte";
-	import tests from "$lib/tests-amalgated.json";
+	import tests from "$lib/tests.map.json";
 
 	function shuffleArray<T>(t: T[]) {
 		var array = [...t];

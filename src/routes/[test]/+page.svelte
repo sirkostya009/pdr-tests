@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Test from "$lib/Test.svelte";
 	import { page } from "$app/state";
-	import tests from "$lib/tests-amalgated.json";
+	import tests from "$lib/tests.map.json";
 </script>
 
 {#if page.params.test in tests}
