@@ -60,9 +60,11 @@
 		switch (e.key) {
 			case "ArrowRight":
 				if (questionI < test.length - 1) questionI++;
+				else if (questionI === test.length - 1) questionI = 0;
 				break;
 			case "ArrowLeft":
 				if (questionI > 0) questionI--;
+				else if (questionI === 0) questionI = test.length - 1;
 				break;
 			case "ArrowUp": {
 				const buttons = answerOptions.childNodes
@@ -214,7 +216,7 @@
 					text-align: center;
 					padding: 0.2rem 0.4rem;
 					border: 1px solid black;
-					border-radius: 4px;
+					border-radius: 0.3rem;
 					box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
 
 					&:hover {
@@ -222,17 +224,17 @@
 					}
 
 					&.current {
-						background-color: chocolate !important;
+						background-color: var(--main) !important;
 						box-shadow: unset;
 					}
 
 					&.correct {
-						background-color: forestgreen;
+						background-color: var(--green);
 						box-shadow: unset;
 					}
 
 					&.incorrect {
-						background-color: brown;
+						background-color: var(--red);
 						box-shadow: unset;
 					}
 				}
@@ -251,9 +253,10 @@
 
 				p {
 					border-radius: 0.2rem;
-					background-color: chocolate;
+					background-color: var(--main);
 					padding: 0.5rem;
 					font-size: 0.9rem;
+					color: white;
 				}
 
 				img {
@@ -273,32 +276,31 @@
 					button {
 						border: 1px solid black;
 						border-radius: 0.3rem;
-						padding: 1rem;
+						box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
+						padding: 0.5rem;
 					}
 
 					&:not(.answered) li:hover {
 						color: rgba(255, 255, 255, 0.7);
 					}
 
-					button {
-						border-radius: 0.2rem;
-						padding: 0.5rem;
-					}
-
 					&.answered {
 						button.answered:not(.correct) {
-							background-color: brown;
+							color: white;
+							background-color: var(--red);
 						}
 
 						button.correct {
-							background-color: forestgreen;
+							color: white;
+							background-color: var(--green);
 						}
 					}
 
 					&:not(.answered) button:focus {
-						background-color: chocolate;
+						background-color: var(--main);
 						border: 1px solid black;
 						border-radius: 0.3rem;
+						box-shadow: inset 0 0 0 2px white;
 					}
 				}
 
@@ -314,7 +316,9 @@
 						padding: 0.2rem;
 						border: 1px solid black;
 						border-radius: 0.3rem;
-						background-color: chocolate;
+						box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
+						padding: 0.5rem;
+						background-color: var(--main);
 						color: white;
 						cursor: pointer;
 					}
@@ -328,8 +332,9 @@
 		width: 50%;
 		height: 80%;
 		margin: auto;
-		background-color: brown;
+		background-color: var(--red);
 		border-radius: 0.2rem;
+		color: white;
 
 		form {
 			display: flex;

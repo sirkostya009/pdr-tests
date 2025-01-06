@@ -25,11 +25,12 @@
 
 		* {
 			border-radius: 0.2rem;
-			background-color: gray;
+			background-color: lightslategrey;
 			padding: 1rem;
+			color: white;
 
 			&:hover {
-				background-color: lightcoral;
+				background-color: var(--main);
 			}
 		}
 	}
