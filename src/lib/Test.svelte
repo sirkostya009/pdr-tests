@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { pushState } from "$app/navigation";
 	import { page } from "$app/state";
+	import { tick } from "svelte";
 
 	interface Question {
 		name: string;
@@ -27,23 +28,12 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
-	function* range(start: number, end: number, step = 1) {
-		for (; start < end; start += step) {
-			yield start;
-		}
-	}
-
-	const answers = $state(
-		range(0, test.length)
-			.map(() => [-1, false])
-			.toArray() as [number, boolean][]
-	);
+	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
 
-	let answerOptions: HTMLOListElement;
 	let totalTimer: HTMLSpanElement;
 
-	$effect.root(() => {
+	$effect.pre(() => {
 		const interval = setInterval(() => {
 			// const delta = (Date.now() - start) / 1000;
 			// const seconds = delta % 60;
@@ -53,63 +43,47 @@
 
 		return () => clearInterval(interval);
 	});
-</script>
 
-<svelte:window
-	onkeydown={(e) => {
+	function onkeydown(e: KeyboardEvent) {
 		switch (e.key) {
 			case "ArrowRight":
 				if (questionI < test.length - 1) questionI++;
-				else if (questionI === test.length - 1) questionI = 0;
 				break;
 			case "ArrowLeft":
 				if (questionI > 0) questionI--;
-				else if (questionI === 0) questionI = test.length - 1;
 				break;
 			case "ArrowUp": {
-				const buttons = answerOptions.childNodes
-					.values()
-					.filter((n) => n instanceof HTMLButtonElement)
-					.toArray() as HTMLButtonElement[];
-				const currentFocus = buttons.findIndex(
-					(b) => document.activeElement === b
-				);
-				if (currentFocus === -1 || currentFocus === 0) {
-					buttons[buttons.length - 1].focus();
-					return;
-				} else {
-					buttons[currentFocus - 1].focus();
+				const currentRow = Math.floor(questionI / 10);
+				if (currentRow > 0) {
+					questionI -= 10;
 				}
 				break;
 			}
 			case "ArrowDown": {
-				const buttons = answerOptions.childNodes
-					.values()
-					.filter((n) => n instanceof HTMLButtonElement)
-					.toArray() as HTMLButtonElement[];
-				const currentFocus = buttons.findIndex(
-					(b) => document.activeElement === b
-				);
-				if (
-					currentFocus === -1 ||
-					currentFocus === buttons.length - 1
-				) {
-					buttons[0].focus();
-					return;
-				} else {
-					buttons[currentFocus + 1].focus();
+				const currentRow = Math.floor(questionI / 10);
+				const maxRows = Math.floor(test.length / 10);
+				if (currentRow < maxRows) {
+					questionI += 10;
 				}
 				break;
 			}
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5': (document.querySelector(`button[aria-label="answer-${e.key}"`) as HTMLButtonElement)?.focus();
 		}
-	}}
-	onpopstate={() => {
+	}
+
+	function onpopstate() {
 		const dialog = document.querySelector("dialog");
 		if (dialog?.hasAttribute("open")) {
 			dialog?.close();
 		}
-	}}
-/>
+	}
+</script>
+
+<svelte:window {onkeydown} {onpopstate} />
 
 <div class="container">
 	<h1>
@@ -120,13 +94,15 @@
 		<section class="questions">
 			{#each test as _, i}
 				<button
-					class:correct={answers[i][0] !== -1 && answers[i]}
+					aria-label={`${i + 1}`}
+					class:correct={answers[i][0] !== -1 && answers[i][1]}
 					class:incorrect={answers[i][0] !== -1 && !answers[i][1]}
 					class:current={questionI === i}
-					onclick={() => (questionI = i)}
-				>
-					{i + 1}
-				</button>
+					onclick={({ currentTarget }) => {
+						questionI = +currentTarget.ariaLabel! - 1;
+						currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+					}}
+				></button>
 			{/each}
 		</section>
 		<section class="question">
@@ -134,15 +110,20 @@
 			{#if "image" in question}
 				<img src={question.image} alt={question.name} />
 			{/if}
-			<ol bind:this={answerOptions} class="answers" class:answered>
+			<ol class="answers" class:answered>
 				{#each question.answers as answer, i}
 					<button
+						aria-label="answer-{i + 1}"
 						type="button"
 						class:answered={answers[questionI][0] === i}
 						class:correct={answer.isCorrect}
-						onclick={() => {
+						onclick={async () => {
 							if (answers[questionI][0] === -1) {
 								answers[questionI] = [i, answer.isCorrect];
+								await tick();
+								document
+									.querySelector('.question p')
+									?.scrollIntoView({ behavior: 'smooth' });
 							}
 						}}
 					>
@@ -211,13 +192,21 @@
 				grid-template-columns: repeat(10, 1fr);
 				gap: 0.3rem;
 				align-self: flex-start;
+				counter-reset: button-n;
 
 				button {
+					counter-increment: button-n;
 					text-align: center;
-					padding: 0.2rem 0.4rem;
+					min-width: 2rem;
+					min-height: 2rem;
+					/* padding: 0.2rem 0.5rem; */
 					border: 1px solid black;
 					border-radius: 0.3rem;
 					box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
+
+					&::before {
+						content: counter(button-n);
+					}
 
 					&:hover {
 						background-color: rgba(55, 55, 55, 0.7);
@@ -369,15 +358,27 @@
 
 				.questions {
 					width: 100%;
-					grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
+					display: flex;
+					flex-wrap: nowrap;
+					overflow-x: auto;
 					align-self: center;
 				}
 
 				.question {
 					width: 100%;
+					padding-bottom: 3.75rem;
 
-					.question-buttons button {
+					.question-buttons {
+						position: fixed;
+						background-color: rgb(55, 55, 55);
+						width: 100%;
+						left: 0;
 						padding: 0.5rem;
+						bottom: 0;
+
+						button {
+							padding: 0.5rem;
+						}
 					}
 				}
 			}
