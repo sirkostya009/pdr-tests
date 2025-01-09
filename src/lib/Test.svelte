@@ -28,10 +28,15 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
+	$effect(() => document
+		.querySelector(`button[aria-label="${questionI + 1}"].current`)
+		?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }));
+
 	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
 
 	let totalTimer: HTMLSpanElement;
+	let dialog: HTMLDialogElement;
 
 	$effect.pre(() => {
 		const interval = setInterval(() => {
@@ -71,14 +76,13 @@
 			case '2':
 			case '3':
 			case '4':
-			case '5': (document.querySelector(`button[aria-label="answer-${e.key}"`) as HTMLButtonElement)?.focus();
+			case '5': document.querySelector<HTMLButtonElement>(`button[aria-label="answer-${e.key}"`)?.focus();
 		}
 	}
 
 	function onpopstate() {
-		const dialog = document.querySelector("dialog");
-		if (dialog?.hasAttribute("open")) {
-			dialog?.close();
+		if (dialog.hasAttribute("open")) {
+			dialog.close();
 		}
 	}
 </script>
@@ -94,14 +98,12 @@
 		<section class="questions">
 			{#each test as _, i}
 				<button
+					type="button"
 					aria-label={`${i + 1}`}
 					class:correct={answers[i][0] !== -1 && answers[i][1]}
 					class:incorrect={answers[i][0] !== -1 && !answers[i][1]}
 					class:current={questionI === i}
-					onclick={({ currentTarget }) => {
-						questionI = +currentTarget.ariaLabel! - 1;
-						currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-					}}
+					onclick={({ currentTarget }) => questionI = +currentTarget.ariaLabel! - 1}
 				></button>
 			{/each}
 		</section>
@@ -147,7 +149,7 @@
 						type="button"
 						onclick={() => {
 							pushState(page.url.toString(), {});
-							document.querySelector("dialog")?.showModal();
+							dialog.showModal();
 						}}
 					>
 						Стаття
@@ -159,7 +161,7 @@
 </div>
 
 {#if "explanation" in question && question?.explanation?.legal}
-	<dialog onclose={() => history.back()}>
+	<dialog bind:this={dialog} onclose={() => history.back()}>
 		<form method="dialog">
 			<h1>{question?.explanation?.legal?.title}</h1>
 			<button>X</button>
@@ -387,6 +389,14 @@
 		dialog {
 			width: 100%;
 			height: 100%;
+
+			h1 {
+				font-size: 2.25rem;
+			}
+
+			article {
+				font-size: 1.5rem;
+			}
 		}
 	}
 </style>
