@@ -135,8 +135,8 @@
 					</button>
 				{/each}
 			</ol>
-			{#if answered && "comment" in (question?.explanation ?? {})}
-				<p>{question?.explanation?.comment}</p>
+			{#if answered && question.explanation?.comment}
+				<p>{question.explanation.comment}</p>
 			{/if}
 			<div class="question-buttons">
 				{#if questionI < test.length - 1}
@@ -144,7 +144,7 @@
 						{answered ? "Некст" : "Пропустити"}
 					</button>
 				{/if}
-				{#if answered && question?.explanation?.legal}
+				{#if answered && question.explanation?.legal}
 					<button
 						type="button"
 						onclick={() => {
@@ -160,14 +160,14 @@
 	</main>
 </div>
 
-{#if "explanation" in question && question?.explanation?.legal}
+{#if question.explanation?.legal}
 	<dialog bind:this={dialog} onclose={() => history.back()}>
 		<form method="dialog">
-			<h1>{question?.explanation?.legal?.title}</h1>
+			<h1>{question.explanation.legal.title}</h1>
 			<button>X</button>
 		</form>
 		<article>
-			{@html question?.explanation?.legal?.html}
+			{@html question.explanation.legal.html}
 		</article>
 	</dialog>
 {/if}
@@ -221,11 +221,13 @@
 
 					&.correct {
 						background-color: var(--green);
+						color: white;
 						box-shadow: unset;
 					}
 
 					&.incorrect {
 						background-color: var(--red);
+						color: white;
 						box-shadow: unset;
 					}
 				}
