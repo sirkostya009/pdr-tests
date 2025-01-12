@@ -52,8 +52,8 @@
 		return () => clearInterval(interval);
 	});
 
-	function onkeydown(e: KeyboardEvent) {
-		switch (e.key) {
+	function onkeydown({ key }: KeyboardEvent) {
+		switch (key) {
 			case "ArrowRight":
 				if (questionI < test.length - 1) questionI++;
 				break;
@@ -79,16 +79,13 @@
 			case '2':
 			case '3':
 			case '4':
-			case '5': document.querySelector<HTMLButtonElement>(`button[aria-label="answer-${e.key}"`)?.focus();
+			case '5': document.querySelector<HTMLButtonElement>(`button[aria-label="answer-${key}"`)?.focus();
 		}
 	}
 
 	function onpopstate() {
-		if (legalDialog?.open) {
-			legalDialog.close();
-		} else if (finishDialog?.open) {
-			finishDialog.close();
-		}
+		legalDialog?.close();
+		finishDialog?.close();
 	}
 
 	$effect(() => {
