@@ -17,7 +17,7 @@
 	}
 
 	interface Props {
-		name: string;
+		name: string | 'Рандом';
 		test: Question[];
 	}
 
@@ -36,7 +36,8 @@
 	let answered = $derived(answers[questionI][0] !== -1);
 
 	let totalTimer: HTMLSpanElement;
-	let dialog: HTMLDialogElement;
+	let legalDialog: HTMLDialogElement | undefined;
+	let finishDialog: HTMLDialogElement | undefined;
 
 	$effect.pre(() => {
 		const interval = setInterval(() => {
@@ -81,10 +82,19 @@
 	}
 
 	function onpopstate() {
-		if (dialog.hasAttribute("open")) {
-			dialog.close();
+		if (legalDialog?.open) {
+			legalDialog.close();
+		} else if (finishDialog?.open) {
+			finishDialog.close();
 		}
 	}
+
+	$effect(() => {
+		if (name === 'Рандом' && answers.every(([i]) => i !== -1)) {
+			finishDialog?.showModal();
+			pushState(page.url.toString(), {});
+		}
+	});
 </script>
 
 <svelte:window {onkeydown} {onpopstate} />
@@ -149,7 +159,7 @@
 						type="button"
 						onclick={() => {
 							pushState(page.url.toString(), {});
-							dialog.showModal();
+							legalDialog?.showModal();
 						}}
 					>
 						Стаття
@@ -161,7 +171,7 @@
 </div>
 
 {#if question.explanation?.legal}
-	<dialog bind:this={dialog} onclose={() => history.back()}>
+	<dialog bind:this={legalDialog} class="legal" onclose={() => history.back()}>
 		<form method="dialog">
 			<h1>{question.explanation.legal.title}</h1>
 			<button>X</button>
@@ -169,6 +179,22 @@
 		<article>
 			{@html question.explanation.legal.html}
 		</article>
+	</dialog>
+{/if}
+
+{#if name === 'Рандом'}
+	{@const correctAnswers = answers.filter(([, correct]) => correct)}
+	{@const passed = test.length - correctAnswers.length <= 2}
+	<dialog style:background-color={`var(--${passed ? 'green' : 'red'}`} bind:this={finishDialog} id="finish-stats">
+		<h1 class:passed>{passed ? 'Здано' : 'Не здано'}</h1>
+		<div class="count">
+			<span>{correctAnswers.length}</span>
+			<span>/</span>
+			<span>{test.length}</span>
+			<span>відповідей</span>
+		</div>
+		<div class="percent">{((correctAnswers.length / test.length) * 100).toFixed(0)}%</div>
+		<a href="/#/">На головну</a>
 	</dialog>
 {/if}
 
@@ -238,6 +264,7 @@
 				display: flex;
 				flex-direction: column;
 				gap: 1rem;
+				padding-bottom: 1rem;
 
 				h2 {
 					font-size: 1.5rem;
@@ -320,7 +347,7 @@
 		}
 	}
 
-	dialog {
+	.legal {
 		max-width: 1280px;
 		width: 50%;
 		height: 80%;
@@ -340,6 +367,46 @@
 		article {
 			font-size: 0.8rem;
 			padding: 0.5rem;
+		}
+
+		&::backdrop {
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+	}
+
+	#finish-stats[open] {
+		display: flex;
+		margin: auto;
+		max-width: 50%;
+		max-height: 50%;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		flex-direction: column;
+		align-items: center;
+
+		h1 {
+			margin: auto;
+			outline: var(--red);
+			border-color: var(--red);
+			font-size: 3rem;
+
+			&.passed {
+				outline: var(--green);
+			}
+		}
+
+		.count {
+			padding: 0.5rem;
+		}
+
+		.percent {
+			padding: 0.5rem;
+		}
+
+		a {
+			background-color: var(--main);
+			padding: 0.5rem;
+			border-radius: 0.3rem;
 		}
 
 		&::backdrop {
@@ -374,13 +441,13 @@
 
 					.question-buttons {
 						position: fixed;
-						background-color: rgb(55, 55, 55);
+						box-shadow: 0 0 0.5rem 0.05rem rgb(0 0 0 / 20%);
 						width: 100%;
 						left: 0;
-						padding: 0.5rem;
 						bottom: 0;
 
 						button {
+							margin: 0.5rem;
 							padding: 0.5rem;
 						}
 					}
@@ -388,7 +455,7 @@
 			}
 		}
 
-		dialog {
+		.legal {
 			width: 100%;
 			height: 100%;
 
@@ -398,6 +465,25 @@
 
 			article {
 				font-size: 1.5rem;
+			}
+		}
+
+		#finish-stats[open] {
+			margin: auto;
+			min-width: 90%;
+			min-height: 60%;
+			justify-content: space-around;
+
+			h1 {
+				margin: 0;
+			}
+
+			.count {
+				font-size: 2rem;
+			}
+
+			.percent {
+				font-size: 2rem;
 			}
 		}
 	}

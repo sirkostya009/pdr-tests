@@ -28,12 +28,6 @@
 		font-size: 0.85rem;
 		padding: 1rem;
 
-		a:hover {
-			color: rgba(255, 255, 255, 0.7);
-			background-color: var(--main);
-			border-radius: 10px;
-		}
-
 		a {
 			text-decoration: underline dotted;
 			padding: 0.25rem;
@@ -42,6 +36,19 @@
 				padding-left: 0.4rem;
 				list-style: decimal-leading-zero;
 				list-style-position: inside;
+			}
+
+			&:hover {
+				background-color: var(--main);
+				border-radius: 10px;
+			}
+
+			&:visited {
+				color: rgb(255, 207, 135);
+			}
+
+			&:visited li {
+				color: rgb(255, 207, 135);
 			}
 		}
 	}
