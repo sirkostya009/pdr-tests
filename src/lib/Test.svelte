@@ -37,16 +37,16 @@
 	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
 
-	let totalTimer: HTMLSpanElement;
-	let legalDialog: HTMLDialogElement | undefined;
-	let finishDialog: HTMLDialogElement | undefined;
+	let totalTimer = $state<HTMLSpanElement>();
+	let legalDialog = $state<HTMLDialogElement>();
+	let finishDialog = $state<HTMLDialogElement>();
 
 	$effect.pre(() => {
 		const interval = setInterval(() => {
 			const delta = (Date.now() - start) / 1000;
 			const seconds = Math.floor(delta % 60);
 			const minutes = Math.floor(delta / 60);
-			totalTimer.textContent = `${(minutes < 10 ? '0' : '') + minutes}:${(seconds < 10 ? '0' : '') + seconds}`;
+			totalTimer!.textContent = `${(minutes < 10 ? '0' : '') + minutes}:${(seconds < 10 ? '0' : '') + seconds}`;
 		}, 1000);
 
 		return () => clearInterval(interval);
