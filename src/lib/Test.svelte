@@ -23,6 +23,8 @@
 
 	const { name, test }: Props = $props();
 
+	const isRandom = name === 'Рандом';
+
 	let start = Date.now();
 
 	let questionI = $state(0);
@@ -41,10 +43,10 @@
 
 	$effect.pre(() => {
 		const interval = setInterval(() => {
-			// const delta = (Date.now() - start) / 1000;
-			// const seconds = delta % 60;
-			// const minutes = Math.floor(delta / 60);
-			// totalTimer.innerText = `${minutes}:${seconds}`;
+			const delta = (Date.now() - start) / 1000;
+			const seconds = Math.floor(delta % 60);
+			const minutes = Math.floor(delta / 60);
+			totalTimer.textContent = `${(minutes < 10 ? '0' : '') + minutes}:${(seconds < 10 ? '0' : '') + seconds}`;
 		}, 1000);
 
 		return () => clearInterval(interval);
@@ -90,7 +92,7 @@
 	}
 
 	$effect(() => {
-		if (name === 'Рандом' && answers.every(([i]) => i !== -1)) {
+		if (isRandom && answers.every(([i]) => i !== -1)) {
 			finishDialog?.showModal();
 			pushState(page.url.toString(), {});
 		}
@@ -101,10 +103,14 @@
 
 <div class="container">
 	<h1>
-		<a href="/#/">{name}</a>
+		<a onclick={(e) => { e.preventDefault(); history.back(); }} href="/#/">{name}</a>
 	</h1>
 
 	<main>
+		{#if isRandom}
+			<span bind:this={totalTimer} id="pakistan">00:00</span>
+		{/if}
+
 		<section class="questions">
 			{#each test as _, i}
 				<button
@@ -182,7 +188,7 @@
 	</dialog>
 {/if}
 
-{#if name === 'Рандом'}
+{#if isRandom}
 	{@const correctAnswers = answers.filter(([, correct]) => correct)}
 	{@const passed = test.length - correctAnswers.length <= 2}
 	<dialog style:background-color={`var(--${passed ? 'green' : 'red'}`} bind:this={finishDialog} id="finish-stats">
@@ -208,6 +214,10 @@
 		h1 {
 			color: grey;
 			margin: 3rem 0;
+		}
+
+		span {
+			color: grey;
 		}
 
 		main {
