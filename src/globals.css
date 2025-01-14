@@ -133,11 +133,13 @@ html {
 
 body {
 	overflow-x: hidden;
-	background-color: rgb(247, 247, 247);
-	color: black;
+	background-color: var(--bg-color);
+	color: var(--text-color);
 }
 	
 :root {
+	--bg-color: rgb(247, 247, 247);
+	--text-color: black;
 	--main: sandybrown;
 	--green: rgb(55, 214, 55);
 	--red: rgb(255, 28, 28);
@@ -145,13 +147,10 @@ body {
 
 @media (prefers-color-scheme: dark) {
 	:root {
+		--bg-color: rgb(10, 10, 10);
+		--text-color: white;
 		--main: chocolate;
 		--green: forestgreen;
 		--red: firebrick;
-	}
-
-	body {
-		background-color: rgb(10, 10, 10);
-		color: white;
-	}
+	}	
 }

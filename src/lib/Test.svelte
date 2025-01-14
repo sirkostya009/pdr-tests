@@ -30,9 +30,12 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
-	$effect(() => document
-		.querySelector(`button[aria-label="${questionI + 1}"].current`)
-		?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }));
+	$effect(() => {
+		document
+			.querySelector(`button[aria-label="${questionI + 1}"].current`)
+			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+		document.getElementById('question-name')?.scrollIntoView();
+	});
 
 	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
@@ -46,7 +49,8 @@
 			const delta = (Date.now() - start) / 1000;
 			const seconds = Math.floor(delta % 60);
 			const minutes = Math.floor(delta / 60);
-			totalTimer!.textContent = `${(minutes < 10 ? '0' : '') + minutes}:${(seconds < 10 ? '0' : '') + seconds}`;
+			if (!totalTimer) { clearInterval(interval); return; }
+			totalTimer.textContent = `${(minutes < 10 ? '0' : '') + minutes}:${(seconds < 10 ? '0' : '') + seconds}`;
 		}, 1000);
 
 		return () => clearInterval(interval);
@@ -161,7 +165,7 @@
 					<button
 						type="button"
 						onclick={() => {
-							pushState(page.url.toString(), {});
+							pushState(page.url, {});
 							legalDialog?.showModal();
 						}}
 					>
@@ -174,7 +178,7 @@
 </div>
 
 {#if question.explanation?.legal}
-	<dialog bind:this={legalDialog} class="legal" onclose={() => history.back()}>
+	<dialog bind:this={legalDialog} class="legal" onclose={() => window.dispatchEvent(new Event('popstate'))}>
 		<form method="dialog">
 			<h1>{question.explanation.legal.title}</h1>
 			<button>X</button>
@@ -188,7 +192,7 @@
 {#if isRandom}
 	{@const correctAnswers = answers.filter(([, correct]) => correct)}
 	{@const passed = test.length - correctAnswers.length <= 2}
-	<dialog style:background-color={`var(--${passed ? 'green' : 'red'}`} bind:this={finishDialog} id="finish-stats">
+	<dialog style:background-color="var(--{passed ? 'green' : 'red'}" bind:this={finishDialog} id="finish-stats">
 		<h1 class:passed>{passed ? 'Здано' : 'Не здано'}</h1>
 		<div class="count">
 			<span>{correctAnswers.length}</span>
@@ -447,6 +451,7 @@
 					padding-bottom: 3.75rem;
 
 					.question-buttons {
+						background-color: var(--bg-color);
 						position: fixed;
 						box-shadow: 0 0 0.5rem 0.05rem rgb(0 0 0 / 20%);
 						width: 100%;
