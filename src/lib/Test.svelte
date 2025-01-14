@@ -30,12 +30,9 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
-	$effect(() => {
-		document
-			.querySelector(`button[aria-label="${questionI + 1}"].current`)
-			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-		document.getElementById('question-name')?.scrollIntoView();
-	});
+	$effect(() => document
+		.querySelector(`button[aria-label="${questionI + 1}"].current`)
+		?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }));
 
 	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
@@ -157,7 +154,16 @@
 			{/if}
 			<div class="question-buttons">
 				{#if questionI < test.length - 1}
-					<button type="button" onclick={() => questionI++}>
+					<button
+						type="button"
+						onclick={async () => {
+							questionI++;
+							await tick();
+							document
+								.getElementById('question-name')
+								?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+						}}
+					>
 						{answered ? "Некст" : "Пропустити"}
 					</button>
 				{/if}
