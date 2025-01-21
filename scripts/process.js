@@ -1,9 +1,11 @@
-import tests from '../src/lib/tests.json' with { type: 'json'};
+const questions = [];
 
-const result = {};
+for (let i = questions.length - 1; i >= 0; --i) {
+	const question = questions[i];
 
-for (const test of tests) {
-	result[test.name] = test.questions;
+	// фікс зміщених пояснень
+	question.explanation =
+		questions[i > 0 ? i - 1 : questions.length - 1].explanation;
 }
 
-console.log(JSON.stringify(result, null, '\t'));
+console.log(JSON.stringify(questions, null, "\t"));

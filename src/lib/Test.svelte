@@ -25,8 +25,6 @@
 
 	const isRandom = name === 'Рандом';
 
-	let start = Date.now();
-
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
@@ -37,20 +35,19 @@
 	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
 
-	let totalTimer = $state<HTMLSpanElement>();
 	let legalDialog = $state<HTMLDialogElement>();
 	let finishDialog = $state<HTMLDialogElement>();
 
-	$effect.pre(() => {
-		const interval = setInterval(() => {
-			const delta = (Date.now() - start) / 1000;
-			const seconds = Math.floor(delta % 60);
-			const minutes = Math.floor(delta / 60);
-			if (!totalTimer) { clearInterval(interval); return; }
-			totalTimer.textContent = `${(minutes < 10 ? '0' : '') + minutes}:${(seconds < 10 ? '0' : '') + seconds}`;
-		}, 1000);
+	const start = Date.now();
+	let elapsed = $state(0);
+	let interval: number;
 
-		return () => clearInterval(interval);
+	$effect.pre(() => {
+		if (isRandom) {
+			interval = setInterval(() => elapsed = (Date.now() - start) / 1000, 1000) as unknown as number;
+
+			return () => clearInterval(interval);
+		}
 	});
 
 	function onkeydown({ key }: KeyboardEvent) {
@@ -89,24 +86,24 @@
 		finishDialog?.close();
 	}
 
-	$effect(() => {
-		if (isRandom && answers.every(([i]) => i !== -1)) {
-			finishDialog?.showModal();
-			pushState(page.url.toString(), {});
-		}
-	});
+	function popstate(e: Event) {
+		e.preventDefault();
+		history.back();
+	}
 </script>
 
 <svelte:window {onkeydown} {onpopstate} />
 
 <div class="container">
 	<h1>
-		<a onclick={(e) => { e.preventDefault(); history.back(); }} href="/#/">{name}</a>
+		<a onclick={popstate} href="/#/">{name}</a>
 	</h1>
 
 	<main>
 		{#if isRandom}
-			<span bind:this={totalTimer} id="pakistan">00:00</span>
+			{@const seconds = Math.floor(elapsed % 60)}
+			{@const minutes = Math.floor(elapsed / 60)}
+			<span>{(minutes < 10 ? '0' : '') + minutes}:{(seconds < 10 ? '0' : '') + seconds}</span>
 		{/if}
 
 		<section class="questions">
@@ -140,6 +137,12 @@
 								document
 									.querySelector('.question p')
 									?.scrollIntoView({ behavior: 'smooth' });
+
+								if (isRandom && answers.every(([i]) => i !== -1)) {
+									pushState(page.url, {});
+									finishDialog?.showModal();
+									clearInterval(interval);
+								}
 							}
 						}}
 					>
@@ -184,10 +187,10 @@
 </div>
 
 {#if question.explanation?.legal}
-	<dialog bind:this={legalDialog} class="legal" onclose={() => window.dispatchEvent(new Event('popstate'))}>
+	<dialog bind:this={legalDialog} class="legal">
 		<form method="dialog">
 			<h1>{question.explanation.legal.title}</h1>
-			<button>X</button>
+			<button onclick={popstate}>X</button>
 		</form>
 		<article>
 			{@html question.explanation.legal.html}
@@ -196,17 +199,20 @@
 {/if}
 
 {#if isRandom}
-	{@const correctAnswers = answers.filter(([, correct]) => correct)}
-	{@const passed = test.length - correctAnswers.length <= 2}
+	{@const correctAnswers = answers.filter(([, correct]) => correct).length}
+	{@const passed = test.length - correctAnswers <= 2}
+	{@const seconds = Math.floor(elapsed % 60)}
+	{@const minutes = Math.floor(elapsed / 60)}
 	<dialog style:background-color="var(--{passed ? 'green' : 'red'}" bind:this={finishDialog} id="finish-stats">
 		<h1 class:passed>{passed ? 'Здано' : 'Не здано'}</h1>
 		<div class="count">
-			<span>{correctAnswers.length}</span>
+			<span>{correctAnswers}</span>
 			<span>/</span>
 			<span>{test.length}</span>
 			<span>відповідей</span>
 		</div>
-		<div class="percent">{((correctAnswers.length / test.length) * 100).toFixed(0)}%</div>
+		<div class="percent">{((correctAnswers / test.length) * 100).toFixed(0)}%</div>
+		<div>{(minutes < 10 ? '0' : '') + minutes}:{(seconds < 10 ? '0' : '') + seconds}</div>
 		<a href="/#/">На головну</a>
 	</dialog>
 {/if}

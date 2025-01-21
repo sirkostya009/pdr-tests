@@ -4,7 +4,7 @@
 	const keys = Object.keys(tests);
 </script>
 
-<h1>{keys.length} тести</h1>
+<h1>{keys.length} тестів</h1>
 
 <ol>
 	{#each keys as test}

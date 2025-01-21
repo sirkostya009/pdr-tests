@@ -43,6 +43,7 @@
 						html: document
 							.querySelector(".pdr_i_description.content")
 							?.innerHTML?.trim()
+							?.replaceAll(' class="fancybox"', "")
 							?.replaceAll(/\n*\t*/g, "")
 							?.replaceAll(' alt=\"\"', "")
 							?.replaceAll('src="/', 'src="https://pdr-online.com.ua/')

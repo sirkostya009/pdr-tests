@@ -1,15 +1,11 @@
 <main>
 	<a href="/#/list">
-		Список усіх тестів
+		Список усіх тем
 	</a>
 
 	<a href="/#/random">
-		20 рандомних питань з вибіркових тестів
+		Симуляція "реального" тесту
 	</a>
-
-	<!-- <div>
-		Симуляція реального тесту категорії B
-	</div> -->
 </main>
 
 <style>
@@ -23,7 +19,7 @@
 		justify-content: center;
 		align-items: center;
 
-		* {
+		a {
 			border-radius: 0.2rem;
 			background-color: lightslategrey;
 			padding: 1rem;
