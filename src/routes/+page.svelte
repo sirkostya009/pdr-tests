@@ -6,6 +6,13 @@
 	<a href="/#/random">
 		Симуляція "реального" тесту
 	</a>
+
+	<a href="https://github.com/sirkostya009/pdr-tests" title="GitHub">
+		<picture>
+			<source srcset="/github-mark-white.svg" media="(prefers-color-scheme: dark)" />
+			<img src="/github-mark.svg" alt="GitHub" style="max-width: 2rem; max-height: 2rem;" />
+		</picture>
+	</a>
 </main>
 
 <style>
