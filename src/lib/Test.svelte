@@ -34,7 +34,7 @@
 			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
 	);
 
-	const answers = $derived(test.map(() => [-1, false] as [number, boolean]));
+	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
 
 	let legalDialog = $state<HTMLDialogElement>();
@@ -103,18 +103,14 @@
 	}
 
 	let touchStartX = 0;
-	let swiped = false;
 
 	function ontouchstart(e: TouchEvent) {
 		touchStartX = e.touches[0].clientX;
-		swiped = false;
 	}
 
-	function ontouchmove(e: TouchEvent) {
-		if (swiped) return;
-		const dx = e.touches[0].clientX - touchStartX;
+	function ontouchend(e: TouchEvent) {
+		const dx = e.changedTouches[0].clientX - touchStartX;
 		if (Math.abs(dx) < 50) return;
-		swiped = true;
 		if (dx < 0 && questionI < test.length - 1) questionI++;
 		else if (dx > 0 && questionI > 0) questionI--;
 	}
@@ -133,7 +129,7 @@
 	</h4>
 
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<main {ontouchstart} {ontouchmove}>
+	<main {ontouchstart} {ontouchend}>
 		{#if isRandom}
 			{@const seconds = Math.floor(elapsed % 60)}
 			{@const minutes = Math.floor(elapsed / 60)}

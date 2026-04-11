@@ -23,6 +23,7 @@ select {
 	all: unset;
 	display: inline-block;
 	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
 }
 
 button::-moz-focus-inner,
