@@ -34,7 +34,7 @@
 			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
 	);
 
-	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
+	const answers = $derived(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
 
 	let legalDialog = $state<HTMLDialogElement>();
@@ -81,6 +81,14 @@
 			case "4":
 			case "5":
 				document.querySelector<HTMLButtonElement>(`button[aria-label="answer-${key}"`)?.focus();
+				break;
+			case "Enter":
+			case " ":
+				if (
+					document.activeElement instanceof HTMLButtonElement &&
+					document.activeElement.ariaLabel?.startsWith("answer-")
+				)
+					document.activeElement.click();
 		}
 	}
 
@@ -93,14 +101,36 @@
 		e.preventDefault();
 		history.back();
 	}
+
+	let touchStartX = 0;
+	let touchStartY = 0;
+
+	function ontouchstartcapture(e: TouchEvent) {
+		touchStartX = e.touches[0].clientX;
+		touchStartY = e.touches[0].clientY;
+	}
+
+	function ontouchendcapture(e: TouchEvent) {
+		const dx = e.changedTouches[0].clientX - touchStartX;
+		const dy = e.changedTouches[0].clientY - touchStartY;
+		if (Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
+		e.preventDefault();
+		if (dx < 0 && questionI < test.length - 1) questionI++;
+		else if (dx > 0 && questionI > 0) questionI--;
+	}
+
+	$effect(() => {
+		void questionI;
+		(document.activeElement as HTMLElement | null)?.blur();
+	});
 </script>
 
 <svelte:window {onkeydown} {onpopstate} />
 
 <div class="container">
-	<h1>
+	<h4>
 		<a onclick={popstate} href="/">{name}</a>
-	</h1>
+	</h4>
 
 	<main>
 		{#if isRandom}
@@ -121,13 +151,14 @@
 				></button>
 			{/each}
 		</section>
-		<section class="question">
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<section class="question" {ontouchstartcapture} {ontouchendcapture}>
 			<h2 id="question-name">{question.name}</h2>
 			{#if "image" in question}
 				<img src={question.image} alt={question.name} />
 			{/if}
 			<ol class="answers" class:answered>
-				{#each question.answers as answer, i}
+				{#each question.answers as answer, i (`${answer.text}-${i}`)}
 					<li>
 						<button
 							aria-label="answer-{i + 1}"
@@ -225,7 +256,7 @@
 		align-items: center;
 		height: 100%;
 
-		h1 {
+		h4 {
 			color: grey;
 			margin: 3rem 0;
 		}
@@ -449,7 +480,7 @@
 
 	@media (max-width: 1024px) {
 		.container {
-			h1 {
+			h4 {
 				display: none;
 				margin: 0.5rem 0;
 			}
