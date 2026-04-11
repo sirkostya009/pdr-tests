@@ -132,7 +132,8 @@
 		<a onclick={popstate} href="/">{name}</a>
 	</h4>
 
-	<main>
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<main {ontouchstartcapture} {ontouchendcapture}>
 		{#if isRandom}
 			{@const seconds = Math.floor(elapsed % 60)}
 			{@const minutes = Math.floor(elapsed / 60)}
@@ -151,8 +152,7 @@
 				></button>
 			{/each}
 		</section>
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<section class="question" {ontouchstartcapture} {ontouchendcapture}>
+		<section class="question">
 			<h2 id="question-name">{question.name}</h2>
 			{#if "image" in question}
 				<img src={question.image} alt={question.name} />
@@ -269,6 +269,7 @@
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
+			flex: 1;
 
 			.questions {
 				display: grid;
