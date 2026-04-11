@@ -24,4 +24,10 @@
 	]);
 </script>
 
+<svelte:head>
+	<title>Рандом — Тести ПДР</title>
+	<meta property="og:title" content="Рандом — Тести ПДР" />
+	<meta property="og:description" content="20 випадкових питань з ПДР" />
+</svelte:head>
+
 <Test name="Рандом" test={test as any} />

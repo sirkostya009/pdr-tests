@@ -2,6 +2,12 @@
 	const { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Тести ПДР</title>
+	<meta property="og:title" content="Тести ПДР" />
+	<meta property="og:description" content="Безкоштовні тести Правил дорожнього руху України" />
+</svelte:head>
+
 <main>
 	<header>
 		<h1>Тести ПДР</h1>
