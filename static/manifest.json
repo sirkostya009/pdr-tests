@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
+	"name": "ПДР Тести",
+	"short_name": "ПДР Тести",
+	"description": "Безкоштовні тести Правил дорожнього руху України",
+	"lang": "uk",
+	"dir": "ltr",
+	"id": "/",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"orientation": "any",
+	"background_color": "#222222",
+	"theme_color": "#222222",
+	"icons": [
+		{
+			"src": "/icon.svg",
+			"type": "image/svg+xml",
+			"sizes": "any"
+		},
+		{
+			"src": "/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"screenshots": [],
+	"shortcuts": [
+		{
+			"name": "Рандомні 20 питань",
+			"url": "/#/random"
+		}
+	]
+}

@@ -17,20 +17,22 @@
 	}
 
 	interface Props {
-		name: string | 'Рандом';
+		name: string | "Рандом";
 		test: Question[];
 	}
 
 	const { name, test }: Props = $props();
 
-	const isRandom = name === 'Рандом';
+	const isRandom = $derived(name === "Рандом");
 
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
-	$effect(() => document
-		.querySelector(`button[aria-label="${questionI + 1}"].current`)
-		?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }));
+	$effect(() =>
+		document
+			.querySelector(`button[aria-label="${questionI + 1}"].current`)
+			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
+	);
 
 	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
 	let answered = $derived(answers[questionI][0] !== -1);
@@ -44,7 +46,7 @@
 
 	$effect.pre(() => {
 		if (isRandom) {
-			interval = setInterval(() => elapsed = (Date.now() - start) / 1000, 1000) as unknown as number;
+			interval = setInterval(() => (elapsed = (Date.now() - start) / 1000), 1000) as unknown as number;
 
 			return () => clearInterval(interval);
 		}
@@ -73,11 +75,12 @@
 				}
 				break;
 			}
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5': document.querySelector<HTMLButtonElement>(`button[aria-label="answer-${key}"`)?.focus();
+			case "1":
+			case "2":
+			case "3":
+			case "4":
+			case "5":
+				document.querySelector<HTMLButtonElement>(`button[aria-label="answer-${key}"`)?.focus();
 		}
 	}
 
@@ -103,7 +106,7 @@
 		{#if isRandom}
 			{@const seconds = Math.floor(elapsed % 60)}
 			{@const minutes = Math.floor(elapsed / 60)}
-			<span>{(minutes < 10 ? '0' : '') + minutes}:{(seconds < 10 ? '0' : '') + seconds}</span>
+			<span>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</span>
 		{/if}
 
 		<section class="questions">
@@ -114,7 +117,7 @@
 					class:correct={answers[i][0] !== -1 && answers[i][1]}
 					class:incorrect={answers[i][0] !== -1 && !answers[i][1]}
 					class:current={questionI === i}
-					onclick={({ currentTarget }) => questionI = +currentTarget.ariaLabel! - 1}
+					onclick={({ currentTarget }) => (questionI = +currentTarget.ariaLabel! - 1)}
 				></button>
 			{/each}
 		</section>
@@ -134,9 +137,7 @@
 							if (answers[questionI][0] === -1) {
 								answers[questionI] = [i, answer.isCorrect];
 								await tick();
-								document
-									.querySelector('.question p')
-									?.scrollIntoView({ behavior: 'smooth' });
+								document.querySelector(".question p")?.scrollIntoView({ behavior: "smooth" });
 
 								if (isRandom && answers.every(([i]) => i !== -1)) {
 									pushState(page.url, {});
@@ -163,7 +164,7 @@
 							questionI++;
 							await tick();
 							document
-								.getElementById('question-name')
+								.getElementById("question-name")
 								?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
 						}}
 					>
@@ -204,7 +205,7 @@
 	{@const seconds = Math.floor(elapsed % 60)}
 	{@const minutes = Math.floor(elapsed / 60)}
 	<dialog style:background-color="var(--{passed ? 'green' : 'red'}" bind:this={finishDialog} id="finish-stats">
-		<h1 class:passed>{passed ? 'Здано' : 'Не здано'}</h1>
+		<h1 class:passed>{passed ? "Здано" : "Не здано"}</h1>
 		<div class="count">
 			<span>{correctAnswers}</span>
 			<span>/</span>
@@ -212,7 +213,7 @@
 			<span>відповідей</span>
 		</div>
 		<div class="percent">{((correctAnswers / test.length) * 100).toFixed(0)}%</div>
-		<div>{(minutes < 10 ? '0' : '') + minutes}:{(seconds < 10 ? '0' : '') + seconds}</div>
+		<div>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</div>
 		<a href="/#/">На головну</a>
 	</dialog>
 {/if}

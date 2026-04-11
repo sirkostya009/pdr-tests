@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Test from "$lib/Test.svelte";
-	import { page } from "$app/state";
 	import tests from "$lib/tests.json";
 
 	function shuffleArray<T>(t: T[]) {
@@ -13,14 +12,16 @@
 		}
 		return array;
 	}
+
+	const { params } = $props();
 </script>
 
-{#if page.params.test in tests}
+{#if params.test in tests}
 	<Test
-		name={page.params.test}
-		test={tests[page.params.test as keyof typeof tests]}
+		name={params.test}
+		test={tests[params.test as keyof typeof tests]}
 	/>
-{:else if page.params.test === 'random'}
+{:else if params.test === 'random'}
 	{@const test = shuffleArray([
 		...shuffleArray(tests["Загальні положення"]).slice(-10),
 		...shuffleArray(tests["Додаткові питання щодо категорій B1, B (будова і терміни)"]).slice(-4),
@@ -30,5 +31,5 @@
 
 	<Test name="Рандом" {test} />
 {:else}
-	<h2>test "{page.params.test}" not found</h2>
+	<h2>test "{params.test}" not found</h2>
 {/if}
