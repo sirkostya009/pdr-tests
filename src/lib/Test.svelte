@@ -99,7 +99,7 @@
 
 <div class="container">
 	<h1>
-		<a onclick={popstate} href="/#/">{name}</a>
+		<a onclick={popstate} href="/">{name}</a>
 	</h1>
 
 	<main>
@@ -128,29 +128,29 @@
 			{/if}
 			<ol class="answers" class:answered>
 				{#each question.answers as answer, i}
-					<button
-						aria-label="answer-{i + 1}"
-						type="button"
-						class:answered={answers[questionI][0] === i}
-						class:correct={answer.isCorrect}
-						onclick={async () => {
-							if (answers[questionI][0] === -1) {
-								answers[questionI] = [i, answer.isCorrect];
-								await tick();
-								document.querySelector(".question p")?.scrollIntoView({ behavior: "smooth" });
+					<li>
+						<button
+							aria-label="answer-{i + 1}"
+							type="button"
+							class:answered={answers[questionI][0] === i}
+							class:correct={answer.isCorrect}
+							onclick={async () => {
+								if (answers[questionI][0] === -1) {
+									answers[questionI] = [i, answer.isCorrect];
+									await tick();
+									document.querySelector(".question p")?.scrollIntoView({ behavior: "smooth" });
 
-								if (isRandom && answers.every(([i]) => i !== -1)) {
-									pushState(page.url, {});
-									finishDialog?.showModal();
-									clearInterval(interval);
+									if (isRandom && answers.every(([i]) => i !== -1)) {
+										pushState(page.url, {});
+										finishDialog?.showModal();
+										clearInterval(interval);
+									}
 								}
-							}
-						}}
-					>
-						<li>
+							}}
+						>
 							{answer.text}
-						</li>
-					</button>
+						</button>
+					</li>
 				{/each}
 			</ol>
 			{#if answered && question.explanation?.comment}
@@ -214,7 +214,7 @@
 		</div>
 		<div class="percent">{((correctAnswers / test.length) * 100).toFixed(0)}%</div>
 		<div>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</div>
-		<a href="/#/">На головну</a>
+		<a href="/">На головну</a>
 	</dialog>
 {/if}
 
@@ -311,17 +311,26 @@
 					display: flex;
 					flex-direction: column;
 					gap: 1rem;
+					counter-reset: answer;
 
 					li {
-						list-style: decimal;
-						list-style-position: inside;
-					}
+						list-style: none;
+						counter-increment: answer;
 
-					button {
-						border: 1px solid black;
-						border-radius: 0.3rem;
-						box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
-						padding: 0.5rem;
+						button {
+							display: block;
+							width: 100%;
+							box-sizing: border-box;
+							border: 1px solid black;
+							border-radius: 0.3rem;
+							box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
+							padding: 0.5rem;
+
+							&::before {
+								content: counter(answer) ". ";
+								font-weight: bold;
+							}
+						}
 					}
 
 					&:not(.answered) li:hover {

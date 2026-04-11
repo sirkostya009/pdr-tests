@@ -136,7 +136,7 @@ body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
 }
-	
+
 :root {
 	--bg-color: rgb(247, 247, 247);
 	--text-color: black;
@@ -152,5 +152,5 @@ body {
 		--main: chocolate;
 		--green: forestgreen;
 		--red: firebrick;
-	}	
+	}
 }
