@@ -103,18 +103,18 @@
 	}
 
 	let touchStartX = 0;
-	let touchStartY = 0;
+	let swiped = false;
 
-	function ontouchstartcapture(e: TouchEvent) {
+	function ontouchstart(e: TouchEvent) {
 		touchStartX = e.touches[0].clientX;
-		touchStartY = e.touches[0].clientY;
+		swiped = false;
 	}
 
-	function ontouchendcapture(e: TouchEvent) {
-		const dx = e.changedTouches[0].clientX - touchStartX;
-		const dy = e.changedTouches[0].clientY - touchStartY;
-		if (Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
-		e.preventDefault();
+	function ontouchmove(e: TouchEvent) {
+		if (swiped) return;
+		const dx = e.touches[0].clientX - touchStartX;
+		if (Math.abs(dx) < 50) return;
+		swiped = true;
 		if (dx < 0 && questionI < test.length - 1) questionI++;
 		else if (dx > 0 && questionI > 0) questionI--;
 	}
@@ -133,7 +133,7 @@
 	</h4>
 
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<main {ontouchstartcapture} {ontouchendcapture}>
+	<main {ontouchstart} {ontouchmove}>
 		{#if isRandom}
 			{@const seconds = Math.floor(elapsed % 60)}
 			{@const minutes = Math.floor(elapsed / 60)}
