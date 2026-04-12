@@ -155,3 +155,11 @@ body {
 		--red: firebrick;
 	}
 }
+
+@supports (color: AccentColor) {
+	:root {
+		--main: AccentColor;
+		--bg-color: Canvas;
+		--text-color: CanvasText;
+	}
+}

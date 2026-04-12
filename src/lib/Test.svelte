@@ -361,9 +361,11 @@
 						}
 					}
 
-					&:not(.answered) li:hover button {
-						background-color: var(--main);
-						color: white;
+					@media (hover: hover) {
+						&:not(.answered) li:hover button {
+							background-color: var(--main);
+							color: white;
+						}
 					}
 
 					&.answered {
