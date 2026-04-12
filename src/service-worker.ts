@@ -3,12 +3,14 @@
 /// <reference lib="esnext" />
 /// <reference lib="webworker" />
 
-import { prerendered, version } from "$service-worker";
+import { build, prerendered, version } from "$service-worker";
 
 const scope = self as unknown as ServiceWorkerGlobalScope;
 const CACHE = `cache-${version}`;
 
-scope.addEventListener("install", (event) => event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(prerendered))));
+scope.addEventListener("install", (event) =>
+	event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll([...build, ...prerendered]))),
+);
 
 scope.addEventListener("activate", (event) =>
 	event.waitUntil(

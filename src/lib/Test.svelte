@@ -154,7 +154,7 @@
 				<img src={question.image} alt={question.name} />
 			{/if}
 			<ol class="answers" class:answered>
-				{#each question.answers as answer, i (`${answer.text}-${i}`)}
+				{#each question.answers as answer, i}
 					<li>
 						<button
 							aria-label="answer-{i + 1}"
@@ -361,8 +361,9 @@
 						}
 					}
 
-					&:not(.answered) li:hover {
-						color: rgba(255, 255, 255, 0.7);
+					&:not(.answered) li:hover button {
+						background-color: var(--main);
+						color: white;
 					}
 
 					&.answered {
