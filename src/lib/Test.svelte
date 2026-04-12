@@ -124,19 +124,19 @@
 <svelte:window {onkeydown} {onpopstate} />
 
 <div class="container">
-	<h4>
+	<header>
 		<a onclick={popstate} href="/">{name}</a>
-	</h4>
+	</header>
 
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<main {ontouchstart} {ontouchend}>
 		{#if isRandom}
 			{@const seconds = Math.floor(elapsed % 60)}
 			{@const minutes = Math.floor(elapsed / 60)}
-			<span>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</span>
+			<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
 		{/if}
 
-		<section class="questions">
+		<nav class="questions" aria-label="Питання">
 			{#each test as _, i}
 				<button
 					type="button"
@@ -147,7 +147,7 @@
 					onclick={({ currentTarget }) => (questionI = +currentTarget.ariaLabel! - 1)}
 				></button>
 			{/each}
-		</section>
+		</nav>
 		<section class="question">
 			<h2 id="question-name">{question.name}</h2>
 			{#if "image" in question}
@@ -183,7 +183,7 @@
 			{#if answered && question.explanation?.comment}
 				<p>{question.explanation.comment}</p>
 			{/if}
-			<div class="question-buttons">
+			<nav class="question-buttons">
 				{#if questionI < test.length - 1}
 					<button
 						type="button"
@@ -209,7 +209,7 @@
 						Стаття
 					</button>
 				{/if}
-			</div>
+			</nav>
 		</section>
 	</main>
 </div>
@@ -240,7 +240,7 @@
 			<span>відповідей</span>
 		</div>
 		<div class="percent">{((correctAnswers / test.length) * 100).toFixed(0)}%</div>
-		<div>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</div>
+		<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
 		<a href="/">На головну</a>
 	</dialog>
 {/if}
@@ -252,12 +252,12 @@
 		align-items: center;
 		height: 100%;
 
-		h4 {
+		header {
 			color: grey;
 			margin: 3rem 0;
 		}
 
-		span {
+		time {
 			color: grey;
 		}
 
@@ -366,6 +366,11 @@
 					}
 
 					&.answered {
+						button.answered {
+							border: 2px solid var(--main);
+							box-shadow: none;
+						}
+
 						button.answered:not(.correct) {
 							color: white;
 							background-color: var(--red);
@@ -477,7 +482,7 @@
 
 	@media (max-width: 1024px) {
 		.container {
-			h4 {
+			header {
 				display: none;
 				margin: 0.5rem 0;
 			}
