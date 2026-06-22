@@ -103,14 +103,19 @@
 	}
 
 	let touchStartX = 0;
+	let touchStartY = 0;
 
 	function ontouchstart(e: TouchEvent) {
 		touchStartX = e.touches[0].clientX;
+		touchStartY = e.touches[0].clientY;
 	}
 
 	function ontouchend(e: TouchEvent) {
 		const dx = e.changedTouches[0].clientX - touchStartX;
+		const dy = e.changedTouches[0].clientY - touchStartY;
 		if (Math.abs(dx) < 50) return;
+		// ignore diagonal/vertical gestures so scrolling doesn't switch tests
+		if (Math.abs(dx) < Math.abs(dy) * 1.5) return;
 		if (dx < 0 && questionI < test.length - 1) questionI++;
 		else if (dx > 0 && questionI > 0) questionI--;
 	}
