@@ -133,8 +133,7 @@
 		<a onclick={popstate} href="/">{name}</a>
 	</header>
 
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<main {ontouchstart} {ontouchend}>
+	<main>
 		{#if isRandom}
 			{@const seconds = Math.floor(elapsed % 60)}
 			{@const minutes = Math.floor(elapsed / 60)}
@@ -153,7 +152,8 @@
 				></button>
 			{/each}
 		</nav>
-		<section class="question">
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<section class="question" {ontouchstart} {ontouchend}>
 			<h2 id="question-name">{question.name}</h2>
 			{#if "image" in question}
 				<img src={question.image} alt={question.name} />
@@ -293,10 +293,6 @@
 						content: counter(button-n);
 					}
 
-					&:hover {
-						background-color: rgba(55, 55, 55, 0.7);
-					}
-
 					&.current {
 						background-color: var(--main) !important;
 						box-shadow: unset;
@@ -426,9 +422,9 @@
 		width: 50%;
 		height: 80%;
 		margin: auto;
-		background-color: var(--red);
+		background-color: var(--bg-color);
 		border-radius: 0.2rem;
-		color: white;
+		color: var(--text-color);
 
 		form {
 			display: flex;
@@ -535,11 +531,11 @@
 			height: 100%;
 
 			h1 {
-				font-size: 2.25rem;
+				font-size: 1.5rem;
 			}
 
 			article {
-				font-size: 1.5rem;
+				font-size: 0.9rem;
 			}
 		}
 
