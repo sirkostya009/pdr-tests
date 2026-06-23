@@ -12,7 +12,15 @@
 	<header>
 		<h1>Тести ПДР</h1>
 		<nav>
-			<a href="/random" class="button">20 випадкових питань</a>
+			<div class="random">
+				<a href="/random" class="button">20 випадкових питань</a>
+				<ul class="note">
+					<li>10 з «Загальних положень»</li>
+					<li>4 з «Будови і термінів»</li>
+					<li>4 з «Першої медичної допомоги»</li>
+					<li>2 з «Основ безпечного водіння»</li>
+				</ul>
+			</div>
 			<a href="https://github.com/sirkostya009/pdr-tests" class="button" title="GitHub">
 				<picture>
 					<source srcset="/github-mark-white.svg" media="(prefers-color-scheme: dark)" />
@@ -54,8 +62,65 @@
 
 		nav {
 			display: flex;
-			align-items: stretch;
+			align-items: flex-start;
 			gap: 0.5rem;
+
+			.random {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				gap: 0.4rem;
+
+				.button {
+					justify-content: center;
+				}
+
+				.note {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					transform: translateY(0.25rem);
+					margin-top: 0.5rem;
+					width: max-content;
+					max-width: 18rem;
+					font-size: 0.75rem;
+					line-height: 1.4;
+					list-style: disc;
+					padding: 0.5rem 0.7rem 0.5rem 1.5rem;
+					border-radius: 0.4rem;
+					background-color: #1f1f1f;
+					color: #fff;
+					box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+					opacity: 0;
+					pointer-events: none;
+					transition:
+						opacity 0.15s ease,
+						transform 0.15s ease;
+					z-index: 1;
+
+					li {
+						list-style: disc;
+
+						&::marker {
+							color: #fff;
+						}
+					}
+
+					&::before {
+						content: "";
+						position: absolute;
+						bottom: 100%;
+						left: 2rem;
+						border: 0.4rem solid transparent;
+						border-bottom-color: #1f1f1f;
+					}
+				}
+
+				&:hover .note {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 
 			.button {
 				display: flex;
@@ -136,6 +201,28 @@
 			gap: 1rem;
 			padding: 1rem 0;
 			min-height: 50vh;
+		}
+
+		header nav .random .note {
+			position: static;
+			transform: none;
+			margin-top: 0.4rem;
+			width: auto;
+			opacity: 0.7;
+			padding: 0 0 0 1.2rem;
+			background-color: transparent;
+			color: inherit;
+			border-radius: 0;
+			box-shadow: none;
+			pointer-events: auto;
+
+			li::marker {
+				color: inherit;
+			}
+
+			&::before {
+				display: none;
+			}
 		}
 
 		section {
