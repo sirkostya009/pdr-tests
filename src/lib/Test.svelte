@@ -2,19 +2,8 @@
 	import { pushState } from "$app/navigation";
 	import { page } from "$app/state";
 	import { tick } from "svelte";
-
-	interface Question {
-		name: string;
-		answers: { text: string; isCorrect: boolean }[];
-		image?: string;
-		explanation?: {
-			comment?: string;
-			legal: {
-				title: string;
-				html: string;
-			};
-		};
-	}
+	import Results from "./Results.svelte";
+	import type { Answer, Question } from "./types";
 
 	interface Props {
 		name: string | "Рандом";
@@ -28,17 +17,21 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
-	$effect(() =>
+	const finished = $derived(!!page.state.finished);
+
+	// depends on `finished` too: returning from the results screen remounts the nav,
+	// and the current button has to be recentred even though questionI didn't change
+	$effect(() => {
+		if (finished) return;
+
 		document
 			.querySelector(`button[aria-label="${questionI + 1}"].current`)
-			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }),
-	);
+			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+	});
 
-	const answers = $state(test.map(() => [-1, false] as [number, boolean]));
+
+	const answers = $state(test.map(() => [-1, false] as Answer));
 	let answered = $derived(answers[questionI][0] !== -1);
-
-	let legalDialog = $state<HTMLDialogElement>();
-	let finishDialog = $state<HTMLDialogElement>();
 
 	const start = Date.now();
 	let elapsed = $state(0);
@@ -53,6 +46,8 @@
 	});
 
 	function onkeydown({ key }: KeyboardEvent) {
+		if (finished) return;
+
 		switch (key) {
 			case "ArrowRight":
 				if (questionI < test.length - 1) questionI++;
@@ -92,11 +87,6 @@
 		}
 	}
 
-	function onpopstate() {
-		legalDialog?.close();
-		finishDialog?.close();
-	}
-
 	function popstate(e: Event) {
 		e.preventDefault();
 		history.back();
@@ -124,130 +114,116 @@
 		void questionI;
 		(document.activeElement as HTMLElement | null)?.blur();
 	});
+
+	async function goto(i: number) {
+		questionI = i;
+		await tick();
+		document.getElementById("question-name")?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+	}
+
+	function review(i: number) {
+		questionI = i;
+		history.back();
+	}
 </script>
 
-<svelte:window {onkeydown} {onpopstate} />
+<svelte:window {onkeydown} />
 
-<div class="container">
-	<header>
-		<a onclick={popstate} href="/">{name}</a>
-	</header>
+{#if finished}
+	<Results {test} {answers} {elapsed} onreview={review} />
+{:else}
+	<div class="container">
+		<header>
+			<a onclick={popstate} href="/">{name}</a>
+		</header>
 
-	<main>
-		{#if isRandom}
-			{@const seconds = Math.floor(elapsed % 60)}
-			{@const minutes = Math.floor(elapsed / 60)}
-			<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
-		{/if}
-
-		<nav class="questions" aria-label="Питання">
-			{#each test as _, i}
-				<button
-					type="button"
-					aria-label={`${i + 1}`}
-					class:correct={answers[i][0] !== -1 && answers[i][1]}
-					class:incorrect={answers[i][0] !== -1 && !answers[i][1]}
-					class:current={questionI === i}
-					onclick={({ currentTarget }) => (questionI = +currentTarget.ariaLabel! - 1)}
-				></button>
-			{/each}
-		</nav>
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<section class="question" {ontouchstart} {ontouchend}>
-			<h2 id="question-name">{question.name}</h2>
-			{#if "image" in question}
-				<img src={question.image} alt={question.name} />
+		<main>
+			{#if isRandom}
+				{@const seconds = Math.floor(elapsed % 60)}
+				{@const minutes = Math.floor(elapsed / 60)}
+				<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
 			{/if}
-			<ol class="answers" class:answered>
-				{#each question.answers as answer, i}
-					<li>
-						<button
-							aria-label="answer-{i + 1}"
-							type="button"
-							class:answered={answers[questionI][0] === i}
-							class:correct={answer.isCorrect}
-							onclick={async () => {
-								if (answers[questionI][0] === -1) {
-									answers[questionI] = [i, answer.isCorrect];
-									await tick();
-									document.querySelector(".question p")?.scrollIntoView({ behavior: "smooth" });
 
-									if (isRandom && answers.every(([i]) => i !== -1)) {
-										pushState(page.url, {});
-										finishDialog?.showModal();
-										clearInterval(interval);
-									}
-								}
-							}}
-						>
-							{answer.text}
-						</button>
-					</li>
+			<nav class="questions" aria-label="Питання">
+				{#each test as _, i}
+					<button
+						type="button"
+						aria-label={`${i + 1}`}
+						class:correct={answers[i][0] !== -1 && answers[i][1]}
+						class:incorrect={answers[i][0] !== -1 && !answers[i][1]}
+						class:current={questionI === i}
+						onclick={({ currentTarget }) => (questionI = +currentTarget.ariaLabel! - 1)}
+					></button>
 				{/each}
-			</ol>
-			{#if answered && question.explanation?.comment}
-				<p>{question.explanation.comment}</p>
-			{/if}
-			<nav class="question-buttons">
-				{#if questionI < test.length - 1}
-					<button
-						type="button"
-						onclick={async () => {
-							questionI++;
-							await tick();
-							document
-								.getElementById("question-name")
-								?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
-						}}
-					>
-						{answered ? "Некст" : "Пропустити"}
-					</button>
-				{/if}
-				{#if answered && question.explanation?.legal}
-					<button
-						type="button"
-						onclick={() => {
-							pushState(page.url, {});
-							legalDialog?.showModal();
-						}}
-					>
-						Стаття
-					</button>
-				{/if}
 			</nav>
-		</section>
-	</main>
-</div>
+			<!-- svelte-ignore a11y_no_static_element_interactions -->
+			<section class="question" {ontouchstart} {ontouchend}>
+				<h2 id="question-name">{question.name}</h2>
+				{#if "image" in question}
+					<img src={question.image} alt={question.name} />
+				{/if}
+				<ol class="answers" class:answered>
+					{#each question.answers as answer, i}
+						<li>
+							<button
+								aria-label="answer-{i + 1}"
+								type="button"
+								class:answered={answers[questionI][0] === i}
+								class:correct={answer.isCorrect}
+								onclick={async () => {
+									if (answers[questionI][0] === -1) {
+										answers[questionI] = [i, answer.isCorrect];
+										await tick();
+										document.querySelector(".question p")?.scrollIntoView({ behavior: "smooth" });
 
-{#if question.explanation?.legal}
-	<dialog bind:this={legalDialog} class="legal">
-		<form method="dialog">
-			<h1>{question.explanation.legal.title}</h1>
-			<button onclick={popstate}>X</button>
-		</form>
-		<article>
-			{@html question.explanation.legal.html}
-		</article>
-	</dialog>
-{/if}
-
-{#if isRandom}
-	{@const correctAnswers = answers.filter(([, correct]) => correct).length}
-	{@const passed = test.length - correctAnswers <= 2}
-	{@const seconds = Math.floor(elapsed % 60)}
-	{@const minutes = Math.floor(elapsed / 60)}
-	<dialog style:background-color="var(--{passed ? 'green' : 'red'}" bind:this={finishDialog} id="finish-stats">
-		<h1 class:passed>{passed ? "Здано" : "Не здано"}</h1>
-		<div class="count">
-			<span>{correctAnswers}</span>
-			<span>/</span>
-			<span>{test.length}</span>
-			<span>відповідей</span>
-		</div>
-		<div class="percent">{((correctAnswers / test.length) * 100).toFixed(0)}%</div>
-		<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
-		<a href="/">На головну</a>
-	</dialog>
+										if (isRandom && answers.every(([i]) => i !== -1)) {
+											clearInterval(interval);
+											elapsed = (Date.now() - start) / 1000;
+											pushState("", { finished: true });
+										}
+									}
+								}}
+							>
+								{answer.text}
+							</button>
+						</li>
+					{/each}
+				</ol>
+				{const explanation = question.explanation}
+				{#if answered && explanation?.comment}
+					<p>{explanation.comment}</p>
+				{/if}
+				<nav class="question-buttons" aria-label="Навігація по питаннях">
+					<button
+						type="button"
+						class="arrow"
+						aria-label="Попереднє питання"
+						disabled={questionI === 0}
+						onclick={() => goto(questionI - 1)}
+					>
+						←
+					</button>
+					<button
+						type="button"
+						class="arrow"
+						aria-label="Наступне питання"
+						disabled={questionI === test.length - 1}
+						onclick={() => goto(questionI + 1)}
+					>
+						→
+					</button>
+				</nav>
+				{#if answered && explanation?.legal}
+					<details class="legal">
+						<summary>{explanation.legal.title}</summary>
+						<article>
+							{@html explanation.legal.html}
+						</article>
+					</details>
+				{/if}
+			</section>
+		</main>
+	</div>
 {/if}
 
 <style>
@@ -309,6 +285,14 @@
 						color: white;
 						box-shadow: unset;
 					}
+
+					&.current.correct {
+						box-shadow: inset 0 0 0 2px var(--green);
+					}
+
+					&.current.incorrect {
+						box-shadow: inset 0 0 0 2px var(--red);
+					}
 				}
 			}
 
@@ -320,7 +304,7 @@
 				padding-bottom: 1rem;
 
 				h2 {
-					font-size: 1.5rem;
+					font-size: var(--text-xl);
 					font-weight: bold;
 				}
 
@@ -328,7 +312,7 @@
 					border-radius: 0.2rem;
 					background-color: var(--main);
 					padding: 0.5rem;
-					font-size: 0.9rem;
+					font-size: var(--text-sm);
 					color: white;
 				}
 
@@ -396,21 +380,40 @@
 
 				.question-buttons {
 					display: flex;
-					flex-direction: row-reverse;
+					flex-direction: row;
 					align-items: center;
-					justify-content: space-around;
+					justify-content: space-between;
+					gap: 1rem;
 
 					button {
-						width: 7rem;
+						min-width: 5rem;
 						text-align: center;
-						padding: 0.2rem;
-						border: 1px solid black;
+						line-height: 1.5rem;
+						border: 2px solid var(--main);
 						border-radius: 0.3rem;
-						box-shadow: inset 0 0 0 1px rgb(55, 55, 55);
-						padding: 0.5rem;
-						background-color: var(--main);
-						color: white;
+						padding: 0.5rem 1rem;
+						background-color: transparent;
+						color: var(--main);
 						cursor: pointer;
+						transition:
+							background-color 0.15s,
+							color 0.15s;
+
+						&.arrow {
+							font-size: var(--text-lg);
+						}
+
+						@media (hover: hover) {
+							&:hover {
+								background-color: var(--main);
+								color: white;
+							}
+						}
+
+						/* keeps the layout slot so the other arrow stays put */
+						&:disabled {
+							visibility: hidden;
+						}
 					}
 				}
 			}
@@ -418,69 +421,19 @@
 	}
 
 	.legal {
-		max-width: 1280px;
-		width: 50%;
-		height: 80%;
-		margin: auto;
-		background-color: var(--bg-color);
-		border-radius: 0.2rem;
-		color: var(--text-color);
+		border: 1px solid var(--main);
+		border-radius: 0.3rem;
 
-		form {
-			display: flex;
-			justify-content: space-between;
-			font-size: 2rem;
-			font-weight: bold;
+		summary {
 			padding: 0.5rem;
+			font-weight: bold;
+			color: var(--main);
+			cursor: pointer;
 		}
 
 		article {
-			font-size: 0.8rem;
-			padding: 0.5rem;
-		}
-
-		&::backdrop {
-			background-color: rgba(0, 0, 0, 0.8);
-		}
-	}
-
-	#finish-stats[open] {
-		display: flex;
-		margin: auto;
-		max-width: 50%;
-		max-height: 50%;
-		padding: 1rem;
-		border-radius: 0.5rem;
-		flex-direction: column;
-		align-items: center;
-
-		h1 {
-			margin: auto;
-			outline: var(--red);
-			border-color: var(--red);
-			font-size: 3rem;
-
-			&.passed {
-				outline: var(--green);
-			}
-		}
-
-		.count {
-			padding: 0.5rem;
-		}
-
-		.percent {
-			padding: 0.5rem;
-		}
-
-		a {
-			background-color: var(--main);
-			padding: 0.5rem;
-			border-radius: 0.3rem;
-		}
-
-		&::backdrop {
-			background-color: rgba(0, 0, 0, 0.8);
+			font-size: var(--text-sm);
+			padding: 0 0.5rem 0.5rem;
 		}
 	}
 
@@ -503,58 +456,17 @@
 					flex-wrap: nowrap;
 					overflow-x: auto;
 					align-self: center;
+
+					/* the smaller root size would leave these below a comfortable tap target */
+					button {
+						min-width: 2.5rem;
+						min-height: 2.5rem;
+					}
 				}
 
 				.question {
 					width: 100%;
-					padding-bottom: 3.75rem;
-
-					.question-buttons {
-						background-color: var(--bg-color);
-						position: fixed;
-						box-shadow: 0 0 0.5rem 0.05rem rgb(0 0 0 / 20%);
-						width: 100%;
-						left: 0;
-						bottom: 0;
-
-						button {
-							margin: 0.5rem;
-							padding: 0.5rem;
-						}
-					}
 				}
-			}
-		}
-
-		.legal {
-			width: 100%;
-			height: 100%;
-
-			h1 {
-				font-size: 1.5rem;
-			}
-
-			article {
-				font-size: 0.9rem;
-			}
-		}
-
-		#finish-stats[open] {
-			margin: auto;
-			min-width: 90%;
-			min-height: 60%;
-			justify-content: space-around;
-
-			h1 {
-				margin: 0;
-			}
-
-			.count {
-				font-size: 2rem;
-			}
-
-			.percent {
-				font-size: 2rem;
 			}
 		}
 	}

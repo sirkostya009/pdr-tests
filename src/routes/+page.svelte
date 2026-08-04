@@ -56,7 +56,7 @@
 		padding: 3rem 1rem;
 
 		h1 {
-			font-size: 2rem;
+			font-size: var(--text-2xl);
 			font-weight: bold;
 		}
 
@@ -83,7 +83,7 @@
 					margin-top: 0.5rem;
 					width: max-content;
 					max-width: 18rem;
-					font-size: 0.75rem;
+					font-size: var(--text-xs);
 					line-height: 1.4;
 					list-style: disc;
 					padding: 0.5rem 0.7rem 0.5rem 1.5rem;
@@ -146,7 +146,7 @@
 	section {
 		h2 {
 			text-align: center;
-			font-size: 1.5rem;
+			font-size: var(--text-xl);
 			font-weight: bold;
 			padding-bottom: 1.5rem;
 		}
@@ -154,7 +154,7 @@
 		ol {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			font-size: 0.85rem;
+			font-size: var(--text-sm);
 
 			li {
 				list-style: none;

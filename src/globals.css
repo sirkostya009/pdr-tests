@@ -1,5 +1,47 @@
+/* e-Ukraine by Dmytro Rastvortsev, released free under the Diia brand — https://plan.diia.gov.ua */
+@font-face {
+	font-family: "e-Ukraine";
+	src: url("/fonts/e-Ukraine-Light.woff2") format("woff2");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "e-Ukraine";
+	src: url("/fonts/e-Ukraine-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "e-Ukraine";
+	src: url("/fonts/e-Ukraine-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "e-Ukraine Head";
+	src: url("/fonts/e-UkraineHead-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
 :root {
 	box-sizing: border-box;
+	--font: "e-Ukraine", system-ui, sans-serif;
+	--font-heading: "e-Ukraine Head", var(--font);
+
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-lg: 1.25rem;
+	--text-xl: 1.5rem;
+	--text-2xl: 2rem;
+	--text-display: clamp(3rem, 14vw, 4rem);
 }
 
 *,
@@ -124,12 +166,18 @@ body {
 }
 
 html {
-	font: 20px/1.5 sans-serif;
+	/* 16px on a phone, easing up to 20px on desktop */
+	font: clamp(16px, 14px + 0.55vw, 20px) / 1.5 var(--font);
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
 	text-overflow: ellipsis;
+}
+
+h1,
+h2 {
+	font-family: var(--font-heading);
 }
 
 body {
