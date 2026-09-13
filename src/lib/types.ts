@@ -4,7 +4,7 @@ export interface Question {
 	image?: string;
 	explanation?: {
 		comment?: string;
-		legal: {
+		legal?: {
 			title: string;
 			html: string;
 		};
