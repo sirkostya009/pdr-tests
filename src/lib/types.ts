@@ -2,12 +2,10 @@ export interface Question {
 	name: string;
 	answers: { text: string; isCorrect: boolean }[];
 	image?: string;
-	explanation?: {
-		comment?: string;
-		legal?: {
-			title: string;
-			html: string;
-		};
+	comment?: string;
+	legal?: {
+		headline: string;
+		html: string;
 	};
 }
 

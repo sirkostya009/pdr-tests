@@ -189,9 +189,8 @@
 						</li>
 					{/each}
 				</ol>
-				{const explanation = question.explanation}
-				{#if answered && explanation?.comment}
-					<p>{explanation.comment}</p>
+				{#if answered && question.comment}
+					<p>{question.comment}</p>
 				{/if}
 				<nav class="question-buttons" aria-label="Навігація по питаннях">
 					<button
@@ -213,11 +212,16 @@
 						→
 					</button>
 				</nav>
-				{#if answered && explanation?.legal}
+				{#if answered && question.legal}
 					<details class="legal">
-						<summary>{explanation.legal.title}</summary>
+						<summary>{question.legal.headline}</summary>
 						<article>
-							{@html explanation.legal.html}
+							{@html question.legal.html}
+							<p>
+								<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF" target="_blank" rel="noopener">
+									Правила дорожнього руху України, затверджені постановою КМУ від 10.10.2001 № 1306
+								</a>
+							</p>
 						</article>
 					</details>
 				{/if}
