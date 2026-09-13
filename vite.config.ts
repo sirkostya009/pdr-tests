@@ -12,6 +12,9 @@ export default defineConfig({
 			prerender: {
 				handleHttpError: "warn",
 			},
+			version: {
+				pollInterval: 60_000,
+			}
 		}),
 	],
 });
