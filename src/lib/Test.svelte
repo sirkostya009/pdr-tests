@@ -174,7 +174,7 @@
 									if (answers[questionI][0] === -1) {
 										answers[questionI] = [i, answer.isCorrect];
 										await tick();
-										document.querySelector(".question p")?.scrollIntoView({ behavior: "smooth" });
+										document.querySelector(".question-buttons")?.scrollIntoView({ behavior: "smooth" });
 
 										if (isRandom && answers.every(([i]) => i !== -1)) {
 											clearInterval(interval);
@@ -189,9 +189,6 @@
 						</li>
 					{/each}
 				</ol>
-				{#if answered && question.comment}
-					<p>{question.comment}</p>
-				{/if}
 				<nav class="question-buttons" aria-label="Навігація по питаннях">
 					<button
 						type="button"
@@ -212,18 +209,28 @@
 						→
 					</button>
 				</nav>
-				{#if answered && question.legal}
-					<details class="legal">
-						<summary>{question.legal.headline}</summary>
-						<article>
-							{@html question.legal.html}
-							<p>
-								<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF#n{question.legal.anchor}" target="_blank" rel="noopener">
-									Правила дорожнього руху України, затверджені постановою КМУ від 10.10.2001 № 1306
-								</a>
-							</p>
-						</article>
-					</details>
+				{#if answered && (question.comment || question.legal)}
+					<div class="notes">
+						{#if question.comment}
+							<p class="comment">{question.comment}</p>
+						{/if}
+						{#if question.comment && question.legal}
+							<hr />
+						{/if}
+						{#if question.legal}
+							<div class="legal">
+								<h3>{question.legal.headline}</h3>
+								<article>
+									{@html question.legal.html}
+									<p>
+										<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF#n{question.legal.anchor}" target="_blank" rel="noopener">
+											Правила дорожнього руху України, затверджені постановою КМУ від 10.10.2001 № 1306
+										</a>
+									</p>
+								</article>
+							</div>
+						{/if}
+					</div>
 				{/if}
 			</section>
 		</main>
@@ -243,10 +250,15 @@
 		}
 
 		time {
+			position: absolute;
+			top: 0;
+			right: 0;
 			color: grey;
+			font-variant-numeric: tabular-nums;
 		}
 
 		main {
+			position: relative;
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
@@ -310,14 +322,6 @@
 				h2 {
 					font-size: var(--text-xl);
 					font-weight: bold;
-				}
-
-				p {
-					border-radius: 0.2rem;
-					background-color: var(--main);
-					padding: 0.5rem;
-					font-size: var(--text-sm);
-					color: white;
 				}
 
 				img {
@@ -420,24 +424,38 @@
 						}
 					}
 				}
+
+				.notes {
+					font-size: var(--text-sm);
+					border: 1px solid var(--main);
+					border-radius: 0.3rem;
+					padding: 0.5rem;
+
+					hr {
+						border: none;
+						border-top: 1px solid var(--main);
+						margin: 0.5rem 0;
+					}
+
+					.comment {
+						margin: 0;
+					}
+
+					.legal {
+						h3 {
+							margin: 0 0 0.5rem;
+							font-weight: bold;
+							color: var(--main);
+						}
+
+						a {
+							display: inline-block;
+							margin-top: 0.5rem;
+							color: var(--main);
+						}
+					}
+				}
 			}
-		}
-	}
-
-	.legal {
-		border: 1px solid var(--main);
-		border-radius: 0.3rem;
-
-		summary {
-			padding: 0.5rem;
-			font-weight: bold;
-			color: var(--main);
-			cursor: pointer;
-		}
-
-		article {
-			font-size: var(--text-sm);
-			padding: 0 0.5rem 0.5rem;
 		}
 	}
 
