@@ -218,7 +218,7 @@
 						<article>
 							{@html question.legal.html}
 							<p>
-								<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF" target="_blank" rel="noopener">
+								<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF#n{question.legal.anchor}" target="_blank" rel="noopener">
 									Правила дорожнього руху України, затверджені постановою КМУ від 10.10.2001 № 1306
 								</a>
 							</p>

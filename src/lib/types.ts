@@ -6,6 +6,8 @@ export interface Question {
 	legal?: {
 		headline: string;
 		html: string;
+		/** paragraph anchor in the act, e.g. 168 → #n168 */
+		anchor: number;
 	};
 }
 
