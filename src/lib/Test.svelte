@@ -166,6 +166,8 @@
 						sizes="(max-width: 1024px) 100vw, 50vw"
 						style:max-width="{question.picture.img.w}px"
 					/>
+				{:else if question.sign}
+					<img class="sign" src={question.sign} alt={question.name} />
 				{/if}
 				<ol class="answers" class:answered>
 					{#each question.answers as answer, i}
@@ -335,6 +337,15 @@
 					margin-inline: auto;
 				}
 
+				.sign {
+					display: block;
+					width: 100%;
+					max-width: 14rem;
+					max-height: 14rem;
+					object-fit: contain;
+					margin-inline: auto;
+				}
+
 				.answers {
 					display: flex;
 					flex-direction: column;
@@ -455,6 +466,12 @@
 
 						b {
 							color: var(--main);
+						}
+
+						article :global(img[src$=".svg"]) {
+							height: 1.5em;
+							width: auto;
+							vertical-align: middle;
 						}
 
 						a {

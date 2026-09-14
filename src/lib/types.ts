@@ -6,6 +6,8 @@ export interface Question {
 	/** path relative to `src/lib/images` */
 	image?: string;
 	picture?: Picture;
+	/** url of an svg road sign */
+	sign?: string;
 	comment?: string;
 	legal?: {
 		clause: string;

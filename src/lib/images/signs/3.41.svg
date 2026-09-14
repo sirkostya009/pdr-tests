@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="UA_road_sign_3.40.svg"
+   id="svg186"
+   version="1.1"
+   fill-rule="evenodd"
+   height="605"
+   width="605"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata192">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs190" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg186"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:cy="273.68866"
+     inkscape:cx="249.97929"
+     inkscape:zoom="0.97008038"
+     showgrid="false"
+     id="namedview188"
+     inkscape:window-height="991"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <circle
+     id="circle178"
+     stroke="none"
+     fill="#000"
+     r="301.5"
+     cy="302.5"
+     cx="302.5" />
+  <circle
+     id="circle180"
+     stroke="none"
+     fill="#fff"
+     r="300"
+     cy="302.5"
+     cx="302.5" />
+  <circle
+     id="circle182"
+     stroke="none"
+     fill="#da251d"
+     r="290"
+     cy="302.5"
+     cx="302.5" />
+  <circle
+     id="circle184"
+     stroke="none"
+     fill="#fff"
+     r="240"
+     cy="302.5"
+     cx="302.5" />
+  <path
+     id="path118"
+     style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:26.7792;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+     d="m 111.75495,285.94327 c -9.1719,0 -16.553998,7.38215 -16.553998,16.55382 0,9.17164 7.382098,16.55964 16.553998,16.55964 h 381.4904 c 9.1716,0 16.5537,-7.388 16.5537,-16.55964 0,-9.17167 -7.3821,-16.55382 -16.5537,-16.55382 z" />
+  <path
+     d="m 95.783841,401.08441 h 11.573249 v -25.91025 h 6.9094 l 17.10076,25.91025 h 13.64607 l -21.16004,-31.0923 19.34632,-29.36495 h -13.64607 l -15.37341,24.26927 h -6.82303 V 340.62716 H 95.783841 Z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1359" />
+  <path
+     d="m 169.21954,339.84985 c -16.40982,0 -25.82388,11.22778 -25.82388,31.00594 0,19.77815 9.41406,31.00593 25.82388,31.00593 16.40983,0 25.82388,-11.22778 25.82388,-31.00593 0,-19.77816 -9.41405,-31.00594 -25.82388,-31.00594 z m 0,10.27774 c 9.41406,0 14.16427,6.9094 14.16427,20.55546 0,13.8188 -4.75021,20.90094 -14.16427,20.90094 -9.41406,0 -14.16427,-7.08214 -14.16427,-20.7282 0,-13.73244 4.75021,-20.7282 14.16427,-20.7282 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1361" />
+  <path
+     d="m 213.98132,375.43326 h 24.44201 v 25.65115 h 11.57324 v -60.45725 h -11.57324 v 24.52837 h -24.44201 v -24.52837 h -11.57324 v 60.45725 h 11.57324 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1363" />
+  <path
+     d="m 283.96242,350.90489 h 17.35987 v -10.27773 h -46.29298 v 10.27773 h 17.35987 v 50.17952 h 11.57324 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1365" />
+  <path
+     d="m 317.92816,379.3198 h 11.83235 c 12.60965,0 20.90093,-7.60034 20.90093,-19.34632 0,-11.74598 -8.20491,-19.34632 -20.90093,-19.34632 h -23.40559 v 60.45725 h 11.57324 z m 20.9873,-19.34632 c 0,6.04573 -3.62743,9.06859 -10.70957,9.06859 h -10.27773 v -18.13718 h 10.19137 c 7.08213,0 10.79593,3.10923 10.79593,9.06859 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1367" />
+  <path
+     d="m 379.44518,339.84985 c -16.40982,0 -25.82388,11.22778 -25.82388,31.00594 0,19.77815 9.41406,31.00593 25.82388,31.00593 16.40983,0 25.82389,-11.22778 25.82389,-31.00593 0,-19.77816 -9.41406,-31.00594 -25.82389,-31.00594 z m 0,10.27774 c 9.41406,0 14.16427,6.9094 14.16427,20.55546 0,13.8188 -4.75021,20.90094 -14.16427,20.90094 -9.41405,0 -14.16427,-7.08214 -14.16427,-20.7282 0,-13.73244 4.75022,-20.7282 14.16427,-20.7282 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1369" />
+  <path
+     d="m 407.36535,402.20719 c 15.71888,-3.88654 18.82811,-11.91872 21.07367,-51.3023 h 16.23709 v 50.17952 h 11.57324 v -60.45725 h -37.82896 c -1.98646,40.85183 -4.14564,48.79764 -13.90517,51.21593 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1371" />
+  <path
+     d="m 466.55047,340.62716 v 60.45725 h 23.4056 c 12.69602,0 20.90093,-7.4276 20.90093,-18.91448 0,-11.48688 -8.29128,-18.91448 -20.90093,-18.91448 h -11.83235 v -22.62829 z m 32.56055,41.54277 c 0,5.70025 -3.7138,8.63675 -10.79594,8.63675 h -10.19136 v -17.2735 h 10.27773 c 7.08214,0 10.70957,2.93649 10.70957,8.63675 z"
+     style="font-weight:bold;font-size:86.3675px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';letter-spacing:-3.86314px;opacity:1;stroke-width:1.70463;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1373" />
+  <path
+     d="m 213.39597,236.51174 c 0,-16.20072 -11.74552,-26.32617 -33.7515,-29.70132 -12.69056,-1.89009 -18.36082,-5.67025 -18.36082,-12.15054 0,-6.88531 6.07527,-10.93549 16.60574,-10.93549 7.42533,0 14.71566,2.02509 19.98089,7.42533 l 12.82557,-10.93548 c -8.23537,-8.9104 -20.79092,-12.55556 -33.48149,-12.55556 -21.46595,0 -34.15652,10.26045 -34.15652,27.0012 0,15.7957 10.93549,25.65114 31.72641,28.75627 13.63561,2.02509 20.52092,6.6153 20.52092,13.90562 0,7.02031 -6.48029,11.2055 -17.55078,11.2055 -9.85544,0 -19.03585,-3.37515 -25.11112,-10.39546 l -12.69056,11.3405 c 9.45042,11.34051 22.95102,15.12067 36.58662,15.12067 23.35604,0 36.85664,-10.66547 36.85664,-28.08124 z"
+     style="font-weight:bold;font-size:135.006px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';opacity:1;stroke-width:2.66459;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1376" />
+  <path
+     d="m 264.42841,184.93945 h 27.1362 V 168.87373 H 219.2014 v 16.06572 h 27.1362 v 78.43848 h 18.09081 z"
+     style="font-weight:bold;font-size:135.006px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';opacity:1;stroke-width:2.66459;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1378" />
+  <path
+     d="m 337.8716,167.65868 c -25.65114,0 -40.36679,17.55078 -40.36679,48.46715 0,30.91637 14.71565,48.46715 40.36679,48.46715 25.65114,0 40.23179,-17.55078 40.23179,-48.46715 0,-30.91637 -14.58065,-48.46715 -40.23179,-48.46715 z m 0,16.06571 c 14.71566,0 22.14099,10.80048 22.14099,32.13143 0,21.60096 -7.42533,32.67145 -22.14099,32.67145 -14.71565,0 -22.14098,-11.07049 -22.14098,-32.40144 0,-21.46595 7.42533,-32.40144 22.14098,-32.40144 z"
+     style="font-weight:bold;font-size:135.006px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';opacity:1;stroke-width:2.66459;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1380" />
+  <path
+     d="m 413.88001,229.35642 h 18.49583 c 19.71087,0 32.67145,-11.88053 32.67145,-30.24134 0,-18.36082 -12.82557,-30.24135 -32.67145,-30.24135 h -36.58663 v 94.5042 h 18.0908 z m 32.80646,-30.24134 c 0,9.45042 -5.67025,14.17562 -16.74074,14.17562 h -16.06572 v -28.35125 h 15.93071 c 11.07049,0 16.87575,4.86021 16.87575,14.17563 z"
+     style="font-weight:bold;font-size:135.006px;font-family:'Road UA';-inkscape-font-specification:'Road UA Bold';opacity:1;stroke-width:2.66459;stroke-linecap:square;paint-order:stroke fill markers"
+     id="path1382" />
+</svg>

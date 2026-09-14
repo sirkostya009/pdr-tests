@@ -1,0 +1,31 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #005da2;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-1" x="0.5" y="0.5" width="699" height="699" rx="44.5"/>
+    <path d="M655,1a44.04978,44.04978,0,0,1,44,44V655a44.04978,44.04978,0,0,1-44,44H45A44.04978,44.04978,0,0,1,1,655V45A44.04977,44.04977,0,0,1,45,1H655m0-1H45A45,45,0,0,0,0,45V655a45,45,0,0,0,45,45H655a45,45,0,0,0,45-45V45A45,45,0,0,0,655,0Z"/>
+  </g>
+  <rect class="cls-2" x="20" y="20" width="660" height="660" rx="35"/>
+  <polygon class="cls-1" points="450 265 383 265 383 680 315 680 315 265 248 265 349 85 450 265"/>
+  <g>
+    <rect class="cls-1" x="166" y="615" width="22" height="65"/>
+    <rect class="cls-1" x="166" y="516" width="22" height="70"/>
+    <rect class="cls-1" x="166" y="418" width="22" height="70"/>
+    <rect class="cls-1" x="166" y="322" width="22" height="70"/>
+  </g>
+  <g>
+    <rect class="cls-1" x="506" y="615" width="22" height="65"/>
+    <rect class="cls-1" x="506" y="516" width="22" height="70"/>
+    <rect class="cls-1" x="506" y="418" width="22" height="70"/>
+    <rect class="cls-1" x="506" y="322" width="22" height="70"/>
+  </g>
+</svg>

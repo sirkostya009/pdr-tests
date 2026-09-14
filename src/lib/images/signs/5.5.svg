@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="604" height="604">
+<title>5.5 Дорога з одностороннім рухом</title>
+<defs><style>.a{fill:#fff}</style></defs><rect class="a" x="1" y="1" width="602" height="602" rx="46"/><path d="M557 2a45 45 0 0 1 45 45v510a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h510m0-2H47A47.053 47.053 0 0 0 0 47v510a47.053 47.053 0 0 0 47 47h510a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="580" height="580" rx="35" style="fill:#005da2"/><path class="a" d="M462 349H362v243H242V349H142L302 71.87 462 349z"/>
+</svg>
