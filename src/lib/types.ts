@@ -1,7 +1,11 @@
+import type { Picture } from "@sveltejs/enhanced-img";
+
 export interface Question {
 	name: string;
 	answers: { text: string; isCorrect: boolean }[];
+	/** path relative to `src/lib/images` */
 	image?: string;
+	picture?: Picture;
 	comment?: string;
 	legal?: {
 		clause: string;

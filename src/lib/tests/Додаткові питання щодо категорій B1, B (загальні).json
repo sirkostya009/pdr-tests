@@ -6,7 +6,7 @@
       { "text": "Для зупинки та стоянки.", "isCorrect": true },
       { "text": "Відповіді, зазначені в пунктах 1, 2.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0281052001707175451.jpg"
+    "image": "base/0281052001707175451.jpg"
   },
   {
     "name": "З якого віку надається право на керування транспортними засобами категорії В?",
@@ -16,7 +16,7 @@
       { "text": "З 19 років.", "isCorrect": false },
       { "text": "З 21 року.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0281937001707175451.jpg"
+    "image": "base/0281937001707175451.jpg"
   },
   {
     "name": "Яку максимальну швидкість руху встановлено в населених пунктах, позначених даним дорожнім знаком?",
@@ -26,7 +26,7 @@
       { "text": "70 км/год.", "isCorrect": false },
       { "text": "80 км/год.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0195204001707234819.png"
+    "image": "base/0195204001707234819.png"
   },
   {
     "name": "Кожна особа, під час проходження навчання практичного водіння на легковому автомобілі (категорія В), зобов'язана отримати:",

@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { resolveImages } from "$lib/images";
 	import Test from "$lib/Test.svelte";
 	import structure from "$lib/tests/Додаткові питання щодо категорій B1, B (будова і терміни).json";
 	import general from "$lib/tests/Загальні положення.json";
 	import medical from "$lib/tests/Надання першої медичної допомоги.json";
 	import safety from "$lib/tests/Основи безпечного водіння.json";
+	import type { Question } from "$lib/types";
 
 	function shuffleArray<T>(t: T[]) {
 		var array = [...t];
@@ -16,12 +18,14 @@
 		return array;
 	}
 
-	const test = shuffleArray([
-		...shuffleArray(general).slice(-10),
-		...shuffleArray(structure).slice(-4),
-		...shuffleArray(medical).slice(-4),
-		...shuffleArray(safety).slice(-2),
-	]);
+	const test = await resolveImages(
+		shuffleArray<Question>([
+			...shuffleArray(general).slice(-10),
+			...shuffleArray(structure).slice(-4),
+			...shuffleArray(medical).slice(-4),
+			...shuffleArray(safety).slice(-2),
+		]),
+	);
 </script>
 
 <svelte:head>
@@ -30,4 +34,4 @@
 	<meta property="og:description" content="20 випадкових питань з ПДР" />
 </svelte:head>
 
-<Test name="Рандом" test={test as any} />
+<Test name="Рандом" {test} />

@@ -7,7 +7,7 @@
       { "text": "Сигналами регулювальника.", "isCorrect": true },
       { "text": "Перешкодою праворуч.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0193381001707175451.jpg"
+    "image": "base/0193381001707175451.jpg"
   },
   {
     "name": "Які транспортні засоби поставлені з порушенням Правил дорожнього руху?",
@@ -17,7 +17,7 @@
       { "text": "Зелений мотоцикл із боковим причепом.", "isCorrect": false },
       { "text": "Коричневий мотоцикл із боковим причепом.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0194616001707175451.jpg"
+    "image": "base/0194616001707175451.jpg"
   },
   {
     "name": "Хто з водіїв може рухатися з більш високою швидкістю на автомагістралі?",
@@ -35,7 +35,7 @@
         "isCorrect": true
       }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0189888001707175451.jpg"
+    "image": "base/0189888001707175451.jpg"
   },
   {
     "name": "Хто з показаних мотоциклістів порушує правила буксирування?",
@@ -46,7 +46,7 @@
       { "text": "Мотоциклісти на мал. 2 і 3.", "isCorrect": true },
       { "text": "Мотоциклісти на мал. 1 і 3.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0200144001707175451.jpg"
+    "image": "base/0200144001707175451.jpg"
   },
   {
     "name": "Кому з водіїв дозволено рух з більш високою швидкістю?",
@@ -58,7 +58,7 @@
         "isCorrect": true
       }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0190943001707175451.jpg"
+    "image": "base/0190943001707175451.jpg"
   },
   {
     "name": "Проїжджаючи це перехрестя, водії повинні керуватися:",
@@ -67,7 +67,7 @@
       { "text": "Сигналами світлофора.", "isCorrect": true },
       { "text": "Правильні обидва варіанти.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0192245001707175451.jpg"
+    "image": "base/0192245001707175451.jpg"
   },
   {
     "name": "З якою максимальною швидкістю дозволено рух мопедів на автомагістралях?",
@@ -78,7 +78,7 @@
       { "text": "110 км/год.", "isCorrect": false },
       { "text": "130 км/год.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0195877001707175451.jpg"
+    "image": "base/0195877001707175451.jpg"
   },
   {
     "name": "Чи дозволено водієві мопеда продовжити рух прямо, якщо він обслуговує підприємства, що розташовані в позначеній зоні до найближчого перехрестя?",
@@ -86,7 +86,7 @@
       { "text": "Дозволено.", "isCorrect": true },
       { "text": "Заборонено.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0197130001707175451.jpg"
+    "image": "base/0197130001707175451.jpg"
   },
   {
     "name": "Чи дозволено водієві мопеда рух у зону дії зображеного дорожнього знака?",
@@ -94,7 +94,7 @@
       { "text": "Заборонено.", "isCorrect": true },
       { "text": "Дозволено.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0198397001707175451.jpg"
+    "image": "base/0198397001707175451.jpg"
   },
   {
     "name": "Чи дозволено рух водієві мотоцикла, що виконує доставку товарів на підприємства, розташовані в зоні дії даного дорожнього знака?",
@@ -103,7 +103,7 @@
       { "text": "Дозволено тільки в будні дні.", "isCorrect": false },
       { "text": "Дозволено.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0199308001707175451.jpg"
+    "image": "base/0199308001707175451.jpg"
   },
   {
     "name": "Зображений дорожній знак забороняє рух:",
@@ -112,7 +112,7 @@
       { "text": "Мопедів.", "isCorrect": false },
       { "text": "Мотоциклів і мопедів.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0201022001707175451.jpg"
+    "image": "base/0201022001707175451.jpg"
   },
   {
     "name": "Чи дозволено водієві мотоцикла повернути ліворуч, якщо він там проживає?",
@@ -120,7 +120,7 @@
       { "text": "Заборонено", "isCorrect": false },
       { "text": "Дозволено.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0201879001707175451.jpg"
+    "image": "base/0201879001707175451.jpg"
   },
   {
     "name": "З якою максимальною швидкістю дозволено рух мотоциклів на дорогах з окремими проїзними частинами поза населеними пунктами?",

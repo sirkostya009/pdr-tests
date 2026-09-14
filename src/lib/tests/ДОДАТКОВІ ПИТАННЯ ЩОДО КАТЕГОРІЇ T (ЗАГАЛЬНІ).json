@@ -8,7 +8,7 @@
       },
       { "text": "Дати дорогу автомобілю.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0805302001707175451.jpg"
+    "image": "base/0805302001707175451.jpg"
   },
   {
     "name": "У якому напрямку дозволено рух трамвая в даній ситуації?",
@@ -18,7 +18,7 @@
       { "text": "Ліворуч.", "isCorrect": true },
       { "text": "Праворуч.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0806901001707175451.jpg"
+    "image": "base/0806901001707175451.jpg"
   },
   {
     "name": "На якому світлофорі горить сигнал, що дозволяє трамваю рух прямо?",
@@ -28,7 +28,7 @@
       { "text": "На світлофорах 2, 3 і 4.", "isCorrect": false },
       { "text": "На світлофорах 1, 2, 3 і 4.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0808339001707175451.jpg"
+    "image": "base/0808339001707175451.jpg"
   },
   {
     "name": "У якому напрямку дозволено рух трамвая в даній ситуації?",
@@ -37,7 +37,7 @@
       { "text": "Прямо.", "isCorrect": true },
       { "text": "Прямо або праворуч.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0810096001707175451.jpg"
+    "image": "base/0810096001707175451.jpg"
   },
   {
     "name": "У якому напрямку дозволено рух трамвая в даній ситуації?",
@@ -47,7 +47,7 @@
       { "text": "Прямо або ліворуч.", "isCorrect": false },
       { "text": "Ліворуч.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0811326001707175451.jpg"
+    "image": "base/0811326001707175451.jpg"
   },
   {
     "name": "Чи зобов'язаний водій трамвая дотримуватися визначеного маршруту та розкладу руху трамвая?",

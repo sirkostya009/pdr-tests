@@ -159,8 +159,8 @@
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<section class="question" {ontouchstart} {ontouchend}>
 				<h2 id="question-name">{question.name}</h2>
-				{#if "image" in question}
-					<img src={question.image} alt={question.name} />
+				{#if question.picture}
+					<enhanced:img src={question.picture} alt={question.name} sizes="(max-width: 1024px) 100vw, 50vw" />
 				{/if}
 				<ol class="answers" class:answered>
 					{#each question.answers as answer, i}
@@ -323,8 +323,9 @@
 					font-weight: bold;
 				}
 
-				img {
+				enhanced\:img {
 					width: 100%;
+					height: auto;
 				}
 
 				.answers {

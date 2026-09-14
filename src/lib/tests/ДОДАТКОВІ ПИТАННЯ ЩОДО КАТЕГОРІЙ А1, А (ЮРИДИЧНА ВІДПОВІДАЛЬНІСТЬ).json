@@ -8,7 +8,7 @@
       { "text": "90 км/год.", "isCorrect": false },
       { "text": "50 км/год.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0230981001707175451.jpg"
+    "image": "base/0230981001707175451.jpg"
   },
   {
     "name": "До якої категорії транспортних засобів належать мотоцикли?",
@@ -17,7 +17,7 @@
       { "text": "До категорії А.", "isCorrect": true },
       { "text": "До категорії В1.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0231890001707175451.jpg"
+    "image": "base/0231890001707175451.jpg"
   },
   {
     "name": "Право на керування транспортними засобами категорії А1 та А надається:",
@@ -26,7 +26,7 @@
       { "text": "З 18 років.", "isCorrect": false },
       { "text": "З 16 років.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0232755001707175451.jpg"
+    "image": "base/0232755001707175451.jpg"
   },
   {
     "name": "З якою максимальною швидкістю дозволено рух мотоциклів на дорогах, що проходять через населені пункти, позначені таким дорожнім знаком?",
@@ -37,7 +37,7 @@
       { "text": "90 км/год.", "isCorrect": false },
       { "text": "50 км/год.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0233614001707175451.jpg"
+    "image": "base/0233614001707175451.jpg"
   },
   {
     "name": "Чи дозволено ставити транспортні засоби в два ряди на проїзній частині?",

@@ -1,13 +1,14 @@
+import { resolveImages } from "$lib/images";
+import type { Question } from "$lib/types";
 import { error } from "@sveltejs/kit";
 
-const modules = import.meta.glob("$lib/tests/*.json");
+const modules = import.meta.glob<Question[]>("$lib/tests/*.json", { import: "default" });
 
 export async function load({ params }) {
 	const key = `/src/lib/tests/${params.test}.json`;
 	const loader = modules[key];
 	if (!loader) error(404, `test "${params.test}" not found`);
-	const mod = (await loader()) as { default: Record<string, unknown>[] };
-	return { name: params.test, test: mod.default };
+	return { name: params.test, test: await resolveImages(await loader()) };
 }
 
 export function entries() {

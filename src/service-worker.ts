@@ -7,6 +7,8 @@ import { build, prerendered, version } from "$service-worker";
 
 const scope = self as unknown as ServiceWorkerGlobalScope;
 const CACHE = `cache-${version}`;
+// cached on first view by the fetch handler rather than precached
+const IMAGE = /\.(avif|webp|jpe?g|png)$/i;
 
 if (!import.meta.env.DEV) {
 	scope.addEventListener("install", (event) => {
@@ -14,7 +16,11 @@ if (!import.meta.env.DEV) {
 		event.waitUntil(
 			caches
 				.open(CACHE)
-				.then((cache) => Promise.allSettled([...build, ...prerendered].map((path) => cache.add(path)))),
+				.then((cache) =>
+					Promise.allSettled(
+						[...build.filter((path) => !IMAGE.test(path)), ...prerendered].map((path) => cache.add(path)),
+					),
+				),
 		);
 	});
 }

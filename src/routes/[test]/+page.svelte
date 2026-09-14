@@ -9,4 +9,4 @@
 	<meta property="og:title" content="{data.name} — Тести ПДР" />
 </svelte:head>
 
-<Test name={data.name} test={data.test as any} />
+<Test name={data.name} test={data.test} />

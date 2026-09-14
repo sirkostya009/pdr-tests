@@ -5,10 +5,10 @@
       { "text": "Дозволено.", "isCorrect": false },
       { "text": "Заборонено.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0813664001707175449.jpg",
+    "image": "base/0813664001707175449.jpg",
     "legal": {
       "clause": "24.9",
-      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_1.png\">.</p>",
+      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"road-signs/small/RSS_5_1.png\">.</p>",
       "anchor": 754
     }
   },
@@ -22,10 +22,10 @@
         "isCorrect": false
       }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0814657001707175449.jpg",
+    "image": "base/0814657001707175449.jpg",
     "legal": {
       "clause": "24.9",
-      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_1.png\">.</p>",
+      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"road-signs/small/RSS_5_1.png\">.</p>",
       "anchor": 754
     }
   },
@@ -37,10 +37,10 @@
       { "text": "Знаками 1, 2, 4 і 5.", "isCorrect": false },
       { "text": "Всіма зазначеними знаками.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0815633001707175449.jpg",
+    "image": "base/0815633001707175449.jpg",
     "legal": {
       "clause": "24.9",
-      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_1.png\">.</p>",
+      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"road-signs/small/RSS_5_1.png\">.</p>",
       "anchor": 754
     }
   },
@@ -53,10 +53,10 @@
       { "text": "Знаками 1, 2, 3 і 4.", "isCorrect": false },
       { "text": "Знаками 1, 2 і 5.", "isCorrect": false }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0816592001707175449.jpg",
+    "image": "base/0816592001707175449.jpg",
     "legal": {
       "clause": "24.9",
-      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"https://pdr-online.com.ua/assets/images/pdr/road-signs/small/RSS_5_1.png\">.</p>",
+      "html": "<p>Забороняється навчання водінню транспортних засобів у житловій зоні 5.34<img src=\"road-signs/small/RSS_5_34.png\">, на дорогах для автомобілів 5.3<img src=\"road-signs/small/RSS_5_3.png\"> та на автомагістралях 5.1<img src=\"road-signs/small/RSS_5_1.png\">.</p>",
       "anchor": 754
     }
   },
@@ -239,7 +239,7 @@
       { "text": "Дозволено.", "isCorrect": false },
       { "text": "Заборонено.", "isCorrect": true }
     ],
-    "image": "https://pdr-online.com.ua/assets/images/pdr/base/0825833001707175449.jpg",
+    "image": "base/0825833001707175449.jpg",
     "comment": "Відповідно до п. 24.3. особа, яка навчається водінню транспортного засобу, зобов'язана знати та виконувати вимоги Правил дорожнього руху. У ПДР, а саме у п. 2.3. [в] є вимога щодо забезпечення безпеки дорожнього руху на автомобілях, обладнаних засобами пасивної безпеки (підголівники, ремені безпеки), що водій повинен користуватися ними і не перевозити пасажирів, не пристебнутих ременями безпеки. Тому учень повинен бути пристебнутий під час навчання практичному водінню автомобіля, хоч у населеному пункті, хоч поза ним.",
     "legal": {
       "clause": "24.3",
