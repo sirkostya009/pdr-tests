@@ -160,7 +160,12 @@
 			<section class="question" {ontouchstart} {ontouchend}>
 				<h2 id="question-name">{question.name}</h2>
 				{#if question.picture}
-					<enhanced:img src={question.picture} alt={question.name} sizes="(max-width: 1024px) 100vw, 50vw" />
+					<enhanced:img
+						src={question.picture}
+						alt={question.name}
+						sizes="(max-width: 1024px) 100vw, 50vw"
+						style:max-width="{question.picture.img.w}px"
+					/>
 				{/if}
 				<ol class="answers" class:answered>
 					{#each question.answers as answer, i}
@@ -324,8 +329,10 @@
 				}
 
 				enhanced\:img {
+					display: block;
 					width: 100%;
 					height: auto;
+					margin-inline: auto;
 				}
 
 				.answers {
