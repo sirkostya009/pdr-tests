@@ -8,15 +8,16 @@ import { build, prerendered, version } from "$service-worker";
 const scope = self as unknown as ServiceWorkerGlobalScope;
 const CACHE = `cache-${version}`;
 
-scope.addEventListener("install", (event) => {
-	scope.skipWaiting();
-	if (import.meta.env.DEV) return;
-	event.waitUntil(
-		caches
-			.open(CACHE)
-			.then((cache) => Promise.allSettled([...build, ...prerendered].map((path) => cache.add(path)))),
-	);
-});
+if (!import.meta.env.DEV) {
+	scope.addEventListener("install", (event) => {
+		scope.skipWaiting();
+		event.waitUntil(
+			caches
+				.open(CACHE)
+				.then((cache) => Promise.allSettled([...build, ...prerendered].map((path) => cache.add(path)))),
+		);
+	});
+}
 
 scope.addEventListener("activate", (event) =>
 	event.waitUntil(
@@ -40,12 +41,13 @@ async function fromNetwork(request: Request) {
 	}
 }
 
-scope.addEventListener("fetch", (event) => {
-	const url = new URL(event.request.url);
+if (!import.meta.env.DEV) {
+	scope.addEventListener("fetch", (event) => {
+		const url = new URL(event.request.url);
 
-	if (import.meta.env.DEV) return;
-	if (url.origin !== location.origin) return;
-	if (event.request.method !== "GET") return;
+		if (url.origin !== location.origin) return;
+		if (event.request.method !== "GET") return;
 
-	event.respondWith(fromNetwork(event.request));
-});
+		event.respondWith(fromNetwork(event.request));
+	});
+}
