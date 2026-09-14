@@ -219,12 +219,11 @@
 						{/if}
 						{#if question.legal}
 							<div class="legal">
-								<h3>{question.legal.headline}</h3>
 								<article>
-									{@html question.legal.html}
+									<b>{question.legal.clause}</b> {@html question.legal.html}
 									<p>
 										<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF#n{question.legal.anchor}" target="_blank" rel="noopener">
-											Правила дорожнього руху України, затверджені постановою КМУ від 10.10.2001 № 1306
+											Текст ПДР
 										</a>
 									</p>
 								</article>
@@ -426,14 +425,13 @@
 				}
 
 				.notes {
-					font-size: var(--text-sm);
-					border: 1px solid var(--main);
+					border: 2px solid var(--main);
 					border-radius: 0.3rem;
 					padding: 0.5rem;
 
 					hr {
 						border: none;
-						border-top: 1px solid var(--main);
+						border-top: 2px solid var(--main);
 						margin: 0.5rem 0;
 					}
 
@@ -442,9 +440,12 @@
 					}
 
 					.legal {
-						h3 {
-							margin: 0 0 0.5rem;
-							font-weight: bold;
+						article :global(p:first-of-type) {
+							display: inline;
+							margin: 0;
+						}
+
+						b {
 							color: var(--main);
 						}
 
@@ -452,6 +453,8 @@
 							display: inline-block;
 							margin-top: 0.5rem;
 							color: var(--main);
+							font-size: var(--text-sm);
+							text-decoration: underline dotted;
 						}
 					}
 				}

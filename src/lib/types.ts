@@ -4,7 +4,7 @@ export interface Question {
 	image?: string;
 	comment?: string;
 	legal?: {
-		headline: string;
+		clause: string;
 		html: string;
 		/** paragraph anchor in the act, e.g. 168 → #n168 */
 		anchor: number;
