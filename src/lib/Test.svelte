@@ -134,16 +134,18 @@
 {:else}
 	<div class="container">
 		<header>
-			<a onclick={popstate} href="/">{name}</a>
+			<a class="back" onclick={popstate} href="/" aria-label="Назад">⟵</a>
+			<span class="title">{name}</span>
+			{#if isRandom}
+				{const seconds = $derived(Math.floor(elapsed % 60))}
+				{const minutes = $derived(Math.floor(elapsed / 60))}
+				<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
+			{:else}
+				<span class="back-spacer" aria-hidden="true">⟵</span>
+			{/if}
 		</header>
 
 		<main>
-			{#if isRandom}
-				{@const seconds = Math.floor(elapsed % 60)}
-				{@const minutes = Math.floor(elapsed / 60)}
-				<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
-			{/if}
-
 			<nav class="questions" aria-label="Питання">
 				{#each test as _, i}
 					<button
@@ -181,7 +183,15 @@
 									if (answers[questionI][0] === -1) {
 										answers[questionI] = [i, answer.isCorrect];
 										await tick();
-										document.querySelector(".question-buttons")?.scrollIntoView({ behavior: "smooth" });
+
+										const target = document.querySelector(".notes") ?? document.querySelector(".question-buttons");
+										if (target) {
+											const rect = target.getBoundingClientRect();
+											const fullyVisible = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+											if (!fullyVisible) {
+												target.scrollIntoView({ behavior: "smooth", block: "end" });
+											}
+										}
 
 										if (isRandom && answers.every(([i]) => i !== -1)) {
 											clearInterval(interval);
@@ -245,26 +255,55 @@
 
 <style>
 	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+		display: grid;
+		grid-template-columns: max-content;
+		grid-template-rows: auto 1fr;
+		justify-content: center;
 		height: 100%;
 
 		header {
+			display: grid;
+			grid-template-columns: 1fr auto 1fr;
+			align-items: center;
+			gap: 0.5rem;
+			width: 100%;
 			color: grey;
 			margin: 3rem 0;
+
+			.back {
+				justify-self: start;
+				color: grey;
+				font-size: var(--text-lg);
+				font-weight: 400;
+				line-height: 1;
+				text-decoration: none;
+			}
+
+			.back-spacer {
+				justify-self: end;
+				font-size: var(--text-lg);
+				font-weight: 400;
+				line-height: 1;
+				visibility: hidden;
+			}
+
+			.title {
+				justify-self: center;
+				text-align: center;
+			}
+
+			time {
+				justify-self: end;
+			}
 		}
 
 		time {
-			position: absolute;
-			top: 0;
-			right: 0;
+			min-width: 3ch;
 			color: grey;
 			font-variant-numeric: tabular-nums;
 		}
 
 		main {
-			position: relative;
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
@@ -489,9 +528,28 @@
 
 	@media (max-width: 1024px) {
 		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+
 			header {
-				display: none;
-				margin: 0.5rem 0;
+				box-sizing: border-box;
+				grid-template-columns: auto minmax(0, 1fr) auto;
+				width: 100%;
+				margin: 0;
+				margin-top: 1rem;
+				padding: 0 1rem;
+				font-size: var(--text-sm);
+
+				.title {
+					justify-self: stretch;
+					min-width: 0;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					text-align: center;
+				}
 			}
 
 			main {
