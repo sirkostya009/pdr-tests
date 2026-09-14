@@ -12,7 +12,7 @@ const webp = import.meta.glob<Picture>("./{base,tests}/*", {
 });
 
 // enhanced:img can't process svg, and icons in legal html are rendered via {@html}
-const urls = import.meta.glob<string>("./{signs,road-markings,markdown-images}/**/*", {
+const urls = import.meta.glob<string>("./{signs,symbols,road-markings,markdown-images}/**/*", {
 	query: "?url",
 	import: "default",
 	eager: true,
@@ -37,7 +37,7 @@ export async function resolveImages(test: Question[]): Promise<Question[]> {
 		test.map(async (question) => ({
 			...question,
 			picture: question.image ? await picture(question.image) : undefined,
-			sign: question.image ? urls[`./${question.image}`] : undefined,
+			vector: question.image ? urls[`./${question.image}`] : undefined,
 			legal: question.legal && {
 				...question.legal,
 				html: question.legal.html.replaceAll(/src="([^"]+)"/g, (match, path) => {

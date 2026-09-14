@@ -166,8 +166,8 @@
 						sizes="(max-width: 1024px) 100vw, 50vw"
 						style:max-width="{question.picture.img.w}px"
 					/>
-				{:else if question.sign}
-					<img class="sign" src={question.sign} alt={question.name} />
+				{:else if question.vector}
+					<img class="vector" src={question.vector} alt={question.name} />
 				{/if}
 				<ol class="answers" class:answered>
 					{#each question.answers as answer, i}
@@ -337,7 +337,7 @@
 					margin-inline: auto;
 				}
 
-				.sign {
+				.vector {
 					display: block;
 					width: 100%;
 					max-width: 14rem;
