@@ -1,5 +1,9 @@
 <script lang="ts">
-	const { data } = $props();
+	import { tests as modules } from "$lib/tests";
+
+	const tests = Object.keys(modules).map((key) =>
+		key.replace("/src/lib/tests/", "").replace(".json", ""),
+	);
 </script>
 
 <svelte:head>
@@ -31,9 +35,9 @@
 	</header>
 
 	<section>
-		<h2>{data.tests.length} тестів</h2>
+		<h2>{tests.length} тестів</h2>
 		<ol>
-			{#each data.tests as test}
+			{#each tests as test}
 				<li>
 					<a href="/{test}">{test}</a>
 				</li>

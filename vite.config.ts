@@ -17,6 +17,9 @@ export default defineConfig({
 			// https://svelte.dev/docs/kit/integrations
 			preprocess: vitePreprocess(),
 			adapter: vercelAdapter(),
+			experimental: {
+				handleRenderingErrors: true,
+			},
 			prerender: {
 				handleHttpError: "warn",
 			},
