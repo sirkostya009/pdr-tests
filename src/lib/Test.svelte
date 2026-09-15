@@ -17,6 +17,10 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
+	let loadedQuestion = $state<Question>();
+	const imageLoading = $derived(loadedQuestion !== question);
+	const onImageSettled = () => (loadedQuestion = question);
+
 	const finished = $derived(!!page.state.finished);
 
 	// depends on `finished` too: returning from the results screen remounts the nav,
@@ -161,20 +165,28 @@
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
 			<section class="question" {ontouchstart} {ontouchend}>
 				<h2 id="question-name">{question.name}</h2>
-				{#if question.picture}
-					<enhanced:img
-						src={question.picture}
-						alt={question.name}
-						sizes="(max-width: 1024px) 100vw, 50vw"
-						style:max-width="{question.picture.img.w}px"
-					/>
-				{:else if question.vector}
-					<img
-						class={["vector", question.image?.startsWith("composites/") && "composite"]}
-						src={question.vector}
-						alt={question.name}
-					/>
-				{/if}
+				<!-- recreate the element so the previous question's image isn't shown while the next one loads -->
+				{#key question}
+					{#if question.picture}
+						<enhanced:img
+							class={["picture", imageLoading && "loading"]}
+							src={question.picture}
+							alt={question.name}
+							sizes="(max-width: 1024px) 100vw, 50vw"
+							style:max-width="{question.picture.img.w}px"
+							onload={onImageSettled}
+							onerror={onImageSettled}
+						/>
+					{:else if question.vector}
+						<img
+							class={["vector", question.image?.startsWith("composites/") && "composite", imageLoading && "loading"]}
+							src={question.vector}
+							alt={question.name}
+							onload={onImageSettled}
+							onerror={onImageSettled}
+						/>
+					{/if}
+				{/key}
 				<ol class="answers" class:answered>
 					{#each question.answers as answer, i}
 						<li>
@@ -380,6 +392,15 @@
 					margin-inline: auto;
 				}
 
+				.picture.loading,
+				.vector.loading {
+					min-height: 12rem;
+					border-radius: 0.3rem;
+					color: transparent;
+					background: linear-gradient(90deg, #0000000d 25%, #0000001f 50%, #0000000d 75%) 0 0 / 200% 100%;
+					animation: shimmer 1.2s linear infinite;
+				}
+
 				.vector {
 					display: block;
 					width: 100%;
@@ -534,6 +555,12 @@
 					}
 				}
 			}
+		}
+	}
+
+	@keyframes shimmer {
+		to {
+			background-position: -200% 0;
 		}
 	}
 
