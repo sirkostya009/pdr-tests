@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="3 2 529 234" width="529" height="234">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="5" y="79.0" width="93" height="94" viewBox="0.000 0.000 700.000 700.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s0-cls-1 {
+        fill: #fff;
+      }
+
+      .s0-cls-2 {
+        fill: #005da2;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s0-cls-1" x="0.5" y="0.5" width="699" height="699" rx="44.5"/>
+    <path d="M655,1a44.04978,44.04978,0,0,1,44,44V655a44.04978,44.04978,0,0,1-44,44H45A44.04978,44.04978,0,0,1,1,655V45A44.04977,44.04977,0,0,1,45,1H655m0-1H45A45,45,0,0,0,0,45V655a45,45,0,0,0,45,45H655a45,45,0,0,0,45-45V45A45,45,0,0,0,655,0Z"/>
+  </g>
+  <rect class="s0-cls-2" x="15" y="15" width="670" height="670" rx="35"/>
+  <path class="s0-cls-1" d="M606,225H538v95.25a150.008,150.008,0,0,1-47.7,109.7L466,452.61,283.44,622.85A79.93894,79.93894,0,0,0,258.02,680H258v5H186V225H118L222,40,326,225H258V549.76q8.625-9.675,18.19-18.6L437.38,380.85A90.009,90.009,0,0,0,466,315.03V225H398L502,40Z"/>
+  <g>
+    <rect class="s0-cls-1" x="357" y="222" width="18" height="76"/>
+    <rect class="s0-cls-1" x="357" y="118" width="18" height="76"/>
+    <rect class="s0-cls-1" x="357" y="15" width="18" height="72"/>
+  </g>
+</svg>
+<svg x="108" y="77.0" width="94" height="96" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible"><path fill="#010202" d="M560 0H40C18 0 0 18 0 40v520c0 22 18 40 40 40h520c22 0 40-18 40-40V40c0-22-18-40-40-40h0z"/><path fill="#fff" d="M560 1c21.5 0 39 17.5 39 39v520c0 21.5-17.5 39-39 39H40c-21.5 0-39-17.5-39-39V40C1 18.5 18.5 1 40 1h520"/><path fill="#1d5ea5" d="M561.667 14.333H39c-13.2 0-24 10.8-24 24V561c0 13.2 10.8 24 24 24h96V204.333H75.333l90.874-166.36 91.5 166.361h-62.333V585h98.417v-62.25h15V585h100V283.5s1.5-22-17.575-47.876c-8.7-11.79-37.833-41.6-50.712-54.622L307 221.667 257.167 50.583l166.5 48.75-39 37.725L440 196.75c10.029 10.77 29.5 39.5 29.5 84.5V585h92.167c13.2 0 24-10.8 24-24V38.333c0-13.2-10.8-24-24-24zM293.75 342.25h15v64.5h-15v-64.5zm0 91.75h15v64.5h-15V434z"/></svg>
+<svg x="211" y="4.0" width="112" height="169" viewBox="0.000 0.000 599.027 895.382" preserveAspectRatio="xMidYMid meet" overflow="visible"><title
+     id="s2-title4954">5.27.1 Зміна напрямку руху на дорозі з розділювальною смугою</title><defs
+     id="s2-defs4517"><style>.s2-cls-1{fill:#000;}.s2-cls-1,.cls-2,.s2-cls-3{stroke-width:0px;}.s2-cls-4{fill:#fff500;}.s2-cls-4,.cls-5{stroke:#000;stroke-miterlimit:10;}.cls-5{fill:none;stroke-width:11px;}.cls-2{fill:#da251d;}.s2-cls-3{fill:#fff;}</style></defs><rect
+     id="s2-Background_and_thin_black_border"
+     class="s2-cls-4"
+     x=".5"
+     y=".5"
+     width="598.0272"
+     height="894.3817"
+     rx="48.3913"
+     ry="48.3913" /><g
+     id="s2-g4723"
+     transform="matrix(-1,0,0,1,599.9836,0)"><path
+       style="color:#000000;fill:#000000;stroke-miterlimit:10;-inkscape-stroke:none"
+       d="M 49.296875,8.9238281 C 27.34045,8.9238281 9.4921875,26.772091 9.4921875,48.728516 V 846.98828 c 0,21.95643 17.8482625,39.80469 39.8046875,39.80469 H 550.6875 c 21.95642,0 39.80469,-17.84826 39.80469,-39.80469 V 48.728516 c 0,-21.956425 -17.84827,-39.8046879 -39.80469,-39.8046879 z m 0,10.9999999 H 550.6875 c 16.0527,0 28.80469,12.751988 28.80469,28.804688 V 846.98828 c 0,16.0527 -12.75199,28.80469 -28.80469,28.80469 H 49.296875 c -16.0527,0 -28.804688,-12.75199 -28.804688,-28.80469 V 48.728516 c 0,-16.0527 12.751988,-28.804688 28.804688,-28.804688 z"
+       id="s2-Sign_inner_border" /><g
+       id="s2-Black_rectangles"><rect
+         class="s2-cls-1"
+         x="262.5163"
+         y="19.902201"
+         width="63.0009"
+         height="255.9783"
+         id="s2-rect4521" /><rect
+         class="s2-cls-1"
+         x="262.5163"
+         y="609.8587"
+         width="66.888603"
+         height="267.0451"
+         id="s2-rect4523" /></g><path
+       class="s2-cls-1"
+       d="m 230.3226,364.9769 31.4119,29.6616 -43.134,41.8724 -41.7391,41.6087 -56.9234,55.7075 c -9.2261,9.0291 -17.1843,19.2725 -23.5708,30.491 -6.0391,10.6083 -11.8521,23.3347 -11.8521,33.0188 v 16.9614 l 0.618,262.5767 h 52.3696 V 613.8696 c 0,0 0.0439,-9.0582 4.9239,-20.1848 3.6921,-8.4183 10.5223,-17.7262 20.087,-26.8696 6.9435,-6.6376 14.1215,-15.0002 21.587,-22.663 16.4103,-16.8441 31.7609,-32.25 31.7609,-32.25 l 80.6232,-84.45 0.7355,0.6946 29.559,32.2853 38.1985,-132.2286 -134.655,36.7735 z"
+       id="s2-path4526" /><g
+       id="s2-STOP_Sign"><circle
+         class="s2-cls-3"
+         cx="137.33971"
+         cy="161.55431"
+         r="96.097801"
+         id="s2-circle4528" /><path
+         d="m 137.33971,65.456304 c 53.07261,0 96.098,43.025396 96.098,96.098006 0,53.0726 -43.02539,96.098 -96.098,96.098 -53.07261,0 -96.098004,-43.0254 -96.098004,-96.098 0,-53.07261 43.025394,-96.098006 96.098004,-96.098006 z m 0,175.627386 c 43.92341,0 79.52938,-35.60597 79.52938,-79.52938 0,-43.92342 -35.60597,-79.529385 -79.52938,-79.529385 -43.923417,0 -79.529383,35.605965 -79.529383,79.529385 0,43.92341 35.605966,79.52938 79.529383,79.52938 z"
+         fill="#da251d"
+         id="s2-path4792"
+         style="stroke-width:0.331372" /></g><path
+       id="s2-rect4712"
+       style="fill:#000000;fill-rule:evenodd;stroke-width:12.8858;stroke-linecap:round;paint-order:stroke fill markers"
+       d="M 478.78048 19.902344 L 478.78048 506.33984 L 521.71798 506.33984 L 452.50508 627.55859 L 383.29219 506.33984 L 426.22969 506.33984 L 426.22969 19.902344 L 478.78048 19.902344 z " /></g></svg>
+<svg x="333" y="78" width="93" height="95" viewBox="0.000 0.000 700.000 700.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s3-cls-1 {
+        fill: #fff;
+      }
+
+      .s3-cls-2 {
+        fill: #005da2;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s3-cls-1" x="0.5" y="0.5" width="699" height="699" rx="44.5"/>
+    <path d="M655,1a44.04978,44.04978,0,0,1,44,44V655a44.04978,44.04978,0,0,1-44,44H45A44.04978,44.04978,0,0,1,1,655V45A44.04977,44.04977,0,0,1,45,1H655m0-1H45A45,45,0,0,0,0,45V655a45,45,0,0,0,45,45H655a45,45,0,0,0,45-45V45A45,45,0,0,0,655,0Z"/>
+  </g>
+  <rect class="s3-cls-2" x="15" y="15" width="670" height="670" rx="35"/>
+  <path class="s3-cls-1" d="M94,225h68v95.25a150.008,150.008,0,0,0,47.7,109.7L234,452.61,416.56,622.85A79.93894,79.93894,0,0,1,441.98,680H442v5h72V225h68L478,40,374,225h68V549.76q-8.625-9.675-18.19-18.6L262.62,380.85A90.009,90.009,0,0,1,234,315.03V225h68L198,40Z"/>
+  <g>
+    <rect class="s3-cls-1" x="325" y="222" width="18" height="76" transform="translate(668 520) rotate(180)"/>
+    <rect class="s3-cls-1" x="325" y="118" width="18" height="76" transform="translate(668 312) rotate(180)"/>
+    <rect class="s3-cls-1" x="325" y="15" width="18" height="72" transform="translate(668 102) rotate(180)"/>
+  </g>
+</svg>
+<svg x="436" y="79.0" width="94" height="94" viewBox="0.000 0.000 704.000 704.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s4-a{fill:#fff}</style></defs><rect class="s4-a" x="1" y="1" width="702" height="702" rx="46"/><path d="M657 2a45 45 0 0 1 45 45v610a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h610m0-2H47A47.053 47.053 0 0 0 0 47v610a47.053 47.053 0 0 0 47 47h610a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="680" height="680" rx="35" style="fill:#005da2"/><path class="s4-a" d="m672.04 553.02-60.63 35L554 488.58V692h-70V228h-58l93-161.08L612 228h-58v120.58l118.04 204.44zM341 125h22v70h-22zM341 221h22v70h-22zM341 317h22v70h-22zM341 413h22v70h-22zM341 509h22v70h-22zM341 605h22v87h-22zM341 12h22v87h-22zM276 228h-58v464h-70V228H90l93-161.08L276 228z"/></svg>
+<circle class="ink" cx="51.5" cy="208.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="51.5" y="208.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">1</text>
+<circle class="ink" cx="155.0" cy="208.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="155.0" y="208.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">2</text>
+<circle class="ink" cx="267.0" cy="208.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="267.0" y="208.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">3</text>
+<circle class="ink" cx="379.5" cy="208.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="379.5" y="208.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">4</text>
+<circle class="ink" cx="483.0" cy="208.5" r="21.7" style="fill:none" stroke-width="3.6"/>
+<text class="ink" x="483.0" y="208.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="28.2" font-weight="bold" text-anchor="middle" dominant-baseline="central">5</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-2 -2.1999999999999993 773 100" width="773" height="100">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="0" y="44.8" width="229" height="51" viewBox="5.635 0.000 2242.730 504.000" preserveAspectRatio="xMidYMid meet" overflow="visible"><defs>
+
+<style>.s0-b{fill:#da251d}</style></defs><path style="fill:#fff" d="M1 1h2252v502H1z"/><path d="M2252 2v500H2V2h2250m2-2H0v504h2254V0z"/><g><path class="s0-b" d="M372 252 132 492H12V12h120l240 240z"/><path class="s0-b" d="M922 252 682 492H352l240-240L352 12h330l240 240z"/><path class="s0-b" d="m1472 252-240 240H902l240-240L902 12h330l240 240z"/><path class="s0-b" d="m2022 252-240 240h-330l240-240-240-240h330l240 240zM2242 252v240h-240zM2002 12l240 240V12z"/></g>
+</svg>
+<svg x="257" y="0.8" width="115" height="95" viewBox="0.000 0.000 574.000 504.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s1-b{fill:#da251d}</style></defs><path style="fill:#fff" d="M1 1h572v502H1z"/><path d="M572 2v500H2V2h570m2-2H0v504h574V0z"/><path class="s1-b" d="M562 252 322 492h240zm0-240v240L322 12zM12 12v480h90l240-240L102 12H12z"/></svg>
+<svg x="400" y="44.8" width="228" height="51" viewBox="5.635 0.000 2242.730 504.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s2-b{fill:#da251d}</style></defs><path style="fill:#fff" d="M1 1h2252v502H1z"/><path d="M2252 2v500H2V2h2250m2-2H0v504h2254V0z"/><g><path class="s2-b" d="m1882 252 240 240h120V12h-120l-240 240z"/><path class="s2-b" d="m1332 252 240 240h330l-240-240 240-240h-330l-240 240z"/><path class="s2-b" d="m782 252 240 240h330l-240-240 240-240h-330L782 252z"/><path class="s2-b" d="m232 252 240 240h330L562 252 802 12H472L232 252zM12 252v240h240zM252 12 12 252V12z"/></g>
+</svg>
+<svg x="656" y="-0.2" width="115" height="96" viewBox="0.000 0.000 574.000 504.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s3-b{fill:#da251d}</style></defs><path style="fill:#fff" d="M1 1h572v502H1z"/><path d="M572 2v500H2V2h570m2-2H0v504h574V0z"/><path class="s3-b" d="m12 252 240 240H12zm0-240v240L252 12zM562 12v480h-90L232 252 472 12h90z"/></svg>
+</svg>

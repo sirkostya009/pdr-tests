@@ -12,7 +12,7 @@ const webp = import.meta.glob<Picture>("./{base,tests}/*", {
 });
 
 // enhanced:img can't process svg, and icons in legal html are rendered via {@html}
-const urls = import.meta.glob<string>("./{signs,symbols,road-markings,markdown-images}/**/*", {
+const urls = import.meta.glob<string>("./{signs,symbols,composites,road-markings,markdown-images}/**/*", {
 	query: "?url",
 	import: "default",
 	eager: true,

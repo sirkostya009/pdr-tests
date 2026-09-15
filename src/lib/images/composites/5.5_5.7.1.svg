@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 241 98" width="241" height="98">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="2" y="2.0" width="93" height="94" viewBox="0.000 0.000 604.000 604.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s0-a{fill:#fff}</style></defs><rect class="s0-a" x="1" y="1" width="602" height="602" rx="46"/><path d="M557 2a45 45 0 0 1 45 45v510a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h510m0-2H47A47.053 47.053 0 0 0 0 47v510a47.053 47.053 0 0 0 47 47h510a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="580" height="580" rx="35" style="fill:#005da2"/><path class="s0-a" d="M462 349H362v243H242V349H142L302 71.87 462 349z"/>
+</svg>
+<svg x="113" y="55.0" width="129" height="41" viewBox="0.000 0.000 1054.000 354.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s1-a{fill:#fff}</style></defs><rect class="s1-a" x="1" y="1" width="1052" height="352" rx="46"/><path d="M1007 2a45 45 0 0 1 45 45v260a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h960m0-2H47A47.053 47.053 0 0 0 0 47v260a47.053 47.053 0 0 0 47 47h960a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="1030" height="330" rx="35" style="fill:#055c9d"/><path class="s1-a" d="M805 272v-65H12v-60h793V82l164.54 95L805 272z"/></svg>
+</svg>

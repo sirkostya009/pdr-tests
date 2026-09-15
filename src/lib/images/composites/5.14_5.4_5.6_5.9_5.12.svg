@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="3 2 512 210" width="512" height="210">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="5" y="54" width="93" height="94" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s0-cls-1 {
+        fill: #fff;
+      }
+
+      .s0-cls-2 {
+        fill: #005da2;
+      }
+
+      .s0-cls-3 {
+        fill: #da251d;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s0-cls-1" x="0.5" y="0.5" width="599" height="599" rx="39.5"/>
+    <path d="M560,1a39.04414,39.04414,0,0,1,39,39V560a39.04414,39.04414,0,0,1-39,39H40A39.04414,39.04414,0,0,1,1,560V40A39.04415,39.04415,0,0,1,40,1H560m0-1H40A40,40,0,0,0,0,40V560a40,40,0,0,0,40,40H560a40,40,0,0,0,40-40V40A40,40,0,0,0,560,0Z"/>
+  </g>
+  <rect class="s0-cls-2" x="15" y="15" width="570" height="570" rx="25"/>
+  <path class="s0-cls-1" d="M332.5,395H389c-.35,0-89,152-89,152L211,395h56.5V205H211c.35,0,89-152,89-152l89,152H332.5Z"/>
+  <path class="s0-cls-3" d="M15,528,528,15h32a25,25,0,0,1,25,25V72L72,585H40a25,25,0,0,1-25-25Z"/>
+</svg>
+<svg x="107" y="4.0" width="96" height="144" viewBox="0.000 0.000 700.000 1050.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s1-cls-1 {
+        fill: #fff;
+      }
+
+      .s1-cls-2 {
+        fill: #005da2;
+      }
+
+      .s1-cls-3 {
+        fill: #d92a22;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s1-cls-1" x="0.5" y="0.5" width="699" height="1049" rx="44.5"/>
+    <path d="M655,1a44.04978,44.04978,0,0,1,44,44v960a44.04978,44.04978,0,0,1-44,44H45a44.04978,44.04978,0,0,1-44-44V45A44.04977,44.04977,0,0,1,45,1H655m0-1H45A45,45,0,0,0,0,45v960a45,45,0,0,0,45,45H655a45,45,0,0,0,45-45V45A45,45,0,0,0,655,0Z"/>
+  </g>
+  <rect class="s1-cls-2" x="17.5" y="17.5" width="665" height="1015" rx="29"/>
+  <g>
+    <path class="s1-cls-1" d="M178,647.5h66a0,0,0,0,1,0,0v46a33,33,0,0,1-33,33H211a33,33,0,0,1-33-33v-46a0,0,0,0,1,0,0Z"/>
+    <path class="s1-cls-1" d="M452,647.5h66a0,0,0,0,1,0,0v46a33,33,0,0,1-33,33H485a33,33,0,0,1-33-33v-46A0,0,0,0,1,452,647.5Z"/>
+    <path class="s1-cls-1" d="M512.5,498,478.44,395.01A34.99826,34.99826,0,0,0,445.21,371H243.52a35.002,35.002,0,0,0-33.76,25.75C199.6,433.89,181.5,498,181.5,498a27.00216,27.00216,0,0,0-27,27v82a27.0022,27.0022,0,0,0,27,27h331a27.0022,27.0022,0,0,0,27-27V525A27.00216,27.00216,0,0,0,512.5,498ZM229.04,409.84A19.991,19.991,0,0,1,248.36,395H442.2a20.00361,20.00361,0,0,1,19.13,14.15L488.5,498h-283ZM211,587a33,33,0,1,1,33-33A32.99413,32.99413,0,0,1,211,587Zm273,0a33,33,0,1,1,33-33A32.99413,32.99413,0,0,1,484,587Z"/>
+  </g>
+  <path class="s1-cls-3" d="M17.5,1003.5V965.56594L614.5,17.5h39a29,29,0,0,1,29,29V71.44685L85.5,1032.5h-39A29,29,0,0,1,17.5,1003.5Z"/>
+</svg>
+<svg x="212" y="53.0" width="94" height="95" viewBox="0.000 0.000 604.000 604.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s2-a{fill:#fff}</style></defs><rect class="s2-a" x="1" y="1" width="602" height="602" rx="46"/><path d="M557 2a45 45 0 0 1 45 45v510a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h510m0-2H47A47.053 47.053 0 0 0 0 47v510a47.053 47.053 0 0 0 47 47h510a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="580" height="580" rx="35" style="fill:#005da2"/><path class="s2-a" d="M462 349H362v243H242V349H142L302 71.87 462 349z"/><path d="M12 534 534 12h23a35 35 0 0 1 35 35v23L70 592H47a35 35 0 0 1-35-35z" style="fill:#da251d"/>
+</svg>
+<svg x="316" y="54" width="93" height="94" viewBox="0.000 0.000 700.000 700.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s3-cls-1 {
+        fill: #fff;
+      }
+
+      .s3-cls-2 {
+        fill: #055c9d;
+      }
+
+      .s3-cls-3 {
+        fill: #da251d;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s3-cls-1" x="0.5" y="0.5" width="699" height="699" rx="44.5"/>
+    <path d="M655,1a44.04978,44.04978,0,0,1,44,44V655a44.04978,44.04978,0,0,1-44,44H45A44.04978,44.04978,0,0,1,1,655V45A44.04977,44.04977,0,0,1,45,1H655m0-1H45A45,45,0,0,0,0,45V655a45,45,0,0,0,45,45H655a45,45,0,0,0,45-45V45A45,45,0,0,0,655,0Z"/>
+  </g>
+  <rect class="s3-cls-2" x="10" y="10" width="680" height="680" rx="35"/>
+  <rect class="s3-cls-1" x="340" y="10" width="20" height="680"/>
+  <polygon class="s3-cls-1" points="271 488 186 638 101 488 156 488 156 383 216 383 216 488 271 488"/>
+  <polygon class="s3-cls-1" points="630 248 560 248 560 690 490 690 490 248 420 248 525 58 630 248"/>
+  <g>
+    <path class="s3-cls-1" d="M271,63H87A19.9945,19.9945,0,0,0,67,83V264a19.9945,19.9945,0,0,0,20,20H271a19.9945,19.9945,0,0,0,20-20V83A19.9945,19.9945,0,0,0,271,63ZM107,257a20,20,0,1,1,20-20A19.9945,19.9945,0,0,1,107,257Zm145,0a20,20,0,1,1,20-20A19.9945,19.9945,0,0,1,252,257Zm21-101a10.00366,10.00366,0,0,1-10,10H95a10.00366,10.00366,0,0,1-10-10V98A10.00362,10.00362,0,0,1,95,88H263a10.00362,10.00362,0,0,1,10,10Z"/>
+    <path class="s3-cls-1" d="M78,294h40a0,0,0,0,1,0,0v25a20,20,0,0,1-20,20h0a20,20,0,0,1-20-20V294a0,0,0,0,1,0,0Z"/>
+    <path class="s3-cls-1" d="M244,294h40a0,0,0,0,1,0,0v25a20,20,0,0,1-20,20h0a20,20,0,0,1-20-20V294a0,0,0,0,1,0,0Z"/>
+  </g>
+  <path class="s3-cls-3" d="M10,622,622,10h33a35,35,0,0,1,35,35V78L78,690H45a35,35,0,0,1-35-35Z"/>
+</svg>
+<svg x="419" y="54" width="94" height="94" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s4-cls-1 {
+        fill: #fff;
+      }
+
+      .s4-cls-2 {
+        fill: #055c9d;
+      }
+
+      .s4-cls-3 {
+        fill: #da251d;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s4-cls-1" x="0.5" y="0.5" width="599" height="599" rx="34.5"/>
+    <path d="M565,1a34.03848,34.03848,0,0,1,34,34V565a34.03849,34.03849,0,0,1-34,34H35A34.03848,34.03848,0,0,1,1,565V35A34.03847,34.03847,0,0,1,35,1H565m0-1H35A35,35,0,0,0,0,35V565a35,35,0,0,0,35,35H565a35.00008,35.00008,0,0,0,35-35V35A35,35,0,0,0,565,0Z"/>
+  </g>
+  <rect class="s4-cls-2" x="15" y="15" width="570" height="570" rx="25"/>
+  <g>
+    <path class="s4-cls-1" d="M372,316.5H220a19.9945,19.9945,0,0,0-20,20v150a19.9945,19.9945,0,0,0,20,20H372a19.9945,19.9945,0,0,0,20-20v-150A19.9945,19.9945,0,0,0,372,316.5Zm5,83.5a6.00475,6.00475,0,0,1-6,6H223a6.00475,6.00475,0,0,1-6-6V345a6.00475,6.00475,0,0,1,6-6H371a6.00475,6.00475,0,0,1,6,6Z"/>
+    <path class="s4-cls-1" d="M243,541.125c0,17-32,17-32,0v-27h32Z"/>
+    <path class="s4-cls-1" d="M381,541.125c0,17-32,17-32,0v-27h32Z"/>
+  </g>
+  <polygon class="s4-cls-1" points="379 194 324 194 324 298 264 298 264 194 209 194 294 48 379 194"/>
+  <path class="s4-cls-3" d="M15,528,528,15h32a25,25,0,0,1,25,25V72L72,585H40a25,25,0,0,1-25-25Z"/>
+</svg>
+<circle class="ink" cx="51.5" cy="184.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="51.5" y="184.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">1</text>
+<circle class="ink" cx="155.0" cy="184.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="155.0" y="184.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">2</text>
+<circle class="ink" cx="258.5" cy="184.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="258.5" y="184.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">3</text>
+<circle class="ink" cx="362.0" cy="184.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="362.0" y="184.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">4</text>
+<circle class="ink" cx="466.0" cy="185.0" r="22.1" style="fill:none" stroke-width="3.7"/>
+<text class="ink" x="466.0" y="185.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="28.8" font-weight="bold" text-anchor="middle" dominant-baseline="central">5</text>
+</svg>

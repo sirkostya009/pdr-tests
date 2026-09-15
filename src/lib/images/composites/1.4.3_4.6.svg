@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="17 -1 347 98" width="347" height="98">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="9" y="45.0" width="245" height="50" viewBox="5.635 0.000 2242.730 504.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s0-b{fill:#da251d}</style></defs><path style="fill:#fff" d="M1 1h2252v502H1z"/><path d="M2252 2v500H2V2h2250m2-2H0v504h2254V0z"/><g><path class="s0-b" d="m232 252 240 240h330L562 252 802 12H472L232 252zM12 12v240L252 12zm0 240v240h240z"/><path class="s0-b" d="m1472 252-240 240h-210L782 252l240-240h210l240 240z"/><path class="s0-b" d="m2022 252-240 240h-330l240-240-240-240h330l240 240zM2242 12v240L2002 12zm0 240v240h-240z"/></g>
+</svg>
+<svg x="268" y="1.0" width="94" height="94" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s1-cls-1, .s1-cls-3 {
+        fill: #fff;
+      }
+
+      .s1-cls-1 {
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .s1-cls-2 {
+        fill: #005da2;
+      }
+    </style>
+  </defs>
+  <circle id="s1-circle8" class="s1-cls-1" cx="300" cy="300" r="299"/>
+  <circle id="s1-circle10" class="s1-cls-2" cx="300" cy="300" r="280"/>
+  <path id="s1-path12" class="s1-cls-3" d="M268.5,542V320a19.99454,19.99454,0,0,0-20-20H200v56L39,264.5,200,173v65h48.5A57.93189,57.93189,0,0,1,298,266c6-12,28-28,49.5-28H400V173l161,91.5L400,356V300H347.5a19.99454,19.99454,0,0,0-20,20V542Z"/>
+  <path id="s1-path14" class="s1-cls-3" d="M353,58"/>
+</svg>
+</svg>

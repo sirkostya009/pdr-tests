@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="3 5 512 161" width="512" height="161">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="5" y="8" width="94" height="94" viewBox="0.000 0.000 704.000 704.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s0-a{fill:#fff}</style></defs><rect class="s0-a" x="1" y="1" width="702" height="702" rx="46"/><path d="M657 2a45 45 0 0 1 45 45v610a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h610m0-2H47A47.053 47.053 0 0 0 0 47v610a47.053 47.053 0 0 0 47 47h610a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="680" height="680" rx="35" style="fill:#005da2"/><path class="s0-a" d="m672.04 553.02-60.63 35L554 488.58V692h-70V228h-58l93-161.08L612 228h-58v120.58l118.04 204.44zM341 125h22v70h-22zM341 221h22v70h-22zM341 317h22v70h-22zM341 413h22v70h-22zM341 509h22v70h-22zM341 605h22v87h-22zM341 12h22v87h-22zM276 228h-58v464h-70V228H90l93-161.08L276 228z"/></svg>
+<svg x="108" y="8" width="94" height="94" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible"><path fill="#010202" d="M560 0H40C18 0 0 18 0 40v520c0 22 18 40 40 40h520c22 0 40-18 40-40V40c0-22-18-40-40-40h0z"/><path fill="#fff" d="M560 1c21.5 0 39 17.5 39 39v520c0 21.5-17.5 39-39 39H40c-21.5 0-39-17.5-39-39V40C1 18.5 18.5 1 40 1h520"/><path fill="#1d5ea5" d="M561.667 14.333H39c-13.2 0-24 10.8-24 24V561c0 13.2 10.8 24 24 24h96V204.333H75.333l90.874-166.36 91.5 166.361h-62.333V585h98.417v-62.25h15V585h100V283.5s1.5-22-17.575-47.876c-8.7-11.79-37.833-41.6-50.712-54.622L307 221.667 257.167 50.583l166.5 48.75-39 37.725L440 196.75c10.029 10.77 29.5 39.5 29.5 84.5V585h92.167c13.2 0 24-10.8 24-24V38.333c0-13.2-10.8-24-24-24zM293.75 342.25h15v64.5h-15v-64.5zm0 91.75h15v64.5h-15V434z"/></svg>
+<svg x="212" y="7.0" width="94" height="95" viewBox="0.000 0.000 700.000 700.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s2-cls-1 {
+        fill: #fff;
+      }
+
+      .s2-cls-2 {
+        fill: #005da2;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s2-cls-1" x="0.5" y="0.5" width="699" height="699" rx="44.5"/>
+    <path d="M655,1a44.04978,44.04978,0,0,1,44,44V655a44.04978,44.04978,0,0,1-44,44H45A44.04978,44.04978,0,0,1,1,655V45A44.04977,44.04977,0,0,1,45,1H655m0-1H45A45,45,0,0,0,0,45V655a45,45,0,0,0,45,45H655a45,45,0,0,0,45-45V45A45,45,0,0,0,655,0Z"/>
+  </g>
+  <rect class="s2-cls-2" x="15" y="15" width="670" height="670" rx="35"/>
+  <path class="s2-cls-1" d="M606,225H538v95.25a150.008,150.008,0,0,1-47.7,109.7L466,452.61,283.44,622.85A79.93894,79.93894,0,0,0,258.02,680H258v5H186V225H118L222,40,326,225H258V549.76q8.625-9.675,18.19-18.6L437.38,380.85A90.009,90.009,0,0,0,466,315.03V225H398L502,40Z"/>
+  <g>
+    <rect class="s2-cls-1" x="357" y="222" width="18" height="76"/>
+    <rect class="s2-cls-1" x="357" y="118" width="18" height="76"/>
+    <rect class="s2-cls-1" x="357" y="15" width="18" height="72"/>
+  </g>
+</svg>
+<svg x="316" y="8" width="93" height="94" viewBox="0.000 0.000 704.000 704.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s3-a{fill:#fff}</style></defs><rect class="s3-a" x="1" y="1" width="702" height="702" rx="46"/><path d="M657 2a45 45 0 0 1 45 45v610a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h610m0-2H47A47.053 47.053 0 0 0 0 47v610a47.053 47.053 0 0 0 47 47h610a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="680" height="680" rx="35" style="fill:#005da2"/><path class="s3-a" d="M276 228h-58v464h-70V228H90l93-161.08L276 228zM692 656.07V662a30 30 0 0 1-30 30h-30.08L484 435.8V228h-58l93-161.08L612 228h-58v189.04zM341 113h22v70h-22zM341 209h22v70h-22zM341 305h22v70h-22zM341 401h22v70h-22zM341 12h22v75h-22z"/></svg>
+<svg x="419" y="8" width="94" height="94" viewBox="0.000 0.000 604.000 604.000" preserveAspectRatio="xMidYMid meet" overflow="visible"><defs><style>.s4-a { fill: rgb(255, 255, 255); }.s4-b { fill: rgb(0, 93, 162); }.s4-c { fill: rgb(218, 37, 29); }</style></defs><g><rect class="s4-a" x="1" y="1" width="602" height="602" rx="46"/><path d="M557,2a45,45,0,0,1,45,45V557a45,45,0,0,1-45,45H47A45,45,0,0,1,2,557V47A45,45,0,0,1,47,2H557m0-2H47A47.05319,47.05319,0,0,0,0,47V557a47.05321,47.05321,0,0,0,47,47H557a47.05323,47.05323,0,0,0,47-47V47A47.05321,47.05321,0,0,0,557,0Z"/></g><path class="s4-b" d="M592,47V557a35,35,0,0,1-35,35H47a35,35,0,0,1-35-35V47a36.4906,36.4906,0,0,1,.31-4.7A35.00785,35.00785,0,0,1,47,12H557A34.99993,34.99993,0,0,1,592,47Z"/><path class="s4-a" d="M530,43V253H469V592H399c0,.65.03,1.13.05,1.38-.06-.36-.14-.82-.27-1.38-1.52-6.8-8.47-28.63-27.57-68.8-14.67-30.84-40.33-80.54-79.3-142.19C234.63,290.39,140.3,161.26,12,51.81V47A35,35,0,0,1,47,12H72.93C202.71,126.47,297.66,258.03,355.94,351.33c16.69,26.72,30.98,51.24,43.06,73.1V253H338V43Z"/><path class="s4-c" d="M414,115h40v24H414Zm0,66h40V157H414ZM509,61V235H359V61ZM454,225h45V198H465V178h34V158H465V138h34V118H465V98h34V71H454V96H414V71H369V98h34v20H369v20h34v20H369v20h34v20H369v27h45V200h40"/></svg>
+<circle class="ink" cx="51.5" cy="138.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="51.5" y="138.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">1</text>
+<circle class="ink" cx="155.0" cy="138.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="155.0" y="138.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">2</text>
+<circle class="ink" cx="259.0" cy="138.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="259.0" y="138.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">3</text>
+<circle class="ink" cx="362.0" cy="138.5" r="23.5" style="fill:none" stroke-width="4.0"/>
+<text class="ink" x="362.0" y="138.5" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="30.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">4</text>
+<circle class="ink" cx="466.0" cy="139.0" r="22.1" style="fill:none" stroke-width="3.7"/>
+<text class="ink" x="466.0" y="139.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="28.8" font-weight="bold" text-anchor="middle" dominant-baseline="central">5</text>
+</svg>

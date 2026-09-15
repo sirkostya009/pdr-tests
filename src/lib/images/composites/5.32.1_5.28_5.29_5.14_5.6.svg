@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="188 1130 4976 1340" width="4976" height="1340">
+<style>.ink{fill:#000;stroke:#000}.ink-line{stroke:none}@media (prefers-color-scheme:dark){.ink{fill:#fff;stroke:#fff}}</style>
+<svg x="188" y="1132" width="892" height="888" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s0-cls-1 {
+        fill: #fff;
+      }
+
+      .s0-cls-2 {
+        fill: #005da2;
+      }
+
+      .s0-cls-3 {
+        fill: #da251d;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s0-cls-1" x="0.5" y="0.5" width="599" height="599" rx="39.5"/>
+    <path d="M560,1a39.04414,39.04414,0,0,1,39,39V560a39.04414,39.04414,0,0,1-39,39H40A39.04414,39.04414,0,0,1,1,560V40A39.04415,39.04415,0,0,1,40,1H560m0-1H40A40,40,0,0,0,0,40V560a40,40,0,0,0,40,40H560a40,40,0,0,0,40-40V40A40,40,0,0,0,560,0Z"/>
+  </g>
+  <rect class="s0-cls-2" x="15" y="15" width="570" height="570" rx="25"/>
+  <g>
+    <path class="s0-cls-1" d="M450,105V205a10.00366,10.00366,0,0,1-10,10H335V585H265V215H160a10.00366,10.00366,0,0,1-10-10V105a10.00362,10.00362,0,0,1,10-10H440A10.00362,10.00362,0,0,1,450,105Z"/>
+    <rect class="s0-cls-3" x="157.5" y="102" width="285" height="106" rx="6"/>
+  </g>
+</svg>
+<svg x="1212" y="1132" width="888" height="888" viewBox="0.000 0.000 604.000 604.000" preserveAspectRatio="xMidYMid meet" overflow="visible"><defs><style>.s1-a { fill: rgb(255, 255, 255); }.s1-b { fill: rgb(0, 93, 162); }.s1-c { fill: rgb(218, 37, 29); }</style></defs><g><rect class="s1-a" x="1" y="1" width="602" height="602" rx="46"/><path d="M557,2a45,45,0,0,1,45,45V557a45,45,0,0,1-45,45H47A45,45,0,0,1,2,557V47A45,45,0,0,1,47,2H557m0-2H47A47.05319,47.05319,0,0,0,0,47V557a47.05321,47.05321,0,0,0,47,47H557a47.05323,47.05323,0,0,0,47-47V47A47.05321,47.05321,0,0,0,557,0Z"/></g><path class="s1-b" d="M592,47V557a35,35,0,0,1-35,35H47a35,35,0,0,1-35-35V47a36.4906,36.4906,0,0,1,.31-4.7A35.00785,35.00785,0,0,1,47,12H557A34.99993,34.99993,0,0,1,592,47Z"/><path class="s1-a" d="M530,43V253H469V592H399c0,.65.03,1.13.05,1.38-.06-.36-.14-.82-.27-1.38-1.52-6.8-8.47-28.63-27.57-68.8-14.67-30.84-40.33-80.54-79.3-142.19C234.63,290.39,140.3,161.26,12,51.81V47A35,35,0,0,1,47,12H72.93C202.71,126.47,297.66,258.03,355.94,351.33c16.69,26.72,30.98,51.24,43.06,73.1V253H338V43Z"/><path class="s1-c" d="M414,115h40v24H414Zm0,66h40V157H414ZM509,61V235H359V61ZM454,225h45V198H465V178h34V158H465V138h34V118H465V98h34V71H454V96H414V71H369V98h34v20H369v20h34v20H369v20h34v20H369v27h45V200h40"/></svg>
+<svg x="2232" y="1132" width="888" height="888" viewBox="0.000 0.000 704.000 704.000" preserveAspectRatio="xMidYMid meet" overflow="visible"><defs><style>.s2-a { fill: rgb(255, 255, 255); }.s2-b { fill: rgb(5, 92, 157); }</style></defs><g><rect class="s2-a" x="1" y="1" width="702" height="702" rx="46"/><path d="M657,2a45,45,0,0,1,45,45V657a45,45,0,0,1-45,45H47A45,45,0,0,1,2,657V47A45,45,0,0,1,47,2H657m0-2H47A47.0532,47.0532,0,0,0,0,47V657a47.05321,47.05321,0,0,0,47,47H657a47.05323,47.05323,0,0,0,47-47V47A47.05321,47.05321,0,0,0,657,0Z"/></g><rect class="s2-b" x="12" y="12" width="680" height="680" rx="35"/><path class="s2-a" d="M464,692V230c0-42.0339-39.73151-85-87-85-46.10137,0-86,42.9661-86,85V443h80L248,654.64218,125,443h80V230c-1.16712-87.57062,69.87671-165,172-165,109.126,0,173,84.435,173,165V692Z"/></svg>
+<svg x="3250" y="1132" width="892" height="888" viewBox="0.000 0.000 600.000 600.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+  <defs>
+    <style>
+      .s3-cls-1 {
+        fill: #fff;
+      }
+
+      .s3-cls-2 {
+        fill: #005da2;
+      }
+
+      .s3-cls-3 {
+        fill: #da251d;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="s3-cls-1" x="0.5" y="0.5" width="599" height="599" rx="39.5"/>
+    <path d="M560,1a39.04414,39.04414,0,0,1,39,39V560a39.04414,39.04414,0,0,1-39,39H40A39.04414,39.04414,0,0,1,1,560V40A39.04415,39.04415,0,0,1,40,1H560m0-1H40A40,40,0,0,0,0,40V560a40,40,0,0,0,40,40H560a40,40,0,0,0,40-40V40A40,40,0,0,0,560,0Z"/>
+  </g>
+  <rect class="s3-cls-2" x="15" y="15" width="570" height="570" rx="25"/>
+  <path class="s3-cls-1" d="M332.5,395H389c-.35,0-89,152-89,152L211,395h56.5V205H211c.35,0,89-152,89-152l89,152H332.5Z"/>
+  <path class="s3-cls-3" d="M15,528,528,15h32a25,25,0,0,1,25,25V72L72,585H40a25,25,0,0,1-25-25Z"/>
+</svg>
+<svg x="4274" y="1132" width="888" height="888" viewBox="0.000 0.000 604.000 604.000" preserveAspectRatio="xMidYMid meet" overflow="visible">
+
+<defs><style>.s4-a{fill:#fff}</style></defs><rect class="s4-a" x="1" y="1" width="602" height="602" rx="46"/><path d="M557 2a45 45 0 0 1 45 45v510a45 45 0 0 1-45 45H47a45 45 0 0 1-45-45V47A45 45 0 0 1 47 2h510m0-2H47A47.053 47.053 0 0 0 0 47v510a47.053 47.053 0 0 0 47 47h510a47.053 47.053 0 0 0 47-47V47a47.053 47.053 0 0 0-47-47z"/><rect x="12" y="12" width="580" height="580" rx="35" style="fill:#005da2"/><path class="s4-a" d="M462 349H362v243H242V349H142L302 71.87 462 349z"/><path d="M12 534 534 12h23a35 35 0 0 1 35 35v23L70 592H47a35 35 0 0 1-35-35z" style="fill:#da251d"/>
+</svg>
+<circle class="ink" cx="631.0" cy="2315.0" r="141.1" style="fill:none" stroke-width="23.7"/>
+<text class="ink" x="631.0" y="2315.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="183.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">1</text>
+<circle class="ink" cx="1653.0" cy="2315.0" r="141.1" style="fill:none" stroke-width="23.7"/>
+<text class="ink" x="1653.0" y="2315.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="183.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">2</text>
+<circle class="ink" cx="2673.0" cy="2315.0" r="141.1" style="fill:none" stroke-width="23.7"/>
+<text class="ink" x="2673.0" y="2315.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="183.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">3</text>
+<circle class="ink" cx="3695.0" cy="2315.0" r="141.1" style="fill:none" stroke-width="23.7"/>
+<text class="ink" x="3695.0" y="2315.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="183.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">4</text>
+<circle class="ink" cx="4717.0" cy="2315.0" r="141.1" style="fill:none" stroke-width="23.7"/>
+<text class="ink" x="4717.0" y="2315.0" style="stroke:none" font-family="Arial, Helvetica, sans-serif" font-size="183.6" font-weight="bold" text-anchor="middle" dominant-baseline="central">5</text>
+</svg>

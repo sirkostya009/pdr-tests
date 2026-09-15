@@ -169,7 +169,11 @@
 						style:max-width="{question.picture.img.w}px"
 					/>
 				{:else if question.vector}
-					<img class="vector" src={question.vector} alt={question.name} />
+					<img
+						class={["vector", question.image?.startsWith("composites/") && "composite"]}
+						src={question.vector}
+						alt={question.name}
+					/>
 				{/if}
 				<ol class="answers" class:answered>
 					{#each question.answers as answer, i}
@@ -383,6 +387,13 @@
 					max-height: 14rem;
 					object-fit: contain;
 					margin-inline: auto;
+
+					&.composite {
+						width: auto;
+						max-width: 100%;
+						max-height: none;
+						height: auto;
+					}
 				}
 
 				.answers {
