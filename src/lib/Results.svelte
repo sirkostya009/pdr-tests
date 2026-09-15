@@ -152,9 +152,14 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 2rem;
+		width: 100%;
 		max-width: 40rem;
 		margin: 0 auto;
 		padding: 3rem 1rem;
+
+		@media (min-width: 1025px) {
+			padding-top: 5rem;
+		}
 
 		header {
 			display: flex;

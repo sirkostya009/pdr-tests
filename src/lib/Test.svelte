@@ -275,7 +275,8 @@
 		grid-template-columns: max-content;
 		grid-template-rows: auto 1fr;
 		justify-content: center;
-		height: 100%;
+		flex: 1;
+		min-height: 0;
 
 		header {
 			display: grid;
@@ -284,7 +285,7 @@
 			gap: 0.5rem;
 			width: 100%;
 			color: grey;
-			margin: 3rem 0;
+			margin: 5rem 0 3rem;
 
 			.back {
 				justify-self: start;
