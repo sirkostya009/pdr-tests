@@ -17,9 +17,9 @@
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
 
-	let loadedQuestion = $state<Question>();
-	const imageLoading = $derived(loadedQuestion !== question);
-	const onImageSettled = () => (loadedQuestion = question);
+	let loadedI = $state(-1);
+	const imageLoading = $derived(loadedI !== questionI);
+	const onImageSettled = () => (loadedI = questionI);
 
 	const finished = $derived(!!page.state.finished);
 
