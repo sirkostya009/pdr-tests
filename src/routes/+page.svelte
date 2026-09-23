@@ -185,6 +185,7 @@
 		padding-bottom: 1rem;
 
 		h2 {
+			scroll-margin-top: 6rem;
 			text-align: center;
 			font-size: var(--text-xl);
 			font-weight: bold;
@@ -247,9 +248,15 @@
 
 		@supports (animation-timeline: scroll()) {
 			.all {
-				animation: reveal linear both;
+				animation: fade-in linear both;
 				animation-timeline: view();
 				animation-range: entry 0% entry 60%;
+			}
+
+			.all ol {
+				animation: slide-up linear both;
+				animation-timeline: view();
+				animation-range: entry 0% entry 30%;
 			}
 		}
 	}
@@ -264,9 +271,14 @@
 		}
 	}
 
-	@keyframes reveal {
+	@keyframes fade-in {
 		from {
 			opacity: 0;
+		}
+	}
+
+	@keyframes slide-up {
+		from {
 			transform: translateY(3rem);
 		}
 	}
