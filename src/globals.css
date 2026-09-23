@@ -212,3 +212,13 @@ body {
 		--text-color: CanvasText;
 	}
 }
+
+:root {
+	--on-main: white;
+}
+
+@supports (color: AccentColor) and (color: oklch(from red l c h)) {
+	:root {
+		--on-main: oklch(from var(--main) clamp(0, (0.72 - l) * infinity, 1) 0 0);
+	}
+}

@@ -6,13 +6,13 @@
 	import type { Answer, Question } from "./types";
 
 	interface Props {
-		name: string | "Рандом";
+		name: string | "Пробний екзамен";
 		test: Question[];
 	}
 
 	const { name, test }: Props = $props();
 
-	const isRandom = $derived(name === "Рандом");
+	const isRandom = $derived(name === "Пробний екзамен");
 
 	let questionI = $state(0);
 	let question = $derived(test[questionI]);
@@ -280,12 +280,17 @@
 
 		header {
 			display: grid;
-			grid-template-columns: 1fr auto 1fr;
+			grid-template-columns: 1fr auto;
 			align-items: center;
 			gap: 0.5rem;
 			width: 100%;
 			color: grey;
-			margin: 5rem 0 3rem;
+			margin: 6.5rem 0 1.5rem;
+
+			.back,
+			.back-spacer {
+				display: none;
+			}
 
 			.back {
 				justify-self: start;
@@ -302,11 +307,6 @@
 				font-weight: 400;
 				line-height: 1;
 				visibility: hidden;
-			}
-
-			.title {
-				justify-self: center;
-				text-align: center;
 			}
 
 			time {
@@ -348,7 +348,8 @@
 					}
 
 					&.current {
-						background-color: var(--main) !important;
+						background-color: var(--main);
+						color: var(--on-main);
 						box-shadow: unset;
 					}
 
@@ -364,12 +365,9 @@
 						box-shadow: unset;
 					}
 
-					&.current.correct {
-						box-shadow: inset 0 0 0 2px var(--green);
-					}
-
-					&.current.incorrect {
-						box-shadow: inset 0 0 0 2px var(--red);
+					&.current:is(.correct, .incorrect) {
+						outline: 2px solid var(--text-color);
+						outline-offset: 2px;
 					}
 				}
 			}
@@ -447,7 +445,7 @@
 					@media (hover: hover) {
 						&:not(.answered) li:hover button {
 							background-color: var(--main);
-							color: white;
+							color: var(--on-main);
 						}
 					}
 
@@ -470,6 +468,7 @@
 
 					&:not(.answered) button:focus {
 						background-color: var(--main);
+						color: var(--on-main);
 						border: 1px solid black;
 						border-radius: 0.3rem;
 						box-shadow: inset 0 0 0 2px white;
@@ -504,7 +503,7 @@
 						@media (hover: hover) {
 							&:hover {
 								background-color: var(--main);
-								color: white;
+								color: var(--on-main);
 							}
 						}
 
@@ -581,6 +580,11 @@
 				padding: 0 1rem;
 				font-size: var(--text-sm);
 
+				.back,
+				.back-spacer {
+					display: block;
+				}
+
 				.title {
 					justify-self: stretch;
 					min-width: 0;
@@ -602,6 +606,8 @@
 					display: flex;
 					flex-wrap: nowrap;
 					overflow-x: auto;
+					/* room for the current question's outline inside the scroller */
+					padding: 4px;
 					align-self: center;
 
 					/* the smaller root size would leave these below a comfortable tap target */

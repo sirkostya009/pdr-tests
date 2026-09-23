@@ -265,7 +265,7 @@
 			@media (hover: hover) {
 				&:hover {
 					background-color: var(--main);
-					color: white;
+					color: var(--on-main);
 				}
 			}
 		}

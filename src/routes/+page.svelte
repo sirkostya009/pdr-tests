@@ -210,12 +210,20 @@
 						flex-shrink: 0;
 					}
 
-					&:hover {
-						background-color: var(--main);
-					}
-
 					&:visited {
 						color: rgb(255, 207, 135);
+					}
+
+					&:hover {
+						background-color: var(--main);
+						color: var(--on-main);
+					}
+
+					/* the same gold, dark or light depending on the accent behind it */
+					@supports (color: oklch(from red l c h)) {
+						&:visited:hover {
+							color: oklch(from var(--main) calc(0.3 + 0.64 * clamp(0, (0.72 - l) * infinity, 1)) 0.1 75);
+						}
 					}
 				}
 
