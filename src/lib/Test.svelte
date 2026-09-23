@@ -33,7 +33,6 @@
 			?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
 	});
 
-
 	const answers = $state(test.map(() => [-1, false] as Answer));
 	let answered = $derived(answers[questionI][0] !== -1);
 
@@ -203,7 +202,8 @@
 										const target = document.querySelector(".notes") ?? document.querySelector(".question-buttons");
 										if (target) {
 											const rect = target.getBoundingClientRect();
-											const fullyVisible = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+											const fullyVisible =
+												rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
 											if (!fullyVisible) {
 												target.scrollIntoView({ behavior: "smooth", block: "end" });
 											}
@@ -253,9 +253,14 @@
 						{#if question.legal}
 							<div class="legal">
 								<article>
-									<b>{question.legal.clause}</b> {@html question.legal.html}
+									<b>{question.legal.clause}</b>
+									{@html question.legal.html}
 									<p>
-										<a href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF#n{question.legal.anchor}" target="_blank" rel="noopener">
+										<a
+											href="https://zakon.rada.gov.ua/laws/show/1306-2001-%D0%BF#n{question.legal.anchor}"
+											target="_blank"
+											rel="noopener"
+										>
 											Текст ПДР
 										</a>
 									</p>

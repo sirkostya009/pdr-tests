@@ -1,0 +1,13 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": ["typescript", "unicorn", "oxc", "import"],
+	"categories": {
+		"correctness": "error",
+		"perf": "warn"
+	},
+	"env": {
+		"builtin": true,
+		"browser": true
+	},
+	"ignorePatterns": ["src/lib/tests/", "static/", "build/", ".svelte-kit/", ".vercel/"]
+}

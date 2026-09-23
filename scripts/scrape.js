@@ -2,6 +2,7 @@
  * Інколи треба запустити скриптик двічі щоб правильні відповіді заскрапились правильно
  */
 
+// oxlint-disable-next-line no-unused-expressions -- evaluated in devtools console
 ({
 	name: /Тест ПДР: (.*)/.exec(document.querySelector("h1.block_title").innerText)[1],
 	questions: await document
@@ -41,7 +42,7 @@
 									?.innerHTML?.trim()
 									?.replaceAll(' class="fancybox"', "")
 									?.replaceAll(/\n*\t*/g, "")
-									?.replaceAll(' alt=\"\"', "")
+									?.replaceAll(' alt=""', "")
 									?.replaceAll('src="/', 'src="https://pdr-online.com.ua/')
 									?.replaceAll('href="/', 'href="https://pdr-online.com.ua/'),
 							},

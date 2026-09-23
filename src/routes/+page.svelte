@@ -40,7 +40,9 @@
 		<a href="#all-title" class={["more", scrollY > 0 && "hidden"]}>
 			Інші тести
 			<svg viewBox="0 0 24 24" aria-hidden="true">
-				<path d="M5.3 8.3a1 1 0 0 1 1.4 0L12 13.6l5.3-5.3a1 1 0 1 1 1.4 1.4l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.4Z" />
+				<path
+					d="M5.3 8.3a1 1 0 0 1 1.4 0L12 13.6l5.3-5.3a1 1 0 1 1 1.4 1.4l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.4Z"
+				/>
 			</svg>
 		</a>
 	</section>
