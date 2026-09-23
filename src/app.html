@@ -8,8 +8,7 @@
 		<meta name="keywords" content="ПДР, тести, Правила дорожнього руху, Україна, водійські права, екзамен" />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="uk_UA" />
-		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#222222" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#ffffff" />
 		<link rel="icon" href="%sveltekit.assets%/icon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/icon-192.png" />
 		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
@@ -18,5 +17,11 @@
 
 	<body>
 		<div style="display: contents">%sveltekit.body%</div>
+		<script>
+			const meta = document.querySelector('meta[name="theme-color"]');
+			const sync = () => (meta.content = getComputedStyle(document.body).backgroundColor);
+			sync();
+			matchMedia("(prefers-color-scheme: dark)").addEventListener("change", sync);
+		</script>
 	</body>
 </html>
