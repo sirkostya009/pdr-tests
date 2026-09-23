@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+export npm_config_loglevel=warn
+
+npx oxfmt --check
+npx oxlint
+npm run check
