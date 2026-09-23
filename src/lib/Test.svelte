@@ -137,14 +137,16 @@
 {:else}
 	<div class="container">
 		<header>
-			<a class="back" onclick={popstate} href="/" aria-label="Назад">⟵</a>
+			<a class="back" onclick={popstate} href="/" aria-label="Назад"
+				><svg viewBox="0 0 32 24" aria-hidden="true"><path d="M29 12H3m7 7-7-7 7-7" /></svg></a
+			>
 			<span class="title">{name}</span>
 			{#if isRandom}
 				{const seconds = $derived(Math.floor(elapsed % 60))}
 				{const minutes = $derived(Math.floor(elapsed / 60))}
 				<time>{(minutes < 10 ? "0" : "") + minutes}:{(seconds < 10 ? "0" : "") + seconds}</time>
 			{:else}
-				<span class="back-spacer" aria-hidden="true">⟵</span>
+				<span class="back-spacer" aria-hidden="true"></span>
 			{/if}
 		</header>
 
@@ -308,10 +310,19 @@
 
 			.back-spacer {
 				justify-self: end;
+				width: 1.5em;
 				font-size: var(--text-lg);
-				font-weight: 400;
-				line-height: 1;
-				visibility: hidden;
+			}
+
+			svg {
+				display: block;
+				width: 1.5em;
+				height: 1.125em;
+				fill: none;
+				stroke: currentColor;
+				stroke-width: 2;
+				stroke-linecap: round;
+				stroke-linejoin: round;
 			}
 
 			time {
@@ -583,7 +594,6 @@
 				margin: 0;
 				margin-top: 1rem;
 				padding: 0 1rem;
-				font-size: var(--text-sm);
 
 				.back,
 				.back-spacer {
