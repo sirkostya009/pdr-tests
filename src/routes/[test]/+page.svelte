@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { resolveImages } from "$lib/images";
-	import Test from "$lib/Test.svelte";
-	import { tests } from "$lib/tests";
 	import { error } from "@sveltejs/kit";
+	import { resolveImages } from "#lib/images/index.js";
+	import Test from "#lib/Test.svelte";
+	import { tests } from "#lib/tests/index.js";
 
 	const { params } = $props();
 

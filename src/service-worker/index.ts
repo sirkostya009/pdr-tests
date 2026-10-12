@@ -1,11 +1,8 @@
-/// <reference types="@sveltejs/kit" />
-/// <reference no-default-lib="true"/>
-/// <reference lib="esnext" />
-/// <reference lib="webworker" />
+import { version } from "$app/env";
+import { immutable, prerendered } from "$app/manifest";
+import { resolve } from "$app/paths";
+import { self as scope } from "$app/service-worker";
 
-import { build, prerendered, version } from "$service-worker";
-
-const scope = self as unknown as ServiceWorkerGlobalScope;
 const CACHE = `cache-${version}`;
 // cached on first view by the fetch handler rather than precached
 const IMAGE = /\.(avif|webp|jpe?g|png)$/i;
@@ -18,7 +15,9 @@ if (!import.meta.env.DEV) {
 				.open(CACHE)
 				.then((cache) =>
 					Promise.allSettled(
-						[...build.filter((path) => !IMAGE.test(path)), ...prerendered].map((path) => cache.add(path)),
+						[...immutable.filter(({ path }) => !IMAGE.test(path)), ...prerendered].map(({ path }) =>
+							cache.add(resolve(path)),
+						),
 					),
 				),
 		);

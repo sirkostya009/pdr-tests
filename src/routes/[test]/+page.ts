@@ -1,4 +1,4 @@
-import { tests } from "$lib/tests";
+import { tests } from "#lib/tests/index.js";
 
 export function entries() {
 	return Object.keys(tests).map((key) => ({

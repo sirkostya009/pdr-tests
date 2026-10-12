@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pushState } from "$app/navigation";
+	import { goto } from "$app/navigation";
 	import { page } from "$app/state";
 	import { tick } from "svelte";
 	import Results from "./Results.svelte";
@@ -118,7 +118,7 @@
 		(document.activeElement as HTMLElement | null)?.blur();
 	});
 
-	async function goto(i: number) {
+	async function showQuestion(i: number) {
 		questionI = i;
 		await tick();
 		document.getElementById("question-name")?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
@@ -214,7 +214,7 @@
 										if (isRandom && answers.every(([i]) => i !== -1)) {
 											clearInterval(interval);
 											elapsed = (Date.now() - start) / 1000;
-											pushState("", { finished: true });
+											goto(page.url.href, { shallow: true, state: { finished: true } });
 										}
 									}
 								}}
@@ -230,7 +230,7 @@
 						class="arrow"
 						aria-label="Попереднє питання"
 						disabled={questionI === 0}
-						onclick={() => goto(questionI - 1)}
+						onclick={() => showQuestion(questionI - 1)}
 					>
 						←
 					</button>
@@ -239,7 +239,7 @@
 						class="arrow"
 						aria-label="Наступне питання"
 						disabled={questionI === test.length - 1}
-						onclick={() => goto(questionI + 1)}
+						onclick={() => showQuestion(questionI + 1)}
 					>
 						→
 					</button>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tests as modules } from "$lib/tests";
+	import { tests as modules } from "#lib/tests/index.js";
 
 	const exam = [
 		{ count: 10, test: "Загальні положення" },
