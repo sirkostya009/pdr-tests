@@ -5,11 +5,12 @@ import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { defineConfig, type Plugin } from "vite";
 
 // trims the service worker's precache lists at build time:
-// links do full page loads, so only data of pages rendered without ssr is needed,
+// links do full page loads, so only data of the client-side home <-> /random hop is needed,
 // and of static files only those the installed app uses
 function precacheOnlyUsed(): Plugin {
+	const data = new Set(["__data.json", "random/__data.json"]);
 	const filters: Record<string, (path: string) => boolean> = {
-		__SVELTEKIT_MANIFEST_PRERENDERED__: (path) => !path.endsWith("__data.json") || path === "random/__data.json",
+		__SVELTEKIT_MANIFEST_PRERENDERED__: (path) => !path.endsWith("__data.json") || data.has(path),
 		__SVELTEKIT_MANIFEST_ASSETS__: (path) => /^(icon[\w-]*\.(svg|png)|manifest\.json)$/.test(path),
 	};
 	return {
@@ -43,10 +44,6 @@ export default defineConfig({
 			// https://svelte.dev/docs/kit/integrations
 			preprocess: vitePreprocess(),
 			adapter: vercelAdapter(),
-			// registered in app.html so pages without csr get it too
-			serviceWorker: {
-				register: false,
-			},
 			prerender: {
 				handleHttpError: "warn",
 			},

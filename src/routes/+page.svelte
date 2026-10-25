@@ -9,29 +9,24 @@
 	];
 
 	const tests = $derived(data.tests.filter((test) => !exam.some((e) => e.test === test)));
+
+	let scrollY = $state(0);
 </script>
+
+<svelte:window bind:scrollY />
 
 <svelte:head>
 	<title>Тести ПДР</title>
 	<meta property="og:title" content="Тести ПДР" />
 	<meta property="og:description" content="Безкоштовні тести Правил дорожнього руху України" />
-	<!-- the page ships no js, so this stands in for a scrollY binding -->
-	{@html `<script>
-		const scrolled = () => document.documentElement.classList.toggle("scrolled", scrollY > 0);
-		addEventListener("scroll", scrolled, { passive: true });
-		addEventListener("DOMContentLoaded", scrolled);
-		addEventListener("click", (e) => {
-			if (!e.target.closest(".more")) return;
-			e.preventDefault();
-			document.getElementById("all-title").scrollIntoView();
-		});
-	<\/script>`}
 </svelte:head>
 
 <main>
-	<section class="exam" aria-labelledby="exam-title">
-		<h2 id="exam-title">
-			<a href="/random" class="start">Пробний екзамен</a>
+	<section class="exam" aria-label="Пробний екзамен">
+		<h2>
+			<!-- client-side navigation keeps this page painted until the shuffled exam is ready -->
+			<a href="/random" class="start" data-sveltekit-reload="off" data-sveltekit-preload-data="hover">Пробний екзамен</a
+			>
 		</h2>
 		<p>Екзамен містить питання:</p>
 		<ul>
@@ -42,18 +37,22 @@
 				</li>
 			{/each}
 		</ul>
-		<a href="#all-title" class="more">
+		<button
+			type="button"
+			class={["more", scrollY > 0 && "hidden"]}
+			onclick={() => document.getElementById("all-tests")?.scrollIntoView()}
+		>
 			Інші тести
 			<svg viewBox="0 0 24 24" aria-hidden="true">
 				<path
 					d="M5.3 8.3a1 1 0 0 1 1.4 0L12 13.6l5.3-5.3a1 1 0 1 1 1.4 1.4l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.4Z"
 				/>
 			</svg>
-		</a>
+		</button>
 	</section>
 
-	<section class="all" aria-labelledby="all-title">
-		<h2 id="all-title">Інші тести ({tests.length})</h2>
+	<section class="all" aria-labelledby="all-tests">
+		<h2 id="all-tests">Інші тести ({tests.length})</h2>
 		<ol>
 			{#each tests as test}
 				<li>
@@ -156,7 +155,8 @@
 			opacity: 0.6;
 		}
 
-		a:not(.start) {
+		a:not(.start),
+		.more {
 			text-decoration: underline dotted;
 
 			&:hover {
@@ -182,6 +182,11 @@
 
 			&:hover {
 				opacity: 1;
+			}
+
+			&.hidden {
+				opacity: 0;
+				visibility: hidden;
 			}
 
 			svg {
@@ -282,11 +287,6 @@
 		50% {
 			transform: translateY(0.5rem);
 		}
-	}
-
-	:global(html.scrolled) .exam .more {
-		opacity: 0;
-		visibility: hidden;
 	}
 
 	@keyframes fade-in {
