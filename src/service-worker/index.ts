@@ -4,8 +4,6 @@ import { resolve } from "$app/paths";
 import { self as scope } from "$app/service-worker";
 
 const CACHE = `cache-${version}`;
-// cached on first view by the fetch handler rather than precached
-const IMAGE = /\.(avif|webp|jpe?g|png)$/i;
 
 if (!import.meta.env.DEV) {
 	scope.addEventListener("install", (event) => {
@@ -14,11 +12,7 @@ if (!import.meta.env.DEV) {
 			caches
 				.open(CACHE)
 				.then((cache) =>
-					Promise.allSettled(
-						[...immutable.filter(({ path }) => !IMAGE.test(path)), ...prerendered].map(({ path }) =>
-							cache.add(resolve(path)),
-						),
-					),
+					Promise.allSettled([...immutable, ...prerendered].map(({ path }) => cache.add(resolve(path)))),
 				),
 		);
 	});

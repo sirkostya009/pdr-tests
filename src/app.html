@@ -16,12 +16,14 @@
 	</head>
 
 	<body>
-		<div style="display: contents">%sveltekit.body%</div>
+		<div style="display: contents" data-sveltekit-reload>%sveltekit.body%</div>
 		<script>
 			const meta = document.querySelector('meta[name="theme-color"]');
 			const sync = () => (meta.content = getComputedStyle(document.body).backgroundColor);
 			sync();
 			matchMedia("(prefers-color-scheme: dark)").addEventListener("change", sync);
+			if ("serviceWorker" in navigator)
+				addEventListener("load", () => navigator.serviceWorker.register("/service-worker.js", { type: "module" }));
 		</script>
 	</body>
 </html>

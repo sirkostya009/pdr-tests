@@ -9,16 +9,23 @@
 	];
 
 	const tests = $derived(data.tests.filter((test) => !exam.some((e) => e.test === test)));
-
-	let scrollY = $state(0);
 </script>
-
-<svelte:window bind:scrollY />
 
 <svelte:head>
 	<title>Тести ПДР</title>
 	<meta property="og:title" content="Тести ПДР" />
 	<meta property="og:description" content="Безкоштовні тести Правил дорожнього руху України" />
+	<!-- the page ships no js, so this stands in for a scrollY binding -->
+	{@html `<script>
+		const scrolled = () => document.documentElement.classList.toggle("scrolled", scrollY > 0);
+		addEventListener("scroll", scrolled, { passive: true });
+		addEventListener("DOMContentLoaded", scrolled);
+		addEventListener("click", (e) => {
+			if (!e.target.closest(".more")) return;
+			e.preventDefault();
+			document.getElementById("all-title").scrollIntoView();
+		});
+	<\/script>`}
 </svelte:head>
 
 <main>
@@ -35,7 +42,7 @@
 				</li>
 			{/each}
 		</ul>
-		<a href="#all-title" class={["more", scrollY > 0 && "hidden"]}>
+		<a href="#all-title" class="more">
 			Інші тести
 			<svg viewBox="0 0 24 24" aria-hidden="true">
 				<path
@@ -177,11 +184,6 @@
 				opacity: 1;
 			}
 
-			&.hidden {
-				opacity: 0;
-				visibility: hidden;
-			}
-
 			svg {
 				display: block;
 				width: 2rem;
@@ -280,6 +282,11 @@
 		50% {
 			transform: translateY(0.5rem);
 		}
+	}
+
+	:global(html.scrolled) .exam .more {
+		opacity: 0;
+		visibility: hidden;
 	}
 
 	@keyframes fade-in {

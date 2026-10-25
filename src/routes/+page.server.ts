@@ -1,6 +1,7 @@
 import { tests } from "#lib/tests/index.js";
 
 export const prerender = true;
+export const csr = false;
 
 export function load() {
 	return {
