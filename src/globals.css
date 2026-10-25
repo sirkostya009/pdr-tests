@@ -1,7 +1,7 @@
 /* e-Ukraine by Dmytro Rastvortsev, released free under the Diia brand — https://plan.diia.gov.ua */
 @font-face {
 	font-family: "e-Ukraine";
-	src: url("/fonts/e-Ukraine-Light.woff2") format("woff2");
+	src: url("./lib/fonts/e-Ukraine-Light.woff2") format("woff2");
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
 	font-family: "e-Ukraine";
-	src: url("/fonts/e-Ukraine-Regular.woff2") format("woff2");
+	src: url("./lib/fonts/e-Ukraine-Regular.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
 	font-family: "e-Ukraine";
-	src: url("/fonts/e-Ukraine-Medium.woff2") format("woff2");
+	src: url("./lib/fonts/e-Ukraine-Medium.woff2") format("woff2");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -25,7 +25,7 @@
 
 @font-face {
 	font-family: "e-Ukraine Head";
-	src: url("/fonts/e-UkraineHead-Regular.woff2") format("woff2");
+	src: url("./lib/fonts/e-UkraineHead-Regular.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;

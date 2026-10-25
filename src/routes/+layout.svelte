@@ -16,7 +16,10 @@
 <header class={[!home && "subpage"]}>
 	<svelte:element this={home ? "h1" : "p"} class="brand">
 		<a href="/">
-			<img src="/icon.svg" alt="" />
+			<svg class="logo" viewBox="0 0 512 512" aria-hidden="true">
+				<rect width="512" height="512" rx="96" fill="#d2691e" />
+				<text x="256" y="320" fill="white" text-anchor="middle" style="font: bold 210px sans-serif">ПДР</text>
+			</svg>
 			Тести ПДР
 		</a>
 	</svelte:element>
@@ -63,7 +66,7 @@
 			font-size: var(--text-2xl);
 			font-weight: bold;
 
-			img {
+			.logo {
 				width: 2.5rem;
 				height: 2.5rem;
 			}

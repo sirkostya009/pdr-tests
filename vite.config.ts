@@ -4,19 +4,26 @@ import { sveltekit } from "@sveltejs/kit/vite";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { defineConfig, type Plugin } from "vite";
 
-// links do full page loads, so the service worker only needs data of pages rendered without ssr
-function precacheOnlyUsedData(): Plugin {
+// trims the service worker's precache lists at build time:
+// links do full page loads, so only data of pages rendered without ssr is needed,
+// and of static files only those the installed app uses
+function precacheOnlyUsed(): Plugin {
+	const filters: Record<string, (path: string) => boolean> = {
+		__SVELTEKIT_MANIFEST_PRERENDERED__: (path) => !path.endsWith("__data.json") || path === "random/__data.json",
+		__SVELTEKIT_MANIFEST_ASSETS__: (path) => /^(icon[\w-]*\.(svg|png)|manifest\.json)$/.test(path),
+	};
 	return {
-		name: "precache-only-used-data",
+		name: "precache-only-used",
 		enforce: "pre",
 		applyToEnvironment: (environment) => environment.name === "serviceWorker",
 		transform(code, id) {
 			if (!id.endsWith("/generated/build/app-manifest.js")) return;
-			const prerendered: { path: string }[] = JSON.parse(
-				this.environment.config.define!.__SVELTEKIT_MANIFEST_PRERENDERED__,
-			);
-			const used = prerendered.filter(({ path }) => !path.endsWith("__data.json") || path === "random/__data.json");
-			return code.replace("__SVELTEKIT_MANIFEST_PRERENDERED__", JSON.stringify(used));
+			const define = this.environment.config.define!;
+			for (const [key, keep] of Object.entries(filters)) {
+				const entries: { path: string }[] = JSON.parse(define[key]);
+				code = code.replace(key, JSON.stringify(entries.filter(({ path }) => keep(path))));
+			}
+			return code;
 		},
 	};
 }
@@ -31,7 +38,7 @@ export default defineConfig({
 	},
 	plugins: [
 		enhancedImages(),
-		precacheOnlyUsedData(),
+		precacheOnlyUsed(),
 		sveltekit({
 			// https://svelte.dev/docs/kit/integrations
 			preprocess: vitePreprocess(),
