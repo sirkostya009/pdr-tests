@@ -1,11 +1,7 @@
 <script lang="ts">
-	import { resolveImages } from "#lib/images/index.js";
 	import Test from "#lib/Test.svelte";
-	import structure from "#lib/tests/Додаткові питання щодо категорій B1, B (будова і терміни).json";
-	import general from "#lib/tests/Загальні положення.json";
-	import medical from "#lib/tests/Надання першої медичної допомоги.json";
-	import safety from "#lib/tests/Основи безпечного водіння.json";
-	import type { Question } from "#lib/types.js";
+
+	const { data } = $props();
 
 	function shuffleArray<T>(t: T[]) {
 		var array = [...t];
@@ -18,12 +14,12 @@
 		return array;
 	}
 
-	const test = await resolveImages(
-		shuffleArray<Question>([
-			...shuffleArray(general).slice(-10),
-			...shuffleArray(structure).slice(-4),
-			...shuffleArray(medical).slice(-4),
-			...shuffleArray(safety).slice(-2),
+	const test = $derived(
+		shuffleArray([
+			...shuffleArray(data.general).slice(-10),
+			...shuffleArray(data.structure).slice(-4),
+			...shuffleArray(data.medical).slice(-4),
+			...shuffleArray(data.safety).slice(-2),
 		]),
 	);
 </script>

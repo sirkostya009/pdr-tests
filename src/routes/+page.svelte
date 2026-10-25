@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tests as modules } from "#lib/tests/index.js";
+	const { data } = $props();
 
 	const exam = [
 		{ count: 10, test: "Загальні положення" },
@@ -8,9 +8,7 @@
 		{ count: 2, test: "Основи безпечного водіння" },
 	];
 
-	const tests = Object.keys(modules)
-		.map((key) => key.replace("/src/lib/tests/", "").replace(".json", ""))
-		.filter((test) => !exam.some((e) => e.test === test));
+	const tests = $derived(data.tests.filter((test) => !exam.some((e) => e.test === test)));
 
 	let scrollY = $state(0);
 </script>
