@@ -580,7 +580,7 @@
 		}
 	}
 
-	@media (max-width: 1024px) {
+	@media (width <= 1024px) {
 		.container {
 			display: flex;
 			flex-direction: column;

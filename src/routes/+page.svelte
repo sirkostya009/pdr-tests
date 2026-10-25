@@ -86,26 +86,35 @@
 		position: relative;
 		scroll-margin-top: 1rem;
 		scroll-snap-align: start;
-		min-height: calc(100svh - 1rem);
+		min-height: calc(100vh - 1rem);
+		min-height: calc(100dvh - 1rem);
 		padding-block: 2rem 6rem;
 
 		.start {
 			display: inline-block;
 			font-size: var(--text-xl);
 			--bg: var(--main);
+			--shadow: rgba(0, 0, 0, 0.3);
 			color: black;
-			color: oklch(from var(--bg) clamp(0, (0.72 - l) * infinity, 1) 0 0);
 			background-color: var(--bg);
 			border-radius: 0.5rem;
-			box-shadow: 0 8px 0 color-mix(in srgb, var(--main), black 30%);
+			box-shadow: 0 8px 0 var(--shadow);
 			padding: 1rem 2.5rem;
 
-			&:hover {
-				--bg: color-mix(in srgb, var(--main), white 12%);
+			@supports (color: oklch(from red l c h)) {
+				color: oklch(from var(--bg) clamp(0, (0.72 - l) * infinity, 1) 0 0);
+			}
+
+			@supports (color: color-mix(in srgb, red, red)) {
+				--shadow: color-mix(in srgb, var(--main), black 30%);
+
+				&:hover {
+					--bg: color-mix(in srgb, var(--main), white 12%);
+				}
 			}
 
 			&:active {
-				box-shadow: 0 4px 0 color-mix(in srgb, var(--main), black 30%);
+				box-shadow: 0 4px 0 var(--shadow);
 				transform: translateY(4px);
 			}
 		}
@@ -126,6 +135,10 @@
 			display: grid;
 			grid-column: span 2;
 			grid-template-columns: subgrid;
+
+			@supports not (grid-template-columns: subgrid) {
+				display: contents;
+			}
 		}
 
 		li > * {
@@ -150,7 +163,7 @@
 			position: absolute;
 			bottom: 0.5rem;
 			left: 50%;
-			translate: -50%;
+			transform: translateX(-50%);
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -283,13 +296,13 @@
 		}
 	}
 
-	@media (max-width: 1500px) {
+	@media (width <= 1500px) {
 		.all ol {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
-	@media (max-width: 1024px) {
+	@media (width <= 1024px) {
 		.all {
 			h2 {
 				padding-bottom: 1rem;
@@ -303,7 +316,7 @@
 		}
 	}
 
-	@media (max-width: 640px) {
+	@media (width <= 640px) {
 		.exam .start {
 			font-size: var(--text-lg);
 			padding: 0.75rem 1.5rem;

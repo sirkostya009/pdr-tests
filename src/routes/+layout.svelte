@@ -94,7 +94,7 @@
 		}
 	}
 
-	@media (max-width: 1024px) {
+	@media (width <= 1024px) {
 		header.subpage {
 			display: none;
 		}

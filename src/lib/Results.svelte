@@ -157,7 +157,7 @@
 		margin: 0 auto;
 		padding: 3rem 1rem;
 
-		@media (min-width: 1025px) {
+		@media (width >= 1025px) {
 			padding-top: 5rem;
 		}
 

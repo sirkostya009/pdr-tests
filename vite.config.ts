@@ -9,6 +9,7 @@ export default defineConfig({
 		namedExports: false,
 	},
 	build: {
+		cssTarget: ["chrome87", "edge88", "firefox78", "safari14"],
 		assetsInlineLimit: (path) => (path.includes("/src/lib/images/") ? false : undefined),
 	},
 	plugins: [
